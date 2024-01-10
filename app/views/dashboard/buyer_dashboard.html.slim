@@ -1,0 +1,49 @@
+.container.mx-auto.my-5.mb-20.relative.w-full(data-controller="debounce" data-turbo="true")
+  = form_for :inventory_search, url: search_inventories_path, data: { debounce_target: 'form' } do |f|
+
+    .flex.items-center.mb-4
+      h2.text-3xl.font-semibold.text-white.mr-6.w-1/5 Filter
+
+      / Search Bar
+      .relative.w-1/5
+        = f.text_field :text, class: "w-full my-input h-10 pl-3 pr-8 text-base  placeholder-gray-600 focus:shadow-outline", oninput: "this.form.requestSubmit()", placeholder: "Search Inventory"
+
+      / Most Recent Filter
+      .w-1/5.right-0.absolute
+        .flex.items-center
+          = f.label :sort, 'Sort by', class: "block text-white text-lg font-medium mr-3 leading-6 cursor-pointer whitespace-nowrap"
+          = f.select :sort, options_for_select([['Most Recent', 'most_recent'], ['Oldest', 'oldest']], :most_recent), { prompt: '' }, data: { controller: 'tom-select', block_empty: true }, oninput: "this.form.requestSubmit()"
+
+    .flex
+      / Filters Panel
+      .bg-gray-900.rounded-md.p-5.mr-6.w-1/5(style="height: fit-content;")
+        .mb-4
+
+          / State Filter
+          div.mb-6
+            = f.label :dealership_state, 'Location', class: "block text-white text-lg font-medium mb-2 leading-6 cursor-pointer"
+            = f.select :dealership_state, us_states_options, { prompt: 'All states' }, data: { controller: 'tom-select' }, oninput: "this.form.requestSubmit()"
+
+          / From Year & To Year Filters (in one line)
+          div.mb-6
+            = f.label :from_year, 'Model Year', class: "block text-white text-lg font-medium mb-2 leading-6 cursor-pointer"
+            div.flex.justify-between.items-center.mb-4.text-white
+              = f.number_field :from_year, class: "my-input text-sm h-8 leading-tight w-5/12", placeholder: 'From Year', oninput: "this.form.requestSubmit()"
+              |> To
+              = f.number_field :to_year, class: "my-input text-sm h-8 w-5/12", placeholder: 'To Year', oninput: "this.form.requestSubmit()"
+
+          / Company Filter
+          div.mb-6
+            = f.select :company, inventory_company_options, { prompt: 'All companies' }, data: { controller: 'tom-select' }, oninput: "this.form.requestSubmit()"
+
+          / Min Price & Max Price Filters (in one line)
+          div.mb-6
+            = f.label :min_price, 'Price', class: "block text-white text-lg font-medium mb-2 leading-6 cursor-pointer"
+            div.flex.justify-between.items-center.mb-4.text-white
+              = f.number_field :min_price, class: "my-input text-sm h-8 w-5/12", placeholder: 'Min Price', oninput: "this.form.requestSubmit()"
+              |> To
+              = f.number_field :max_price, class: "my-input text-sm h-8 w-5/12", placeholder: 'Max Price', oninput: "this.form.requestSubmit()"
+
+      / Inventories List
+      .border-l.border-gray-600.pl-8.shadow-2xl.w-4/5
+        = render "inventories/inventories"

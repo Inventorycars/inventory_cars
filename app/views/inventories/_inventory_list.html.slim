@@ -1,0 +1,49 @@
+= turbo_frame_tag 'inventory_list' do
+  - inventories.decorate.each do |inventory|
+    mb-2.flex.flex-col.items-center.my-border.mb-3.md:flex-row
+      - unless inventory.image.nil?
+        .column.column1.flex-none.h-40.w-64
+          = image_tag inventory.image, class: "h-full w-full object-cover rounded-lg"
+      - else
+        .column.column1.flex-none.h-40.w-64
+          flex-2.w-full.bg-black.h-40.flex.justify-center.rounded-lg.items-center.font-semibold.text-yellow-500.dark:text-yellow-500
+            | NO IMAGE
+
+
+      .flex-1.p-4
+        h5.mb-2.text-2xl.font-bold.tracking-tight.text-white
+          = link_to "#{inventory.make} #{inventory.model}", inventory_path(inventory), data: { inventories_target: 'inventory', turbo: 'false' }, class: "hover:text-yellow-500"
+        - if inventory.stock.present?
+          .flex.items-center.font-normal.text-yellow-500
+            .flex.justify-center.w-8
+              svg.mr-2[xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16"]
+                path[d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"]
+            = inventory.stock
+        - if inventory.year.present?
+          .flex.items-center.font-normal.text-yellow-500
+            .flex.justify-center.w-8
+              svg.mr-2[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"]
+                g[fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(3 2)"]
+                  line[x1=".093" x2="17.917" y1="7.404" y2="7.404"]
+                  line[x1="13.442" x2="13.451" y1="11.31" y2="11.31"]
+                  line[x1="9.005" x2="9.014" y1="11.31" y2="11.31"]
+                  line[x1="4.558" x2="4.567" y1="11.31" y2="11.31"]
+                  line[x1="13.442" x2="13.451" y1="15.196" y2="15.196"]
+                  line[x1="9.005" x2="9.014" y1="15.196" y2="15.196"]
+                  line[x1="4.558" x2="4.567" y1="15.196" y2="15.196"]
+                  line[x1="13.044" x2="13.044" y2="3.291"]
+                  line[x1="4.966" x2="4.966" y2="3.291"]
+                  path[d="M13.2382655,1.57919622 L4.77096342,1.57919622 C1.83427331,1.57919622 0,3.21513002 0,6.22222222 L0,15.2718676 C0,18.3262411 1.83427331,20 4.77096342,20 L13.2290015,20 C16.1749556,20 18,18.3546099 18,15.3475177 L18,6.22222222 C18.0092289,3.21513002 16.1842196,1.57919622 13.2382655,1.57919622 Z"]
+            = inventory.year
+        - if inventory.price.present?
+          .flex.items-center.font-normal.text-yellow-500
+            .flex.justify-center.w-8
+              svg.mr-2[xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16"]
+                path[d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"]
+            = inventory.price
+      .flex-1
+        - if inventory.listed?
+          = link_to "Pause Offer", list_inventory_path(id: inventory, list: false), class: "p-3 btn mr-3"
+        - else
+          = link_to "Get Offer", list_inventory_path(id: inventory, list: true), class: "p-3 btn mr-3"
+        = link_to "Edit Listing", edit_inventory_path(inventory), data: {turbo: false}, class: "p-3 btn"

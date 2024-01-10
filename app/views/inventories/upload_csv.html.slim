@@ -1,0 +1,7 @@
+= form_with(url: attach_csv_inventories_path, local: true, html: { class: 'max-w-md mx-auto mt-8' }) do |form|
+  .mb-4
+    = form.label :csv_file, 'Upload CSV File', class: 'block text-white font-bold mb-2'
+    = form.file_field :csv_file, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+
+  .mb-6
+    = form.submit 'Upload', class: 'text-white font-bold py-2 px-4 rounded btn p-3 font-bold rounded-lg mb-3 w-1/2 border-yellow-500'
