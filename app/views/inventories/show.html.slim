@@ -1,0 +1,366 @@
+.container.h-full.mx-auto.mt-4(data-controller="show-inventory")
+  div.bg-gray-900.px-3
+    h1.font-sans.text-3xl.text-white.mb-5.md:text-4xl.lg:text-5xl
+      = "#{@inventory.make} #{@inventory.model}"
+    div.inventory-container.grid.grid-cols-3.h-full.bg-no-repeat
+      .h-full.col-span-2
+        - images = @inventory.images
+        - if images.empty?
+          .w-full.h-full.bg-gray-600.rounded-md.flex.justify-center.items-center
+            .text-2xl No images found.
+        - elsif images.count > 1
+          - counter = []
+          #default-carousel.relative.w-full.h-full[data-carousel="static"]
+            .relative.h-full.overflow-hidden.rounded-lg
+              - images.each_with_index do |image, index|
+                .hidden.h-full.duration-700.ease-in-out[data-carousel-item]
+                  img.absolute.block.w-full.h-full[src="#{image}" style="object-fit: cover;"]
+                  - counter << index
+            .absolute.z-30.flex.space-x-3.-translate-x-1/2.bottom-5.left-1/2
+              - counter.each do |i|
+                button.w-2.h-2.rounded-full[type="button" aria-current="true" aria-label="Slide #{i+1}" data-carousel-slide-to="#{i}"]
+            button.absolute.top-0.left-0.z-30.flex.items-center.justify-center.h-full.px-4.cursor-pointer.group.focus:outline-none[type="button" data-carousel-prev]
+              span.inline-flex.items-center.justify-center.w-10.h-10.rounded-full.bg-gray-400.dark:bg-gray-800.group-hover:bg-gray-600.dark:group-hover:bg-gray-800/60
+                svg.w-4.h-4.text-white.dark:text-gray-300[aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10"]
+                  path[stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"]
+                span.sr-only
+                  | Previous
+            button.absolute.top-0.right-0.z-30.flex.items-center.justify-center.h-full.px-4.cursor-pointer.group.focus:outline-none[type="button" data-carousel-next]
+              span.inline-flex.items-center.justify-center.w-10.h-10.rounded-full.bg-gray-400.dark:bg-gray-800.group-hover:bg-gray-600.dark:group-hover:bg-gray-800/60
+                svg.w-4.h-4.text-white.dark:text-gray-300[aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10"]
+                  path[stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"]
+                span.sr-only
+                  | Next
+        - else
+          .relative.w-full.h-full
+            img.absolute.block.w-full.h-full.rounded-lg[src="#{@inventory.image}" style="object-fit: cover;"]
+
+      div.flex.justify-center.items-center.h-full
+        div.h-full.border.border-gray-200.rounded-lg.shadow.dark:bg-gray-800.border-yellow-500
+          div.p-10.py-12
+            div.pb-12
+              .text-center
+                div.text-4xl.font-semibold.text-white
+                  | $
+                  = @inventory.price
+                p.text-gray-400.text-lg.mt-2
+                  | Transportation: $
+                  span.text-lg
+                    | 145
+                div.mt-5
+                  a.btn.bg-transparent.cursor-pointer.transition.duration-300.ease-in-out.font-semibold.py-2.px-4.border.border-gray-500.rounded.mt-4.border-yellow-500
+                    | Buy Now
+                .mt-6.border-b.mb-3.border-yellow-500
+
+              .flex.mt-10
+                div
+                  = image_tag("test.jpg", alt:"Image Description", class:"rounded-full h-16 w-16 bg-gray-300")
+                div.flex.justify-between.items-center.text-white.pl-3
+                  = @inventory.user.email
+              h5.mb-1.mt-3.dark:text-white
+                | In Factory Warrenty
+              p.text-gray-400.text-lg.mt-2.text-white
+                  | vin:
+                  span.text-lg.text-white
+                    = @inventory.vin
+              p.text-gray-400.text-lg.mt-2.text-white
+                  | miles:
+                  span.text-lg.text-white
+                    = @inventory.miles
+              h5.mb-1.mt-3.dark:text-white
+                | Published on 1 Jan 2023
+              .mb-8.border-b.mt-10.border-yellow-500
+              .flex.justyfy-between
+                a.btn.cursor-pointer.transition.duration-300.ease-in-out.font-semibold.py-2.px-4.rounded.mt-4.border-yellow-500.mr-3
+                  | Request Inspection
+                a.w-44.btn.cursor-pointer.transition.duration-300.ease-in-out.font-semibold.py-2.px-4.rounded.mt-4.border-yellow-500
+                  | Negotiate
+
+
+
+    .items-center.space-x-2.font-semibold.text-white.leading-8.my-10
+     .container.mx-auto.mt-5
+        h3.tracking-wide.text-white.text-2xl.mb-12
+          | Specifications
+
+        .flex.items-start.justify-between.space-x-4
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fas.fa-check.fa-lg.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.inventory_type
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa-regular.fa-calendar-days.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.year
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa-solid.fa-oil-can.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.engine_description
+
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa.fa-solid.fa-gears.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.transmission
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa.fa-solid.fa-gas-pump.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.fuel_type
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa.fa-solid.fa-car-side.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.body
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa-solid.fa-gauge-high.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.engine_displacement
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa.fa-solid.fa-palette.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.interior_color
+
+          .w-1/5.text-center.whitespace-normal.overflow-hidden
+            .h-10
+              i.fa-solid.fa-truck-monster.text-3xl.text-yellow-500
+            p.mt-2.text-white
+              = @inventory.trim
+
+    .col-span-3.flex.items-center.justify-center.pb-4
+      a(href="javascript:void(0)", class="text-2xl text-white mb-12 toggleDetails hover:text-yellow-500")
+        | View Complete Detail
+    #detailsContainer.hidden
+      h3.tracking-wide.text-white.text-2xl.mb-12
+        | Details
+      .grid.gap-3.mb-12.md:grid-cols-3.text-md
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Type:
+          .px-4.py-2.text-gray-400
+            = @inventory.inventory_type
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Stock:
+          .px-4.py-2.text-gray-400
+            = @inventory.stock
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Vin:
+          .px-4.py-2.text-gray-400
+            = @inventory.vin
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Year:
+          .px-4.py-2.text-gray-400
+            = @inventory.year
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Make:
+          .px-4.py-2.text-gray-400
+            = @inventory.make
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Model:
+          .px-4.py-2.text-gray-400
+            = @inventory.model
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Body:
+          .px-4.py-2.text-gray-400
+            = @inventory.body
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Trim:
+          .px-4.py-2.text-gray-400
+            = @inventory.trim
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Doors:
+          .px-4.py-2.text-gray-400
+            = @inventory.doors
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Exterior Color:
+          .px-4.py-2.text-gray-400
+            = @inventory.exterior_color
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Interior Color:
+          .px-4.py-2.text-gray-400
+            = @inventory.interior_color
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Engine Cylinders:
+          .px-4.py-2.text-gray-400
+            = @inventory.engine_cylinders
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Engine Displacement:
+          .px-4.py-2.text-gray-400
+            = @inventory.engine_displacement
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Transmission:
+          .px-4.py-2.text-gray-400
+            = @inventory.transmission
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Miles:
+          .px-4.py-2.text-gray-400
+            = @inventory.miles
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Price:
+          .px-4.py-2.text-gray-400
+            = @inventory.price
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | MSRP:
+          .px-4.py-2.text-gray-400
+            = @inventory.msrp
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Book Value:
+          .px-4.py-2.text-gray-400
+            = @inventory.book_value
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Invoice:
+          .px-4.py-2.text-gray-400
+            = @inventory.invoice
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Certified:
+          .px-4.py-2.text-gray-400
+            = @inventory.certified
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Date in Stock:
+          .px-4.py-2.text-gray-400
+            = @inventory.date_in_stock
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Description:
+          .px-4.py-2.text-gray-400
+            = @inventory.description
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Comments:
+          .px-4.py-2.text-gray-400
+            = @inventory.comments
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Style Description:
+          .px-4.py-2.text-gray-400
+            = @inventory.style_description
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Ext Color Generic:
+          .px-4.py-2.text-gray-400
+            = @inventory.ext_color_generic
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Ext Color Code:
+          .px-4.py-2.text-gray-400
+            = @inventory.ext_color_code
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Ext Color Hex Code:
+          .px-4.py-2.text-gray-400
+            = @inventory.ext_color_hex_code
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Int Color Generic:
+          .px-4.py-2.text-gray-400
+            = @inventory.int_color_generic
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Int Color Code:
+          .px-4.py-2.text-gray-400
+            = @inventory.int_color_code
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Int Color Hex Code:
+          .px-4.py-2.text-gray-400
+            = @inventory.int_color_hex_code
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Int Upholstery:
+          .px-4.py-2.text-gray-400
+            = @inventory.int_upholstery
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Engine Block Type:
+          .px-4.py-2.text-gray-400
+            = @inventory.engine_block_type
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Engine Aspiration Type:
+          .px-4.py-2.text-gray-400
+            = @inventory.engine_aspiration_type
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Engine Description:
+          .px-4.py-2.text-gray-400
+            = @inventory.engine_description
+        .grid.grid-cols-3
+          .px-4.py-2.font-semibold.text-gray-300
+            | Transmission Speed:
+          .px-4.py-2.text-gray-400
+            = @inventory.transmission_speed
+      - if @inventory.options.present?
+        .py-2.text-2xl.font-semibold.text-white
+          | Options:
+        .mb-12.border.border-gray-200.rounded-lg.dark:bg-gray-700.dark:border-gray-600.dark:text-white
+          .grid.gap-3.mb-12.md:grid-cols-6.text-md
+            - @inventory.options.split(",").each do |option|
+              .px-4.py-2.text-gray-400
+                = option
+      - if @inventory.categorized_options.present?
+        .py-2.text-2xl.font-semibold.text-white
+          | Categorized Options:
+        .mb-12.border.border-gray-200.rounded-lg.dark:bg-gray-700.dark:border-gray-600.dark:text-white
+          - options_data = @inventory.categorized_options.split("~")
+          - grouped_data = options_data.group_by { |item| item.split('@').first }
+          - data = grouped_data.transform_values { |values| values.map { |value| value.split('@').last } }
+          - data.each do |list_item|
+            .text-2xl.font-semibold.px-4.py-2.text-white
+              = list_item.first
+            .grid.gap-3.md:grid-cols-6
+              - list_item.second.each do |list_option|
+                .px-4.py-2.text-gray-400
+                  = list_option
+    - if current_mode == 'buyer'
+      h3.tracking-wide.text-white.text-2xl
+        | More From this Dealer
+      .flex.gap-10.py-8.w-full.overflow-x-auto.mb-24.px-3
+        - @other_inventories.decorate.each do |inventory|
+          .my-border(class= "min-w-[25%]")
+            div
+              - unless inventory.image.nil?
+                = image_tag inventory.image, class: "rounded-t-lg object-cover w-full h-40"
+              - else
+                .w-full.bg-black.rounded-md.h-40.flex.justify-center.items-center.font-semibold.text-white
+                  | NO IMAGE
+            .px-3.py-4
+              h5.mb-2.text-lg.font-bold.tracking-tight.text-white
+                = link_to "#{inventory.make} #{inventory.model}", inventory_path(inventory), data: { inventories_target: 'inventory', turbo: 'false' }, class: "hover:text-yellow-500"
+              h5.mb-2.text-md.tracking-tight.text-yellow-500
+                = "$ #{inventory.price}"
+              h5.mb-2.text-md.font-bold.tracking-tight.text-yellow-500
+                = inventory.description&.truncate_words(10)
+              div.flex.text-white
+                = link_to 'View Details', inventory_path(inventory), data: { inventories_target: 'inventory', turbo: 'false' }, class: "hover:text-yellow-500"

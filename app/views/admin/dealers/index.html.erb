@@ -1,0 +1,60 @@
+<style>
+	.navBackground{
+    background-color: #111927;
+    color: white;
+  }
+</style>
+
+<nav class="navbar navbar-light navBackground">
+  <img src="<%= image_path("inventory_cars.png")%>" width="100" height="100" class="d-inline-block align-top sizeImage" alt="">
+  <a class="navbar-brand bg-light" href="#"><%= link_to "Sign out", destroy_admin_session_path, data: { "turbo-method": :delete, turbo: true } %></a>  
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Users</li>
+  </ol>
+</nav>
+
+
+<div class="card m-4" style="align-items: center;">
+<table class="table table-striped background">
+  <thead>
+    <tr>
+      <th scope="col" style="color: #007bff">#</th>
+      <th scope="col" style="color: #007bff">First Name</th>
+      <th scope="col" style="color: #007bff">Last Name</th>
+      <th scope="col" style="color: #007bff">Email</th>
+      <th scope="col" style="color: #007bff">Phone Number</th>
+      <th scope="col" style="color: #007bff">Website</th>
+      <th scope="col" style="color: #007bff">Approval</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each_with_index do |user, index| %>
+    <tr>
+      <th scope="row"><%= index +1  %></th>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone_number %></td>
+      <td><%= user.website %></td>
+      <td><%= link_to "Approved", admin_path(user) ,class: "btn btn-primary"%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+  <%= paginate @users %>
+</div>
+
+<footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3 navBackground">
+    © 2023 Inventory
+    <%# <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a> %>
+  </div>
+  <!-- Copyright -->
+</footer>

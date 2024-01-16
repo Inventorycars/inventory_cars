@@ -1,0 +1,9 @@
+.flex.flex-wrap.justify-center
+  .w-4/5.mt-6.px-3.flex.flex-col.justify-center[data-controller='inventory-form']
+    .flex.flex-wrap.justify-center.mt-4[data-inventory-form-target='grid']
+      - # Display selected images here in a grid
+    = form_with model: @inventory, multipart: true, class: 'self-center', data: { turbo: true } do |f|
+      = f.file_field :image_list, multiple: true, accept: 'image/*', data: { inventory_form_target: 'input' }
+      input.hidden(name='step' value=1)
+      = f.button do
+        i.fa-solid.fa-chevron-right.text-3xl.font-semibold.text-yellow-500
