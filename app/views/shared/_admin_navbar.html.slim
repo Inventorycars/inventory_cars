@@ -1,0 +1,27 @@
+- if current_admin.present? && !controller.is_a?(Devise::SessionsController)
+  nav.bg-gray-900.w-full.z-40.top-0.left-0.border-b.border-gray-200.border-gray-600(class="h-[10vh]")
+    .flex.mx-auto.text-yellow-500.h-full
+      .flex.w-full.items-center
+        .w-1/4.ml-5
+          = link_to current_dashboard_url, class: "text-xl font-bold"
+            = image_tag "inventory_cars.png", class: "w-1/4"
+
+        .flex.justify-end.items-center.p-2.w-3/4
+          .flex.justify-around.items-center.w-full
+            = link_to "My Purchases", "#", class: "text-xl cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
+            = link_to "In Process", "#", class: "text-xl cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
+            = link_to "How Payments work", "#", class: "text-xl cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
+            = link_to "Transportation", "#", class: "text-xl cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
+            = link_to "Switch to #{current_mode == 'buyer' ? 'Seller' : 'Buyer'}", switch_mode_path, method: :get, class: "text-xl cursor-pointer px-3 py-1 border border-yellow-500 rounded transition duration-300 ease-in-out hover:text-white"
+
+          svg.mx-8[xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewbox="0 0 16 16"]
+            path[d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" fill="currentColor"]
+
+          button#profile_section.mr-8.text-white.hover:bg-gray-800.focus:ring-4.focus:outline-none.focus:ring-yellow-500.font-medium.rounded-full.text-sm.px-2.py-2.text-center.inline-flex.items-center[data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button"]
+            svg.w-2.5.h-2.5[aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 10 6"]
+              path[stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"]
+
+          #dropdownHover.z-10.mr-5.hidden.bg-yellow-500.divide-y.divide-gray-100.rounded-lg.shadow.w-44.dark:bg-black
+            ul.py-2.text-sm.text-gray-700.dark:text-gray-200[aria-labelledby="profile_section"]
+              li
+                = link_to "Sign out", destroy_admin_session_path, data: { "turbo-method": :delete, turbo: true }, class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-yellow-500"

@@ -1,15 +1,25 @@
 {
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
+    "build:css": "yarn build:css:compile && yarn build:css:prefix",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
+    "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
+    "@popperjs/core": "^2.11.8",
+    "autoprefixer": "^10.4.17",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3",
     "esbuild": "^0.19.4",
     "flowbite": "^1.8.1",
     "jquery": "^3.7.1",
+    "nodemon": "^3.0.3",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
     "rails_admin": "3.1.2",
-    "sass": "^1.68.0",
+    "sass": "^1.70.0",
     "tom-select": "^2.2.2"
   },
   "name": "inventory_cars",
@@ -17,5 +27,8 @@
   "main": "index.js",
   "repository": "git@github.com:Inventory-Cars/inventory_cars.git",
   "author": "shaheerramzan <shaheerramzan1619@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": [
+    "defaults"
+  ]
 }

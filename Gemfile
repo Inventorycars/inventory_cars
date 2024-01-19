@@ -103,4 +103,6 @@ group :test do
 
 end
 gem 'kaminari'
-gem 'bootstrap'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.3.2'
+gem 'popper_js'

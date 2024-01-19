@@ -13140,7 +13140,7 @@
     defaultModifiers: defaultModifiers2
   });
 
-  // node_modules/bootstrap/dist/js/bootstrap.esm.js
+  // node_modules/rails_admin/node_modules/bootstrap/dist/js/bootstrap.esm.js
   var elementMap = /* @__PURE__ */ new Map();
   var Data = {
     set(element, key, instance) {

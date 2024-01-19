@@ -1,15 +1,3 @@
-<style>
-	.navBackground{
-    background-color: #111927;
-    color: white;
-  }
-</style>
-
-<nav class="navbar navbar-light navBackground">
-  <img src="<%= image_path("inventory_cars.png")%>" width="100" height="100" class="d-inline-block align-top sizeImage" alt="">
-  <a class="navbar-brand bg-light" href="#"><%= link_to "Sign out", destroy_admin_session_path, data: { "turbo-method": :delete, turbo: true } %></a>  
-</nav>
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -49,12 +37,3 @@
 
   <%= paginate @users %>
 </div>
-
-<footer class="bg-body-tertiary text-center text-lg-start">
-  <!-- Copyright -->
-  <div class="text-center p-3 navBackground">
-    © 2023 Inventory
-    <%# <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a> %>
-  </div>
-  <!-- Copyright -->
-</footer>
