@@ -1,7 +1,8 @@
 class DashboardController < ApplicationController
 
   def index
-    redirect_to current_dashboard_url
+    @inventories = Inventory.all
+    # redirect_to current_dashboard_url
   end
 
   def buyer_dashboard

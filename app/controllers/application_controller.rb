@@ -29,12 +29,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.is_a?(Admin)
       admin_dealers_path
-    elsif resource.is_a?(User)
-      if current_mode == 'buyer'
-        buyer_dashboard_path
-      else
-        seller_dashboard_path
-      end
+    # elsif resource.is_a?(User)
+      # if current_mode == 'buyer'
+      #   buyer_dashboard_path
+      # else
+      #   seller_dashboard_path
+      # end
     else
       root_path
     end

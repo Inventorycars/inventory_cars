@@ -45,6 +45,7 @@ class InventoriesController < ApplicationController
         inventory = Inventory.new
         csv_mapper = inventory.csv_upload_mapper
         csv_mapper.each do |key, value|
+      puts key
           inventory.send("#{value}=", row[key]) unless value.include?("image_list")
         end
         if row['ImageList'].present?
@@ -53,7 +54,7 @@ class InventoriesController < ApplicationController
         inventory.user = current_user
         inventory.save
       end
-      InventoryImages::ProcessImages.new.call
+      # InventoryImages::ProcessImages.new.call
       redirect_to seller_dashboard_path, notice: "Uploading images is in process"
     else
       redirect_to upload_csv_inventories_path, notice: "Upload csv format only"

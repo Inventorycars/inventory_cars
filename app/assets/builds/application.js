@@ -29250,10 +29250,28 @@
   // app/javascript/application.js
   var import_flowbite_turbo = __toESM(require_flowbite_turbo());
   Turbo.session.drive = false;
-  import_ujs.default.start();
-  Turbolinks.start();
-  ActiveStorage.start();
+  window.addEventListener("DOMContentLoaded", (event) => {
+    const datatablesSimple = document.getElementById("datatablesSimple");
+    if (datatablesSimple) {
+      new simpleDatatables.DataTable(datatablesSimple);
+    }
+  });
+  window.addEventListener("DOMContentLoaded", (event) => {
+    const sidebarToggle = document.body.querySelector("#sidebarToggle");
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener("click", (event2) => {
+        event2.preventDefault();
+        document.body.classList.toggle("sb-sidenav-toggled");
+        localStorage.setItem("sb|sidebar-toggle", document.body.classList.contains("sb-sidenav-toggled"));
+      });
+    }
+  });
 })();
+/*!
+    * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
+    * Copyright 2013-2023 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
+    */
 /*! Bundled license information:
 
 jquery/dist/jquery.js:
