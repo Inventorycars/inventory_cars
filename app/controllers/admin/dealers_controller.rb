@@ -22,4 +22,14 @@ class Admin::DealersController < ApplicationController
     end
     redirect_to admin_dealers_path
   end
+
+  def rejected
+    user = User.find_by(id: params[:id])
+    user.update(is_approved: false)
+    redirect_to admin_dealers_path
+  end
+
+  def user_list
+    @users = User.all
+  end
 end

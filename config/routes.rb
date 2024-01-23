@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'inventory_offers/create'
   get 'inventory_offers/destroy'
   devise_for :admins
-  devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions'}
   resources :inventories do
     collection do
       post :search
@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dealers
     get "/approved/:id", to: "dealers#approved"
+    get "/rejected/:id", to: "dealers#rejected", as: "rejected"
+    get "/user_list", to: "dealers#user_list"
   end
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

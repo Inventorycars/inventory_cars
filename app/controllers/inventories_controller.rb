@@ -55,7 +55,7 @@ class InventoriesController < ApplicationController
         inventory.save
       end
       # InventoryImages::ProcessImages.new.call
-      redirect_to seller_dashboard_path, notice: "Uploading images is in process"
+      redirect_to root_path, notice: "Uploading images is in process"
     else
       redirect_to upload_csv_inventories_path, notice: "Upload csv format only"
     end

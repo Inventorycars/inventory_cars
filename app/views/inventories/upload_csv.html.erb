@@ -1,0 +1,4 @@
+<%= form_tag attach_csv_inventories_path, method: :post, multipart: true do %>
+  <%= file_field_tag :csv_file, accept: ".csv" %>
+  <%= submit_tag '⚙️ Import' %>
+<% end %>

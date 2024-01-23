@@ -14,7 +14,10 @@
   
   <body>
     <%= render '/shared/user_navbar' if current_user %>
+    <%# <div class="flex flex-col min-h-screen text-light bg-black"> %>
     <%= yield %>
-    <%= render '/shared/footer'%>
+    <%# </div> %>
+    <%= render '/shared/footer' if current_user %>
+
   </body>
 </html>
