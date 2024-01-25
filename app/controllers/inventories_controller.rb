@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[ show edit update destroy next_step ]
-
+  layout 'admin'
   # GET /inventories or /inventories.json
   def index
     @inventories = Inventory.all
