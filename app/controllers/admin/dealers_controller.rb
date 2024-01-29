@@ -30,6 +30,6 @@ class Admin::DealersController < ApplicationController
   end
 
   def user_list
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
 end

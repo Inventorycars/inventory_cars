@@ -1397,6 +1397,10 @@ input[type="number"]::-webkit-inner-spin-button,
   margin: 0.5rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -1522,6 +1526,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .mr-8 {
   margin-right: 2rem;
+}
+
+.ms-3 {
+  margin-inline-start: 0.75rem;
 }
 
 .ms-auto {

@@ -106,3 +106,5 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.3.2'
 gem 'popper_js'
+
+gem "will_paginate", "~> 4.0"

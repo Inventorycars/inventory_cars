@@ -1,31 +1,39 @@
-<h3>Upload CSV file</h3>
-<span class="">
-<%= link_to(request.path, request.original_url, class: "text-decoration-none text-muted") %>
-</span>
-<hr>
-<div class="container mt-5  " style="background-image: url('/assets/pexels-pixabay-63294.jpg'); background-size: cover; background-position: center;>
-  <img src="/assets/pexels-pixabay-63294.jpg" width="auto" height="auto" />
-   <div class="text-center border border-lite text-white bg-dark bg-gradient">
-      <h5 class="p-1 m-2">You can upload your inventory here</h5>
-   </div>
-   <div class="my-3 mx-3 p-3">
-      <%= form_tag attach_csv_inventories_path, method: :post, multipart: true, class: "form-inline" do %>
-      <div class="mb-3 m-2 w-50 bg-gradient
-">
-         <label for="formFile" class="form-label fs-5 m-1 p-2 text-light"> <i class="bi bi-filetype-csv"></i> Choose CSV file to upload</label>
-         <%= file_field_tag :csv_file, accept: ".csv", class: "form-control " %>
+<div class="container-fluid px-4">
+   <h1 class="mt-4">Upload Inventories</h1>
+   <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+      <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
+      <li class="breadcrumb-item active">Upload Inventories</li>
+   </ol>
+   <%# <div class="card mb-4">
+      <div class="card-body">
       </div>
-      <%= submit_tag '⚙️ Import', class: "btn btn-dark m-2"%>
-      <% end %>
+      </div> %>
+   <div class="card mb-4">
+      <div class="card-header">
+         <i class="fas fa-table me-1"></i>
+         Upload Inventories
+      </div>
+      <div class="card-body">
+         <%= form_tag attach_csv_inventories_path, method: :post, multipart: true, class: "form-inline" do %>
+         <div class="mb-3 m-2 w-50">
+            <label for="formFile" class="form-label fs-5 m-1 p-2">
+            <i class="bi bi-filetype-csv"></i>Choose CSV file to upload
+            </label>
+            <%= file_field_tag :csv_file, accept: ".csv", class: "form-control w-50" %>
+         </div>
+         <%= submit_tag 'Import', class: "btn btn-primary"%>
+         <%= link_to 'Download Sample CSV', '#', class: "btn btn-primary"%>
+         <% end %>
+      </div>
+      <div class="m-2 p-2 mt-5">
+         <h5> * Important Instructions </h5>
+         <p class="m-2">
+            <i class="bi bi-caret-right-fill"></i> Please upload only CSV file no other extension should be attached. 
+         </p>
+         <p class="m-2">
+            <i class="bi bi-caret-right-fill"></i> Please carefully attach all data in the file.
+         </p>
+      </div>
    </div>
-</div>
-<div class="m-2 p-2 mt-5">
-   <hr>
-   <h5> * Important Instructions </h5>
-   <p class="m-2">
-      <i class="bi bi-caret-right-fill"></i> Please upload only CSV file no other extension should be attached. 
-   </p>
-   <p class="m-2">
-      <i class="bi bi-caret-right-fill"></i> Please carefully attach all data in the file.
-   </p>
 </div>

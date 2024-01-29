@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   post 'fetch_homenet_inventory', to: 'dashboard#fetch_homenet_inventory', as: 'fetch_homenet_inventory'
 
   # Defines the root path route ("/")
-  root "dashboard#index"
+ root to: 'admin/dealers#index'
 
-  namespace :admin do
+   namespace :admin do
     resources :dealers
     get "/approved/:id", to: "dealers#approved"
     get "/rejected/:id", to: "dealers#rejected", as: "rejected"
