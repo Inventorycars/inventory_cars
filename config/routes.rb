@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post :search
       get :upload_csv
       post :attach_csv
+      get :download_sample_csv
     end
     member do
       post :next_step

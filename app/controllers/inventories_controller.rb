@@ -95,6 +95,14 @@ class InventoriesController < ApplicationController
     end
   end
 
+  def download_sample_csv
+    send_file(
+      "#{Rails.root}/public/sample.csv",
+      filename: "sample.csv",
+      type: "text/csv"
+    )
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inventory

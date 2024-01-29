@@ -11,7 +11,7 @@
       </div> %>
    <div class="card mb-4">
       <div class="card-header">
-         <i class="fas fa-table me-1"></i>
+         <i class="bi bi-cloud-arrow-up-fill me-1"></i>
          Upload Inventories
       </div>
       <div class="card-body">
@@ -23,7 +23,7 @@
             <%= file_field_tag :csv_file, accept: ".csv", class: "form-control w-50" %>
          </div>
          <%= submit_tag 'Import', class: "btn btn-primary"%>
-         <%= link_to 'Download Sample CSV', '#', class: "btn btn-primary"%>
+         <%= link_to 'Download Sample CSV', download_sample_csv_inventories_path, class: "btn btn-primary"%>
          <% end %>
       </div>
       <div class="m-2 p-2 mt-5">
