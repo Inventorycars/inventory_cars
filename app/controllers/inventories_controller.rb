@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[ show edit update destroy next_step ]
-  layout 'admin'
+   layout 'admin'
   # GET /inventories or /inventories.json
   def index
     @inventories = Inventory.all
@@ -37,7 +37,6 @@ class InventoriesController < ApplicationController
   end
 
   def attach_csv
-
     uploaded_file = params[:csv_file]
     if uploaded_file && uploaded_file.content_type == 'text/csv'
       csv_data = CSV.read(uploaded_file.path, headers: true)
@@ -55,7 +54,7 @@ class InventoriesController < ApplicationController
         inventory.save
       end
       # InventoryImages::ProcessImages.new.call
-      redirect_to root_path, notice: "Uploading images is in process"
+      redirect_to '/inventories', notice: "Inventory successfully Uploaded"
     else
       redirect_to upload_csv_inventories_path, notice: "Upload csv format only"
     end

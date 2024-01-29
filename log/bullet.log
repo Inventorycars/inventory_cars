@@ -1,0 +1,1170 @@
+2024-01-29 11:44:02[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_90060'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_90060'
+
+2024-01-29 11:45:26[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_92140'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_92140'
+
+2024-01-29 11:49:11[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_92140'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_92140'
+
+2024-01-29 11:49:41[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_92140'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_92140'
+
+2024-01-29 11:50:23[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_96900'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_96900'
+
+2024-01-29 11:50:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_98060'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_98060'
+
+2024-01-29 11:51:57[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_99180'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_99180'
+
+2024-01-29 11:52:05[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_99180'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_99180'
+
+2024-01-29 11:52:31[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_101780'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_101780'
+
+2024-01-29 11:52:51[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_102940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_102940'
+
+2024-01-29 11:52:58[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `block in _app_views_inventories_index_html_erb__1617225369096745614_102940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:6:in `_app_views_inventories_index_html_erb__1617225369096745614_102940'
+
+2024-01-29 11:54:51[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:11:in `block in _app_views_inventories_index_html_erb__1617225369096745614_105640'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:8:in `_app_views_inventories_index_html_erb__1617225369096745614_105640'
+
+2024-01-29 11:55:54[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:11:in `block in _app_views_inventories_index_html_erb__1617225369096745614_105640'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:8:in `_app_views_inventories_index_html_erb__1617225369096745614_105640'
+
+2024-01-29 11:56:10[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:11:in `block in _app_views_inventories_index_html_erb__1617225369096745614_108920'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:8:in `_app_views_inventories_index_html_erb__1617225369096745614_108920'
+
+2024-01-29 11:57:56[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_110040'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_110040'
+
+2024-01-29 11:58:20[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_111300'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_111300'
+
+2024-01-29 11:58:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_111300'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_111300'
+
+2024-01-29 11:58:36[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:11:in `block in _app_views_inventories_index_html_erb__1617225369096745614_113460'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:8:in `_app_views_inventories_index_html_erb__1617225369096745614_113460'
+
+2024-01-29 11:59:04[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_114580'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_114580'
+
+2024-01-29 11:59:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_115800'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_115800'
+
+2024-01-29 11:59:58[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_115800'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_115800'
+
+2024-01-29 12:03:47[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:03:53[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:04:16[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:09:43[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:10:55[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:13:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:20:19[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:51:26[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:56:55[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:13:in `block in _app_views_inventories_index_html_erb__1617225369096745614_119100'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:10:in `_app_views_inventories_index_html_erb__1617225369096745614_119100'
+
+2024-01-29 12:58:44[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_133720'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_133720'
+
+2024-01-29 13:02:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_135520'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_135520'
+
+2024-01-29 13:02:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_135520'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_135520'
+
+2024-01-29 13:04:32[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_135520'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_135520'
+
+2024-01-29 13:07:08[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_140460'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_140460'
+
+2024-01-29 13:07:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_141700'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_141700'
+
+2024-01-29 13:07:45[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_141700'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_141700'
+
+2024-01-29 13:10:16[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_141700'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_141700'
+
+2024-01-29 13:14:31[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:12:in `block in _app_views_inventories_index_html_erb__1617225369096745614_175800'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:9:in `_app_views_inventories_index_html_erb__1617225369096745614_175800'
+
+2024-01-29 13:17:29[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_193300'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_193300'
+
+2024-01-29 13:18:53[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_194640'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_194640'
+
+2024-01-29 13:19:08[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_194640'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_194640'
+
+2024-01-29 13:22:54[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_197180'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_197180'
+
+2024-01-29 13:24:11[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_214340'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_214340'
+
+2024-01-29 13:25:26[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `block in _app_views_inventories_index_html_erb__1617225369096745614_214340'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:15:in `_app_views_inventories_index_html_erb__1617225369096745614_214340'
+
+2024-01-29 13:27:38[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:21:in `block in _app_views_inventories_index_html_erb__1617225369096745614_216680'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `_app_views_inventories_index_html_erb__1617225369096745614_216680'
+
+2024-01-29 13:28:01[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:21:in `block in _app_views_inventories_index_html_erb__1617225369096745614_216680'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:18:in `_app_views_inventories_index_html_erb__1617225369096745614_216680'
+
+2024-01-29 13:29:15[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_220060'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_220060'
+
+2024-01-29 13:29:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_220060'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_220060'
+
+2024-01-29 13:29:36[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_220060'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_220060'
+
+2024-01-29 13:30:28[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:32:in `block in _app_views_inventories_index_html_erb__1617225369096745614_223080'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:29:in `_app_views_inventories_index_html_erb__1617225369096745614_223080'
+
+2024-01-29 13:30:40[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:32:in `block in _app_views_inventories_index_html_erb__1617225369096745614_223080'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:29:in `_app_views_inventories_index_html_erb__1617225369096745614_223080'
+
+2024-01-29 13:31:15[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:31:46[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:32:09[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:32:35[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:32:48[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:33:03[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:50:44[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:51:02[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_225420'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_225420'
+
+2024-01-29 13:57:38[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_236180'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_236180'
+
+2024-01-29 13:57:46[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1617225369096745614_236180'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1617225369096745614_236180'
+
+2024-01-29 13:59:28[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1036248184650281712_41300'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1036248184650281712_41300'
+
+2024-01-29 13:59:38[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1036248184650281712_42760'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1036248184650281712_42760'
+
+2024-01-29 14:03:38[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1036248184650281712_45280'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1036248184650281712_45280'
+
+2024-01-29 14:04:21[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:19:in `block in _app_views_inventories_index_html_erb__1036248184650281712_45280'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:16:in `_app_views_inventories_index_html_erb__1036248184650281712_45280'
+
+2024-01-29 14:04:56[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_48540'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_48540'
+
+2024-01-29 14:05:25[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_49680'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_49680'
+
+2024-01-29 14:06:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_50840'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_50840'
+
+2024-01-29 14:06:58[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_50840'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_50840'
+
+2024-01-29 14:07:43[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_50840'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_50840'
+
+2024-01-29 14:08:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_50840'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_50840'
+
+2024-01-29 14:18:49[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb__1036248184650281712_56580'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb__1036248184650281712_56580'
+
+2024-01-29 14:37:51[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_41880'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_41880'
+
+2024-01-29 14:48:11[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_48700'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_48700'
+
+2024-01-29 14:48:30[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_48700'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_48700'
+
+2024-01-29 14:49:13[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_58580'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_58580'
+
+2024-01-29 14:55:12[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_65400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_65400'
+
+2024-01-29 14:57:17[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_75160'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_75160'
+
+2024-01-29 15:00:33[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_83300'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_83300'
+
+2024-01-29 15:01:05[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_89400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_89400'
+
+2024-01-29 15:03:17[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_91880'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_91880'
+
+2024-01-29 15:03:57[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_94440'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_94440'
+
+2024-01-29 15:06:25[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_96960'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_96960'
+
+2024-01-29 15:06:42[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_100440'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_100440'
+
+2024-01-29 15:07:19[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:25:in `block in _app_views_inventories_index_html_erb___4572664091081371237_102860'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:22:in `_app_views_inventories_index_html_erb___4572664091081371237_102860'
+
+2024-01-29 15:09:04[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_105400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_105400'
+
+2024-01-29 15:09:14[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_105400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_105400'
+
+2024-01-29 15:09:54[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_105400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_105400'
+
+2024-01-29 15:11:40[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_105400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_105400'
+
+2024-01-29 15:13:32[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_126940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_126940'
+
+2024-01-29 15:14:02[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_126940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_126940'
+
+2024-01-29 15:14:53[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_126940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_126940'
+
+2024-01-29 15:15:16[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_126940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_126940'
+
+2024-01-29 15:17:59[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_150220'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_150220'
+
+2024-01-29 15:18:10[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_153600'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_153600'
+
+2024-01-29 15:23:46[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_167620'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_167620'
+
+2024-01-29 15:24:57[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_173860'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_173860'
+
+2024-01-29 15:25:02[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_173860'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_173860'
+
+2024-01-29 15:27:09[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_173860'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_173860'
+
+2024-01-29 15:42:27[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_263340'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_263340'
+
+2024-01-29 15:56:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_310400'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_310400'
+
+2024-01-29 15:57:40[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_320880'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_320880'
+
+2024-01-29 15:59:56[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_323240'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_323240'
+
+2024-01-29 16:00:04[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_325760'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_325760'
+
+2024-01-29 16:00:14[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_328140'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_328140'
+
+2024-01-29 16:00:32[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_330520'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_330520'
+
+2024-01-29 16:00:59[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_332940'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_332940'
+
+2024-01-29 16:01:05[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_335440'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_335440'
+
+2024-01-29 16:01:11[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_337840'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_337840'
+
+2024-01-29 16:01:35[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_340260'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_340260'
+
+2024-01-29 16:01:45[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_340260'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_340260'
+
+2024-01-29 16:02:23[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_340260'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_340260'
+
+2024-01-29 16:06:04[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_358900'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_358900'
+
+2024-01-29 16:08:56[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:09:15[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:10:03[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:10:53[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:11:08[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:12:22[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:12:27[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:12:51[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:13:21[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:14:54[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:15:13[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:16:12[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_371820'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_371820'
+
+2024-01-29 16:17:05[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_423240'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_423240'
+
+2024-01-29 16:17:24[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_425740'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_425740'
+
+2024-01-29 16:17:34[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_428120'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_428120'
+
+2024-01-29 16:18:51[WARN] user: simply
+GET /inventories
+USE eager loading detected
+  Inventory => [:image_list_attachments]
+  Add to your query: .includes([:image_list_attachments])
+Call stack
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:23:in `block in _app_views_inventories_index_html_erb___4572664091081371237_428120'
+  /home/simply/Desktop/car_inventory_mgmt/inventory_cars/app/views/inventories/index.html.erb:20:in `_app_views_inventories_index_html_erb___4572664091081371237_428120'
+

@@ -1,15 +1,43 @@
-<div class="container" style="margin-left: 300px; margin-top:70px; margin-bottom: 70px;">
-	<div class="row row-cols-1 row-cols-md-3">
-	<% @inventories.each do |inventory| %>
-		<div class="col mb-4">
-			<div class="card">
-		  	<img src="..." class="card-img-top" alt="...">
-	  		<div class="card-body">
-	    		<h5 class="card-title"><%= inventory.inventory_type%></h5>
-	    		<p class="card-text"><%= inventory.stock %></p>
-			  </div>
-			</div>
-		</div>
-	<% end %>
-	</div>
+<% if flash[:notice].present? %>
+<div id="flash-message-container">
+   <div id="flash-message" class="alert alert-lite border border-lite" role="alert">
+      <i class="bi bi-bag-check-fill m-2 w-25"></i><%= flash[:notice] %>
+   </div>
 </div>
+<% end %>
+<h2>Inventories</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+   <span class="text-muted">
+   <%= link_to(request.path, request.original_url, class: "text-decoration-none text-muted") %>
+   </span>
+</div>
+<hr>
+
+<div class="text-center border border-lite bg-dark bg-gradient text-white">
+      <h5 class="p-1 m-2">Your Inventory Items</h5>
+   </div>
+<div class="p-3 m-2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-4 ms-3 bg-dark">
+   <% @inventories.each do |inventory| %>
+   <div class="col mb-4 ">
+      <div class="card h-75">
+         <% if inventory.image_list.attached? %>
+         <%= image_tag(inventory.image_list.first, class: "card-img-top") %>
+         <% end %>
+         <div class="card-body text-white ">
+            <h5 class="card-title"><%= inventory.inventory_type %></h5>
+            <p class="card-text"><%= inventory.stock %></p>
+         </div>
+      </div>
+   </div>
+   <% end %>
+</div>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+   var flashMessage = document.getElementById("flash-message");
+   if (flashMessage) {
+   setTimeout(function() {
+     flashMessage.style.display = "none";
+   }, 1500); 
+   }
+   });
+</script>

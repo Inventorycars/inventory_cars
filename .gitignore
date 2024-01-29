@@ -1,3 +1,5 @@
 /tmp
 /public
 /node_module*
+/database.yml
+/development.log
