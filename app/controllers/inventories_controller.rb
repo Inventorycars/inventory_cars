@@ -3,7 +3,7 @@ class InventoriesController < ApplicationController
    layout 'admin'
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.paginate(page: params[:page], per_page: 10)
+    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /inventories/1 or /inventories/1.json

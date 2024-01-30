@@ -12,10 +12,13 @@
   </head>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   
-  <body class="sb-nav-fixed">
+  <body class= " <%= current_user || current_admin ? "sb-nav-fixed" : "sb-nav-fixed sb-sidenav-toggled" %>" >
     <%= render '/shared/admin_navbar'%>
+    <% if current_user || current_admin %>
+      <%= render '/shared/admin_sidebar'%>
+    <% end %>
      <div id="layoutSidenav_content">
-      <div class=" p-2 m-2">
+      <div class=" p-2 m-5">
      
        <%= yield %>
    

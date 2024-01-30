@@ -29,4 +29,10 @@ class User < ApplicationRecord
   def set_homenet_email
     self.homenet_email = self.email
   end
+
+  def name_or_email
+    return first_name + ' ' + last_name if first_name.present? || last_name.present?
+
+    email
+  end
 end

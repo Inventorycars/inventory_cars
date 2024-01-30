@@ -22,6 +22,7 @@
       <i class="bi bi-archive-fill me-1"></i>
       Inventories
    </div>
+   <% if !@inventories.empty? %>
    <div class="card-body">
       <table class="table">
          <thead>
@@ -74,6 +75,9 @@
          </ul>
       </nav>
    </div>
+   <% else %>
+     <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
+   <% end %>
 </div>
 <script>
    document.addEventListener("DOMContentLoaded", function() {

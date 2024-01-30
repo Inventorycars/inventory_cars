@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
-
+  
+  layout 'admin'
   def index
     @inventories = Inventory.all
     # redirect_to current_dashboard_url

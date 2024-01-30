@@ -1,130 +1,103 @@
-<div class="image">
-  <div class="background">
-    <div id="layoutAuthentication">
-      <div id="layoutAuthentication_content">
-        <div class="container mt-5 border border-2 p-4">
-        <h3>Ready to Join Our Network</h3>
-        <p><i class="bi bi-phone m-2"></i>For immediate Assistance call 209 273 9668</p>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>  
-          <form>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <%= f.text_field :first_name , class: "form-control", placeholder: "First Name"%>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <%= f.text_field :last_name , class: "form-control", placeholder: "Last Name"%>
-                </div>
-              </div>
+<div class="p-3 m-3 ">
+   <div class="container-fluid">
+      <div class="row justify-content-center p-3">
+         <div class="col-lg-8 ">
+            <div class="card border-2 p-4 card shadow-lg rounded-lg"> 
+               <h3 class="text-center">Ready to Join Our Network</h3>
+               <p><i class="bi bi-phone m-2"></i>For immediate Assistance call 209 273 9668</p>
+               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "row g-3" }) do |f| %>
+               <%= render "devise/shared/error_messages", resource: resource %>  
+               <div class="col-md-6">
+                  <%= f.label :first_name, class: "form-label" %>
+                  <%= f.text_field :first_name , class: "form-control", placeholder: "First Name" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :last_name, class: "form-label" %>
+                  <%= f.text_field :last_name , class: "form-control", placeholder: "Last Name" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :email, class: "form-label" %>
+                  <%= f.email_field :email , class: "form-control", placeholder: "Email" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :phone_number, class: "form-label" %>
+                  <%= f.text_field :phone_number , class: "form-control", placeholder: "Phone Number" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :website, class: "form-label" %>
+                  <%= f.text_field :website, class: "form-control", placeholder: "Website" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :job_title, class: "form-label" %>
+                  <%= f.select :job_title, ['Manager', 'IT System', 'Designer'],{}, class: "form-select" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :company, class: "form-label" %>
+                  <%= f.text_field :company, class: "form-control", placeholder: "Company" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :zip_code, class: "form-label" %>
+                  <%= f.text_field :zip_code, class: "form-control", placeholder: "Zip Code" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :city, class: "form-label" %>
+                  <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+               </div>
+               <div class="col-md-6">
+                  <%= f.label :state, class: "form-label" %>
+                  <%= f.select :state, ['MP', 'Delhi', 'UP'],{}, class: "form-select" %>
+               </div>
+               <div class="col-md-12">
+                  <h4>For faster processing, please select below:</h4>
+                  <div class="form-check">
+                     <%= f.check_box :certified_dealer, class: "form-check-input", id: "certifiedDealer" %>
+                     <%= f.label "certifiedDealer", "Are you currently a certified dealer?", class: "form-check-label" %>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <h4>Select Dealership Type</h4>
+                  <div class="form-check">
+                     <%= f.check_box :dealer_group, class: "form-check-input", id: "dealerGroup" %>
+                     <%= f.label "dealerGroup", "Do you belong to a dealer group?", class: "form-check-label" %>
+                  </div>
+                  <div class="form-group">
+                     <%= f.text_field :group_name, class: "form-control", placeholder: "Please enter your dealer group name" %>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <h4>How Can we help?</h4>
+                  <div class="form-check">
+                     <%= f.check_box :certified_dealer, class: "form-check-input", id: "becomeCertified" %>
+                     <%= f.label "becomeCertified", "Become a certified dealer", class: "form-check-label" %>
+                  </div>
+                  <div class="form-check">
+                     <%#= f.check_box :acquiring_inventory, class: "form-check-input", id: "acquiringInventory" %>
+                     <%= f.label "acquiringInventory", "Acquiring Inventory", class: "form-check-label" %>
+                  </div>
+                  <div class="form-check">
+                     <%#= f.check_box :delivery_logistics, class: "form-check-input", id: "deliveryLogistics" %>
+                     <%= f.label "deliveryLogistics", "Delivery & Logistics", class: "form-check-label" %>
+                  </div>
+                  <div class="form-check">
+                     <%#= f.check_box :support_billing, class: "form-check-input", id: "supportBilling" %>
+                     <%= f.label "supportBilling", "Support & Billing", class: "form-check-label" %>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <%= f.text_field :anything_else_help, class: "form-control", placeholder: "Anything Else we can help you with" %>
+               </div>
+               <%= f.hidden_field :role, value: 'dealer' %>
+               <div class="col-md-12">
+                  <%= f.submit "SEND", class: "btn btn-success w-100" %>
+               </div>
+               <% end %>
+               <div class="col-md-12 text-center">
+                  <div class="card-footer py-3">
+                     Already have an account? Go to <%= link_to "login", new_user_session_path %>
+                  </div>
+               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <%= f.text_field :email , class: "form-control", placeholder: "Email"%>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="phoneNumber">Phone Number</label>
-                  <%= f.text_field :phone_number , class: "form-control", placeholder: "Phone Number"%>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="website">Website</label>
-                  <%= f.text_field :website, class: "form-control", placeholder: "website"%>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="jobTitle"> Select The Job Title</label>
-                  <%= f.select :job_title, ['Manager', 'IT System', 'Designer'],{}, class: "form-control"%>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="company">Company</label>
-                  <%= f.text_field :company, class: "form-control", placeholder: "Company"%>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="zipCode">Zip Code</label>
-                  <%= f.text_field :zip_code, class: "form-control", placeholder: "Zip Code"%>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="city">City</label>
-                  <%= f.text_field :city, class: "form-control", placeholder: "City"%>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="state">State</label>
-                  <%= f.select :state, ['MP', 'Delhi', 'UP'],{}, class: "form-control"%>
-                </div>
-              </div>
-            </div>
-            
-            <h4>For faster processing, please select below:</h4>
-            <div class="form-check">
-              <%= f.check_box :certified_dealer, class: "form-check-input", data: { custom_data: "value" } %>
-              <label class="form-check-label" for="certifiedDealer">Are you currently a certified dealer?</label>
-            </div><br>
-
-            <h4>Select Dealership Type</h4>
-            <div class="form-check">
-              <%= f.check_box :dealer_group, class: "form-check-input", data: { custom_data: "value" } %>
-              <label class="form-check-label" for="dealerGroup">Do you belong to a dealer group?</label>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :group_name, class: "form-control", placeholder: "Please enter your dealer group name"%>
-            </div>
-                  
-            <h4>How Can we help?</h4>
-            <div class="display">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="becomeCertified">
-                <label class="form-check-label" for="becomeCertified">Become a certified dealer</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="acquiringInventory">
-                <label class="form-check-label" for="acquiringInventory">Acquiring Inventory</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="deliveryLogistics">
-                <label class="form-check-label" for="deliveryLogistics">Delivery & Logistics</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="supportBilling">
-                <label class="form-check-label" for="supportBilling">Support & Billing</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :anything_else_help, class: "form-control", placeholder: "Anything Else we can help you with"%>
-            </div>
-            <%= f.hidden_field :role, value: 'dealer' %>
-            <button type="submit" class="btn btn-success w-100"><%= f.submit "SEND" %></button>
-          </form>
-        <% end %>
-        <div class="card-footer text-center py-3">
-          Already have an account? Go to <a href="/users/sign_in">login</a>
-        </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>

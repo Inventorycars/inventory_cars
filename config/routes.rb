@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'inventory_offers/create'
   get 'inventory_offers/destroy'
   devise_for :admins
-  devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions'}
+  devise_for :users, controllers: {registrations: 'registrations', sessions: "sessions", passwords: 'passwords' }
   resources :inventories do
     collection do
       post :search
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post 'fetch_homenet_inventory', to: 'dashboard#fetch_homenet_inventory', as: 'fetch_homenet_inventory'
 
   # Defines the root path route ("/")
- root to: 'admin/dealers#index'
+   root to: 'dashboard#index'
 
    namespace :admin do
     resources :dealers
@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     get "/rejected/:id", to: "dealers#rejected", as: "rejected"
     get "/user_list", to: "dealers#user_list"
   end
+
+  resources :dashboard
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
