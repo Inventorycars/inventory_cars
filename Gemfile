@@ -108,3 +108,9 @@ gem 'bootstrap', '~> 5.3.2'
 gem 'popper_js'
 
 gem "will_paginate", "~> 4.0"
+
+gem "city-state"
+
+gem "cs", "~> 0.2.1"
+
+gem "area", "~> 0.10.0"

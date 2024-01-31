@@ -1,3 +1,5 @@
+<% require 'cs' %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,7 +42,49 @@
          }, 3000);
        }
        });
+
+      const stateSelect = document.getElementById('stateSelect');
+      const citySelect = document.getElementById('citySelect');
+
+      stateSelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        fetch(`/cities?state=${selectedState}`)
+          .then(response => response.json())
+          .then(data => {
+            citySelect.innerHTML = '';
+            data.forEach(city => {
+              const option = document.createElement('option');
+              option.value = city;
+              option.textContent = city;
+              citySelect.appendChild(option);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching cities:', error);
+          });
+      });
        
+       <%# for fetching pincodes %>
+
+      citySelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        const selectedCity = citySelect.value;
+         fetch(`/pincodes?state=${selectedState}&city=${selectedCity}`)
+         .then(response => response.json())
+          .then(data => {
+           pinSelect.innerHTML = '';
+            data.forEach(zip_code => {
+              const option = document.createElement('option');
+              option.value = zip_code;
+              option.textContent = zip_code;
+              pinSelect.appendChild(option);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching cities:', error);
+          });
+      });
+         
     </script>
   </body>
 </html>

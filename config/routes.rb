@@ -38,5 +38,11 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
+   devise_scope :user do
+    get "/cities" => "users/registrations#fetch_cities"
+    get "pincodes" => "users/registrations#fetch_pincodes"
+  end
+
+
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
