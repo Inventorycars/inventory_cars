@@ -23,7 +23,9 @@
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
         <td><%= user.website %></td>
-        <td><%= link_to "Approve", admin_path(user) ,class: "btn btn-primary"%></td>
+        <td>
+          <%= link_to user.is_approved ? "Reject" : "Approve", user.is_approved ? admin_reject_path(user) : admin_approve_path(user) , class: "#{user.is_approved ? 'btn btn-outline-danger' : 'btn btn-outline-success' }" %>
+        </td>
       </tr>
       <% end %>
     </tbody>

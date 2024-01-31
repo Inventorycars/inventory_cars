@@ -10,7 +10,7 @@ class Admin::DealersController < ApplicationController
     @users = User.where(is_approved: false).page params[:page]
   end
 
-  def approved
+  def approve
     user = User.find_by(id: params[:id])
     if user.present?
       raw, hashed = Devise.token_generator.generate(User, :reset_password_token)
@@ -20,13 +20,14 @@ class Admin::DealersController < ApplicationController
       user.save
       UserMailer.reset_password(user, raw).deliver_now
     end
-    redirect_to admin_dealers_path
+    redirect_to admin_user_lists_path
   end
 
-  def rejected
+  def reject
+    byebug
     user = User.find_by(id: params[:id])
     user.update(is_approved: false)
-    redirect_to admin_dealers_path
+    redirect_to admin_user_lists_path
   end
 
   def user_list
