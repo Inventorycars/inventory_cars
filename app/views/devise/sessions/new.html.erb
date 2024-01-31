@@ -1,3 +1,10 @@
+<% if flash[:notice].present? %>
+<div id="flash-message-container">
+   <div id="flash-message" class="alert alert-lite border border-lite" role="alert">
+      <i class="bi bi-calendar-check-fill m-2"></i><%= flash[:notice] %>
+   </div>
+</div>
+<% end %>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-5">
