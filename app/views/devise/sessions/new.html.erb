@@ -15,16 +15,16 @@
                 <div class="card-body">
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                         <div class="form-floating mb-3">
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control" %>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control text-dark" %>
                             <label for="inputEmail">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control" %>
+                            <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control text-dark" %>
                             <label for="inputPassword">Password</label>
                         </div>
                         <% if devise_mapping.rememberable? %>
                             <div class="form-check mb-3">
-                                <%= f.check_box :remember_me, class: "form-check-input", id: "inputRememberPassword" %>
+                                <%= f.check_box :remember_me, class: "form-check-input text-dark", id: "inputRememberPassword" %>
                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                             </div>
                         <% end %>

@@ -29256,7 +29256,7 @@
     if (flashMessage) {
       setTimeout(function() {
         flashMessage.style.display = "none";
-      }, 3e3);
+      }, 2e3);
     }
     const switchButton = document.getElementById("switchButton");
     const gridView = document.getElementById("gridView");

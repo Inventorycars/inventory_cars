@@ -17,7 +17,7 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :last_name, class: "form-label" %>
-                  <%= f.text_field :last_name , class: "form-control", placeholder: "Last Name" %>
+                  <%= f.text_field :last_name , class: "form-control text-dark", placeholder: "Last Name" %>
                   <% if resource.errors.include?(:last_name) %>
                   <span class="text-danger">  <% resource.errors.messages[:last_name].each do |message| %>
                   <span class="text-danger p-1 m-1">Last Name <%= message %> </span>
@@ -26,7 +26,7 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :email, class: "form-label" %>
-                  <%= f.email_field :email , class: "form-control text_dark", placeholder: "Email" %>
+                  <%= f.email_field :email , class: "form-control text-dark", placeholder: "Email" %>
                   <% if resource.errors.include?(:email) %>
                   <span class="text-danger">  <% resource.errors.messages[:email].each do |message| %>
                   <span class="text-danger p-1 m-1">Email <%= message %> </span>
@@ -35,7 +35,7 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :phone_number, class: "form-label" %>
-                  <%= f.text_field :phone_number , class: "form-control", placeholder: "Phone Number" %>
+                  <%= f.text_field :phone_number , class: "form-control text-dark", placeholder: "Phone Number" %>
                   <% if resource.errors.include?(:phone_number) %>
                   <% resource.errors.messages[:phone_number].each do |message| %>
                   </i> <span class="text-danger p-1 m-1">Phone Number <%= message %> </span>
@@ -44,7 +44,7 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :website, class: "form-label" %>
-                  <%= f.text_field :website, class: "form-control", placeholder: "Website" %>
+                  <%= f.text_field :website, class: "form-control text-dark", placeholder: "Website" %>
                </div>
                <div class="col-md-6">
                   <%= f.label :job_title, class: "form-label" %>
@@ -52,7 +52,7 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :company, class: "form-label" %>
-                  <%= f.text_field :company, class: "form-control", placeholder: "Company" %>
+                  <%= f.text_field :company, class: "form-control text-dark", placeholder: "Company" %>
                </div>
                <div class="col-md-6">
                   <%= f.label :state, class: "form-label" %>
@@ -81,7 +81,7 @@
                      <%= f.label "dealerGroup", "Do you belong to a dealer group?", class: "form-check-label" %>
                   </div>
                   <div class="form-group">
-                     <%= f.text_field :group_name, class: "form-control", placeholder: "Please enter your dealer group name" %>
+                     <%= f.text_field :group_name, class: "form-control text-dark", placeholder: "Please enter your dealer group name" %>
                   </div>
                </div>
                <div class="col-md-12">
@@ -104,7 +104,7 @@
                   </div>
                </div>
                <div class="col-md-12">
-                  <%= f.text_field :anything_else_help, class: "form-control", placeholder: "Anything Else we can help you with" %>
+                  <%= f.text_field :anything_else_help, class: "form-control text-dark", placeholder: "Anything Else we can help you with" %>
                </div>
                <%= f.hidden_field :role, value: 'dealer' %>
                <div class="col-md-12">

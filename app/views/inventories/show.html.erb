@@ -1,0 +1,38 @@
+<div class="p-3 m-1 ">
+  <h1 class="mt-4">Inventories</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+    <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
+    <li class="breadcrumb-item active"><%= @inventory.id %></li>
+  </ol>
+  <hr>
+  <div class="container-fluid">
+    <div class="row justify-content-left p-3">
+      <div class="col-lg-4 ">
+        <div class="card card shadow-lg rounded-lg">
+          <% if @inventory.image_urls %>
+          <% @inventory.image_urls.first.split(",").each do |image_url| %>
+          <%= image_tag(image_url, class: "card-img-top img-fluid p-1 shadow") %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-5 p-3 ms-5">
+        <% @inventory.attributes.each do |attribute, value| %>
+        <div class="col-lg-8 p-3 ms-5">
+          <div class="row">
+            <p class="col card-title fw-bold"><%= attribute.to_s.titleize %>:</p>
+            <p class="col card-text"> <%= value %> </p>
+          </div>
+        </div>
+        <% end %>
+        <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+        <i class="bi bi-pencil"></i> 
+        <% end %>
+        <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+        <i class="bi bi-trash"></i> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

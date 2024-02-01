@@ -1,4 +1,4 @@
-<div class="container-fluid px-4">
+<div class="container-fluid px-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
    <h1 class="mt-4">Upload Inventories</h1>
    <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
@@ -22,8 +22,10 @@
             </label>
             <%= file_field_tag :csv_file, accept: ".csv", class: "form-control w-50" %>
          </div>
-         <%= submit_tag 'Import', class: "btn btn-primary"%>
-         <%= link_to 'Download Sample CSV', download_sample_csv_inventories_path, class: "btn btn-primary"%>
+         <div class="m-2">
+         <%= submit_tag 'Import', class: "btn btn-primary shadow"%>
+         <%= link_to 'Download Sample CSV', download_sample_csv_inventories_path, class: "btn btn-primary shadow"%>
+         </div>
          <% end %>
       </div>
       <div class="m-2 p-2 mt-5">

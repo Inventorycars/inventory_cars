@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (flashMessage) {
         setTimeout(function() {
             flashMessage.style.display = "none";
-        }, 3000);
+        }, 2000);
     }
 
     const switchButton = document.getElementById('switchButton');

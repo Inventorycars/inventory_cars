@@ -1,0 +1,28 @@
+<div class="row row-cols-1 row-cols-md-4 m-4 shadow rounded-2">
+  <% @inventories.each do |inventory| %>
+    <div class="col mb-4 mt-3">
+      <div class="card h-100 shadow">
+        <% if inventory.image_urls %>
+          <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75") %>
+        <% end %>
+        <div class="card-body shadow">
+          <h5 class="card-title"><%= inventory.model %></h5>
+          <p class="card-text">Type: <%= inventory.inventory_type %></p>
+          <p class="card-text">Price: <%= number_to_currency(inventory.price) %></p>
+          
+          <%= link_to inventory_path(inventory), class: 'btn btn-primary btn-sm m-2 shadow' do %>
+            <i class="bi bi-eye"></i>
+          <% end %>
+          
+          <%= link_to edit_inventory_path(inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+            <i class="bi bi-pencil"></i> 
+          <% end %>
+          
+          <%= link_to inventory_path(inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+            <i class="bi bi-trash"></i> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

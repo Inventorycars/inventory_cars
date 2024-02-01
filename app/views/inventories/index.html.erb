@@ -1,11 +1,11 @@
 <% if flash[:notice].present? %>
 <div id="flash-message-container">
-  <div id="flash-message" class="alert alert-lite border border-lite" role="alert">
+  <div id="flash-message" class="alert alert-lite border border-lite mt-4" role="alert">
     <i class="bi bi-bag-check-fill m-2"></i><%= flash[:notice] %>
   </div>
 </div>
 <% end %>
-<div class="container-fluid px-4">
+<div class="container-fluid px-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
 <h1 class="mt-4">Inventories</h1>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
@@ -31,13 +31,13 @@
     </div>
     <!-- Grid View Placeholder -->  
     <div id="gridView" class="hidden">
-      <%= render 'shared/grid_inventories' %>
+      <%= render 'inventories/shared/grid_inventories' %>
     </div>
     <!-- Table View Placeholder -->
     <div id="tableView" class="hidden">
-      <%= render 'shared/table_inventories' %>
+      <%= render 'inventories/shared/table_inventories' %>
     </div>
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" id="paginationControls">
       <ul class="pagination">
         <li class="page-item">
           <%= link_to 'Previous', (@inventories.previous_page ? "/inventories?page=#{@inventories.previous_page}" : "#"), class: "page-link bi bi-caret-left #{"disabled" unless @inventories.previous_page}" %>
@@ -68,4 +68,5 @@
   <% else %>
   <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
   <% end %>
+</div>
 </div>

@@ -7,7 +7,7 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = @inventory.decorate
-    @other_inventories = InventorySearch.new(user_id: @inventory.user_id, exclude_id: @inventory.id, limit: 10).results
+    # @other_inventories = InventorySearch.new(user_id: @inventory.user_id, exclude_id: @inventory.id, limit: 10).results
   end
 
   def new
@@ -81,10 +81,9 @@ class InventoriesController < ApplicationController
 
   def destroy
     @inventory.destroy
-
     respond_to do |format|
-      format.html { redirect_to inventories_url, notice: "Inventory was successfully destroyed." }
-      format.json { head :no_content }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@inventory) }
+      format.html { redirect_to inventories_path, notice: "Inventory was successfully removed." }
     end
   end
 
@@ -106,6 +105,6 @@ class InventoriesController < ApplicationController
     end
 
     def inventory_params
-      params.require(:inventory).permit(:inventory_type, :stock, :vin, :year, :make, :model, :body, :trim, :doors, :exterior_color, :interior_color, :engine_cylinders, :engine_displacement, :transmission, :miles, :price, :msrp, :book_value, :invoice, :certified, :date_in_stock, :description, :options, :categorize_options, :comments, :style_description, :ext_color_generic, :ext_color_code, :ext_color_hex_code, :int_color_generic, :int_color_code, :int_color_hex_code, :int_upholstery, :engine_block_type, :engine_aspiration_type, :engine_description, :transmission_speed, :transmission_description, :drivetrain, :fuel_type, :city_mpg, :highway_mpg, :epa_classifications, :wheelbase_code, :internet_price, :misc_price1, :misc_price2, :mise_price3, :factory_codes, :market_class, :passenger_capacity, :engine_displacement_cubic_inches, :transmission_gear, :image_list => [])
+      params.require(:inventory).permit(:inventory_type, :stock, :vin, :year, :make, :model, :body, :trim, :doors, :exterior_color, :interior_color, :engine_cylinders, :engine_displacement, :transmission, :miles, :price, :msrp, :book_value, :invoice, :certified, :date_in_stock, :description, :options, :categorize_options, :comments, :style_description, :ext_color_generic, :ext_color_code, :ext_color_hex_code, :int_color_generic, :int_color_code, :int_color_hex_code, :int_upholstery, :engine_block_type, :engine_aspiration_type, :engine_description, :transmission_speed, :transmission_description, :drivetrain, :fuel_type, :city_mpg, :highway_mpg, :epa_classifications, :wheelbase_code, :internet_price, :misc_price1, :misc_price2, :mise_price3, :factory_codes, :market_class, :passenger_capacity, :engine_displacement_cubic_inches, :transmission_gear, :image_urls => [], :image_list => [] )
     end
 end

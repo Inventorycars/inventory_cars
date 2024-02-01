@@ -1,0 +1,225 @@
+
+<div class="p-3 m-1 ">
+  <h1 class="mt-4">Inventories</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+  <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
+  <li class="breadcrumb-item active"><%= @inventory.id %></li>
+</ol>
+<hr>
+  <div class="container-fluid">
+    <div class="row justify-content-center p-3">
+      <div class="col-lg-8 ">
+        <div class="card border-2 p-4 card shadow-lg rounded-lg">
+          <h3 class="text-center">Update your inventory</h3>
+          <hr>
+          <%= form_with(model: @inventory, url: inventory_path(@inventory), method: :patch, class: "row g-3") do |form| %>
+          <div class="col-md-6">
+            <%= form.label :inventory_type, class: "form-label" %>
+            <%= form.text_field :inventory_type, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :stock, class: "form-label" %>
+            <%= form.text_field :stock, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :vin, class: "form-label" %>
+            <%= form.text_field :vin, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :year, class: "form-label" %>
+            <%= form.text_field :year, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :make, class: "form-label" %>
+            <%= form.text_field :make, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :model, class: "form-label" %>
+            <%= form.text_field :model, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :body, class: "form-label" %>
+            <%= form.text_field :body, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :trim, class: "form-label" %>
+            <%= form.text_field :trim, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :doors, class: "form-label" %>
+            <%= form.text_field :doors, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :exterior_color, class: "form-label" %>
+            <%= form.text_field :exterior_color, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :interior_color, class: "form-label" %>
+            <%= form.text_field :interior_color, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_cylinders, class: "form-label" %>
+            <%= form.text_field :engine_cylinders, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_displacement, class: "form-label" %>
+            <%= form.text_field :engine_displacement, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :transmission, class: "form-label" %>
+            <%= form.text_field :transmission, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :miles, class: "form-label" %>
+            <%= form.text_field :miles, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :price, class: "form-label" %>
+            <%= form.text_field :price, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :msrp, class: "form-label" %>
+            <%= form.text_field :msrp, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :book_value, class: "form-label" %>
+            <%= form.text_field :book_value, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :invoice, class: "form-label" %>
+            <%= form.text_field :invoice, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :certified, class: "form-label" %>
+            <%= form.text_field :certified, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :date_in_stock, class: "form-label" %>
+            <%= form.text_field :date_in_stock, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :description, class: "form-label" %>
+            <%= form.text_field :description, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :options, class: "form-label" %>
+            <%= form.text_field :options, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :comments, class: "form-label" %>
+            <%= form.text_field :comments, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :style_description, class: "form-label" %>
+            <%= form.text_field :style_description, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :ext_color_generic, class: "form-label" %>
+            <%= form.text_field :ext_color_generic, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :ext_color_code, class: "form-label" %>
+            <%= form.text_field :ext_color_code, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :ext_color_hex_code, class: "form-label" %>
+            <%= form.text_field :ext_color_hex_code, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :int_color_generic, class: "form-label" %>
+            <%= form.text_field :int_color_generic, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :int_upholstery, class: "form-label" %>
+            <%= form.text_field :int_upholstery, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_block_type, class: "form-label" %>
+            <%= form.text_field :engine_block_type, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_aspiration_type, class: "form-label" %>
+            <%= form.text_field :engine_aspiration_type, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_description, class: "form-label" %>
+            <%= form.text_field :engine_description, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :transmission_speed, class: "form-label" %>
+            <%= form.text_field :transmission_speed, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :transmission_description, class: "form-label" %>
+            <%= form.text_field :transmission_description, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :drivetrain, class: "form-label" %>
+            <%= form.text_field :drivetrain, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :fuel_type, class: "form-label" %>
+            <%= form.text_field :fuel_type, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :city_mpg, class: "form-label" %>
+            <%= form.text_field :city_mpg, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :highway_mpg, class: "form-label" %>
+            <%= form.text_field :highway_mpg, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :epa_classifications, class: "form-label" %>
+            <%= form.text_field :epa_classifications, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :wheelbase_code, class: "form-label" %>
+            <%= form.text_field :wheelbase_code, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :internet_price, class: "form-label" %>
+            <%= form.text_field :internet_price, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :misc_price1, class: "form-label" %>
+            <%= form.text_field :misc_price1, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :misc_price2, class: "form-label" %>
+            <%= form.text_field :misc_price2, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :factory_codes, class: "form-label" %>
+            <%= form.text_field :factory_codes, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :market_class, class: "form-label" %>
+            <%= form.text_field :market_class, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :passenger_capacity, class: "form-label" %>
+            <%= form.text_field :passenger_capacity, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :engine_displacement_cubic_inches, class: "form-label" %>
+            <%= form.text_field :engine_displacement_cubic_inches, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :transmission_gear, class: "form-label" %>
+            <%= form.text_field :transmission_gear, class: "form-control text-dark" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :image_urls, class: "form-label" %>
+            <%= form.text_field :image_urls, multiple: true, class: "form-control text-dark" %>
+          </div>
+          <div class="col-12">
+            <%= form.submit "Update", class: "btn btn-secondary w-100" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
