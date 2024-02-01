@@ -1,27 +1,22 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[ show edit update destroy next_step ]
    layout 'admin'
-  # GET /inventories or /inventories.json
   def index
-    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 10)
+    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 12)
   end
 
-  # GET /inventories/1 or /inventories/1.json
   def show
     @inventory = @inventory.decorate
     @other_inventories = InventorySearch.new(user_id: @inventory.user_id, exclude_id: @inventory.id, limit: 10).results
   end
 
-  # GET /inventories/new
   def new
     @inventory = current_user.inventories.new # Inventory.new
   end
 
-  # GET /inventories/1/edit
   def edit
   end
 
-  # POST /inventories or /inventories.json
   def create
     @inventory = current_user.inventories.new(inventory_params)
 
@@ -76,7 +71,6 @@ class InventoriesController < ApplicationController
     render turbo_stream: turbo_stream.update('inventories', partial: 'inventories/inventories')
   end
 
-  # PATCH/PUT /inventories/1 or /inventories/1.json
   def update
     if @inventory.update(inventory_params) && @inventory.finalize!
       redirect_to inventory_url(@inventory), notice: "Inventory was successfully updated."
@@ -85,7 +79,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # DELETE /inventories/1 or /inventories/1.json
   def destroy
     @inventory.destroy
 
@@ -104,7 +97,6 @@ class InventoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_inventory
       @inventory = Inventory.find(params[:id])
     end
@@ -113,7 +105,6 @@ class InventoriesController < ApplicationController
       params.require(:inventory_search).permit(:text, :dealership_state, :from_year, :to_year, :company, :min_price, :max_price, :sort)
     end
 
-    # Only allow a list of trusted parameters through.
     def inventory_params
       params.require(:inventory).permit(:inventory_type, :stock, :vin, :year, :make, :model, :body, :trim, :doors, :exterior_color, :interior_color, :engine_cylinders, :engine_displacement, :transmission, :miles, :price, :msrp, :book_value, :invoice, :certified, :date_in_stock, :description, :options, :categorize_options, :comments, :style_description, :ext_color_generic, :ext_color_code, :ext_color_hex_code, :int_color_generic, :int_color_code, :int_color_hex_code, :int_upholstery, :engine_block_type, :engine_aspiration_type, :engine_description, :transmission_speed, :transmission_description, :drivetrain, :fuel_type, :city_mpg, :highway_mpg, :epa_classifications, :wheelbase_code, :internet_price, :misc_price1, :misc_price2, :mise_price3, :factory_codes, :market_class, :passenger_capacity, :engine_displacement_cubic_inches, :transmission_gear, :image_list => [])
     end

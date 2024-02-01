@@ -1,84 +1,71 @@
 <% if flash[:notice].present? %>
 <div id="flash-message-container">
-   <div id="flash-message" class="alert alert-lite border border-lite" role="alert">
-      <i class="bi bi-bag-check-fill m-2"></i><%= flash[:notice] %>
-   </div>
+  <div id="flash-message" class="alert alert-lite border border-lite" role="alert">
+    <i class="bi bi-bag-check-fill m-2"></i><%= flash[:notice] %>
+  </div>
 </div>
 <% end %>
 <div class="container-fluid px-4">
 <h1 class="mt-4">Inventories</h1>
 <ol class="breadcrumb mb-4">
-   <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
-   <li class="breadcrumb-item active">Inventories</li>
+  <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+  <li class="breadcrumb-item active">Inventories</li>
 </ol>
 <div class="card mb-4">
-   <div class="card-body">
-      Your Uploaded Inventories Are Shown here
-      <%= link_to 'Upload CSV', upload_csv_inventories_path, target: '_blan' %>
-   </div>
+  <div class="card-body">
+    Your Uploaded Inventories Are Shown here
+    <%= link_to 'Upload CSV', upload_csv_inventories_path, target: '_blan' %>
+  </div>
 </div>
 <div class="card mb-4">
-   <div class="card-header">
-      <i class="bi bi-archive-fill me-1"></i>
-      Inventories
-   </div>
-   <% if !@inventories.empty? %>
-   <div class="card-body">
-      <table class="table">
-         <thead>
-            <tr>
-               <th scope="col">Id</th>
-               <th scope="col">Model</th>
-               <th scope="col">Stock</th>
-               <th scope="col">Type</th>
-               <th scope="col">Price</th>
-               <th scope="col">Exterier Color</th>
-               <th scope="col">Interier Color</th>
-            </tr>
-         </thead>
-         <tbody>
-            <% @inventories.each do |inventory| %>
-            <tr>
-               <th scope="row"><%= inventory.id %></th>
-               <td><%= inventory.model %></td>
-               <td><%= inventory.stock %></td>
-               <td><%= inventory.inventory_type %></td>
-               <td><%= inventory.price %></td>
-               <td><%= inventory.ext_color_generic %></td>
-               <td><%= inventory.int_color_generic %></td>
-            </tr>
-            <%end%>
-         </tbody>
-      </table>
-      <nav aria-label="Page navigation example">
-         <ul class="pagination">
-            <li class="page-item">
-               <%= link_to 'Previous', (@inventories.previous_page ? "/inventories?page=#{@inventories.previous_page}" : "#"), class: "page-link bi bi-caret-left #{"disabled" unless @inventories.previous_page}" %>
-            </li>
-            <li class="page-item <%= "disabled" if @inventories.current_page == 1 %>">
-               <%= link_to '1', "/inventories?page=1", class: "page-link" %>
-            </li>
-            <li class="page-item <%= "disabled" if @inventories.current_page == 2 %>">
-               <%= link_to '2', "/inventories?page=2", class: "page-link" %>
-            </li>
-            <% if @inventories.total_pages > 3 %>
-            <li class="page-item"><span class="page-link">...</span></li>
-            <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages - 1 %>">
-               <%= link_to (@inventories.total_pages - 1), "/inventories?page=#{@inventories.total_pages - 1}", class: "page-link" %>
-            </li>
-            <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages %>">
-               <%= link_to @inventories.total_pages, "/inventories?page=#{@inventories.total_pages}", class: "page-link" %>
-            </li>
-            <% end %>
-            <li class="page-item">
-               <%= link_to(@inventories.next_page ? "/inventories?page=#{@inventories.next_page}" : "#", class: "page-link #{"disabled" unless @inventories.next_page}") do %>
-               Next<i class="bi bi-caret-right"></i>
-               <% end %>
-            </li>
-         </ul>
-      </nav>
-   </div>
-   <% else %>
-   <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
-   <% end %>
+  <div class="card-header">
+    <i class="bi bi-archive-fill me-1"></i>
+    Inventories
+  </div>
+  <% unless @inventories.empty? %>
+  <div class="card-body">
+    <!-- Switch Button -->
+    <div class="form-check form-switch m-2">
+      <input class="form-check-input shadow" type="checkbox" id="switchButton">
+      <label id="viewLabel" class="form-check-label" for="switchButton">Grid View</label>
+    </div>
+    <!-- Grid View Placeholder -->  
+    <div id="gridView" class="hidden">
+      <%= render 'shared/grid_inventories' %>
+    </div>
+    <!-- Table View Placeholder -->
+    <div id="tableView" class="hidden">
+      <%= render 'shared/table_inventories' %>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <%= link_to 'Previous', (@inventories.previous_page ? "/inventories?page=#{@inventories.previous_page}" : "#"), class: "page-link bi bi-caret-left #{"disabled" unless @inventories.previous_page}" %>
+        </li>
+        <li class="page-item <%= "disabled" if @inventories.current_page == 1 %>">
+          <%= link_to '1', "/inventories?page=1", class: "page-link" %>
+        </li>
+        <li class="page-item <%= "disabled" if @inventories.current_page == 2 %>">
+          <%= link_to '2', "/inventories?page=2", class: "page-link" %>
+        </li>
+        <% if @inventories.total_pages > 3 %>
+        <li class="page-item"><span class="page-link">...</span></li>
+        <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages - 1 %>">
+          <%= link_to (@inventories.total_pages - 1), "/inventories?page=#{@inventories.total_pages - 1}", class: "page-link" %>
+        </li>
+        <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages %>">
+          <%= link_to @inventories.total_pages, "/inventories?page=#{@inventories.total_pages}", class: "page-link" %>
+        </li>
+        <% end %>
+        <li class="page-item">
+          <%= link_to(@inventories.next_page ? "/inventories?page=#{@inventories.next_page}" : "#", class: "page-link #{"disabled" unless @inventories.next_page}") do %>
+          Next<i class="bi bi-caret-right"></i>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <% else %>
+  <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
+  <% end %>
 </div>

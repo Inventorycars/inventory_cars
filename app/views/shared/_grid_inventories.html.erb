@@ -1,0 +1,16 @@
+<div class="row row-cols-1 row-cols-md-4 m-4 shadow rounded-2">
+  <% @inventories.each do |inventory| %>
+    <div class="col mb-4">
+      <div class="card h-100 ">
+        <% if inventory.image_urls %>
+          <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid") %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= inventory.model %></h5>
+          <p class="card-text">Type: <%= inventory.inventory_type %></p>
+          <p class="card-text">Price: <%= number_to_currency(inventory.price) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
