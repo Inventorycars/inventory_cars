@@ -1,8 +1,9 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[ show edit update destroy next_step ]
+  
    layout 'admin'
   def index
-    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 12)
+    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 15)
   end
 
   def show
@@ -93,6 +94,9 @@ class InventoriesController < ApplicationController
       filename: "sample.csv",
       type: "text/csv"
     )
+  end
+
+  def batch_delete
   end
 
   private

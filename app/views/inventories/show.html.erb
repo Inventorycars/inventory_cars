@@ -8,12 +8,33 @@
   <hr>
   <div class="container-fluid">
     <div class="row justify-content-left p-3">
-      <div class="col-lg-4 ">
-        <div class="card card shadow-lg rounded-lg">
-          <% if @inventory.image_urls %>
-          <% @inventory.image_urls.first.split(",").each do |image_url| %>
-          <%= image_tag(image_url, class: "card-img-top img-fluid p-1 shadow") %>
+      <div class="col-lg-4">
+        <h4 class="text-center m-3">Images</h4>
+        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner shadow-lg">
+            <% if @inventory.image_urls %>
+            <% @inventory.image_urls.first.split(",").each_with_index do |image_url, index| %>
+            <div class="carousel-item <%= 'active' if index.zero? %>">
+              <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+            </div>
+            <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="m-4">
+          <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+          <i class="bi bi-pencil"></i> 
           <% end %>
+          <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+          <i class="bi bi-trash"></i> 
           <% end %>
         </div>
       </div>
@@ -21,16 +42,12 @@
         <% @inventory.attributes.each do |attribute, value| %>
         <div class="col-lg-8 p-3 ms-5">
           <div class="row">
+            <% unless attribute.eql?("image_urls") || attribute.eql?("id")%>
             <p class="col card-title fw-bold"><%= attribute.to_s.titleize %>:</p>
             <p class="col card-text"> <%= value %> </p>
+            <% end %>
           </div>
         </div>
-        <% end %>
-        <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
-        <i class="bi bi-pencil"></i> 
-        <% end %>
-        <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
-        <i class="bi bi-trash"></i> 
         <% end %>
       </div>
     </div>

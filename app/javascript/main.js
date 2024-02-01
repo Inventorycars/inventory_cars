@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+});
+
     const stateSelect = document.getElementById('stateSelect');
     const citySelect = document.getElementById('citySelect');
 
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error('Error fetching cities:', error);
             });
-    });
+ });
 
     citySelect.addEventListener('change', function() {
         const selectedState = stateSelect.value;
@@ -64,5 +66,4 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error('Error fetching cities:', error);
             });
-    });
 });

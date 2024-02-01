@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post :next_step
     end
   end
-
+ delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'switch_mode', to: 'application#switch_mode', as: 'switch_mode'
