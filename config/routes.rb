@@ -31,9 +31,9 @@ Rails.application.routes.draw do
 
    namespace :admin do
     resources :dealers
-    get "/approved/:id", to: "dealers#approved"
-    get "/rejected/:id", to: "dealers#rejected", as: "rejected"
-    get "/user_list", to: "dealers#user_list"
+    get "/approve/:id", to: "dealers#approve", as: "approve"
+    get "/reject/:id", to: "dealers#reject", as: "reject"
+    get "/user_list", to: "dealers#user_list", as: 'user_lists'
   end
 
   resources :dashboard

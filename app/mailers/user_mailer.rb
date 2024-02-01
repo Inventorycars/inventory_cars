@@ -24,4 +24,11 @@ class UserMailer < ApplicationMailer
     @last_name = user.last_name
     mail(to: @email, subject: 'Welcome to Inventory Cars - Your Account Has Been Approved!')
   end
+
+  def reject_dealer(user)
+     @first_name = user.first_name
+     @last_name = user.last_name
+     @email = user.email
+     mail(to: @email, subject: 'Dealership Rejected')
+  end
 end

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  protect_from_forgery
+  
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :set_default_mode
@@ -28,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(Admin)
-      admin_dealers_path
+      root_path
     # elsif resource.is_a?(User)
       # if current_mode == 'buyer'
       #   buyer_dashboard_path
