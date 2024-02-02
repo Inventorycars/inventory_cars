@@ -43,3 +43,38 @@
       <% end %>
    </tbody>
 </table>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const selectAllBtn = document.getElementById('selectAllBtn');
+    const batchDeleteBtn = document.getElementById('batchDeleteBtn');
+
+    // Toggle select all checkboxes when the select all button is clicked
+    selectAllBtn.addEventListener('click', function() {
+      const checkboxes = document.querySelectorAll('.inventory-checkbox');
+      checkboxes.forEach(function(checkbox) {
+        checkbox.checked = !checkbox.checked;
+      });
+    });
+
+    // Send delete request for selected checkboxes when the batch delete button is clicked
+    batchDeleteBtn.addEventListener('click', function() {
+      const checkboxes = document.querySelectorAll('.inventory-checkbox:checked');
+      const selectedIds = Array.from(checkboxes).map(function(checkbox) {
+        return checkbox.value;
+      });
+
+      if (selectedIds.length > 0) {
+        if (confirm('Are you sure you want to delete selected inventories?')) {
+        const url = '/batch_delete_inventories?ids=' + selectedIds.join(',');
+                Turbo.visit(url, {
+                    action: 'replace',
+                    'turbo-method': 'delete',
+                    turbo: true
+                });
+                localStorage.removeItem('selectedIds');        }
+      } else {
+        alert('Please select at least one inventory item to delete.');
+      }
+    });
+  });
+</script>
