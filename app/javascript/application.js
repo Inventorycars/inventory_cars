@@ -8,7 +8,6 @@ import "./controllers"
 import "./add_jquery"
 import 'flowbite';
 import "flowbite/dist/flowbite.turbo.js";
-import './main'
 Turbo.session.drive = false
 
 window.addEventListener('DOMContentLoaded', event => {
