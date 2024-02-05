@@ -33,74 +33,67 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
     <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  var flashMessage = document.getElementById("flash-message");
-  if (flashMessage) {
-      setTimeout(function() {
-          flashMessage.style.display = "none";
-      }, 2000);
-  }
+    document.addEventListener("DOMContentLoaded", function() {
+    var flashMessage = document.getElementById("flash-message");
+    if (flashMessage) {
+        setTimeout(function() {
+            flashMessage.style.display = "none";
+        }, 2000);
+    }
+    // grid view and table view 
+    const current_view = localStorage.getItem('current_view') || 'grid';
 
-  const switchButton = document.getElementById('switchButton');
-  const gridView = document.getElementById('gridView');
-  const tableView = document.getElementById('tableView');
-  const viewLabel = document.getElementById('viewLabel');
+     document.getElementById('gridView').classList.toggle('hidden', current_view !== 'grid');
+     document.getElementById('tableView').classList.toggle('hidden', current_view !== 'table');
 
-  // Initial view
-  gridView.classList.remove('hidden');
-
-  switchButton.addEventListener('change', function() {
-      if (this.checked) {
-          gridView.classList.add('hidden');
-          tableView.classList.remove('hidden');
-          viewLabel.innerHTML = 'Table View';
-      } else {
-          gridView.classList.remove('hidden');
-          tableView.classList.add('hidden');
-          viewLabel.innerHTML = 'Grid View';
-      }
-  });
-  });
-
-  const stateSelect = document.getElementById('stateSelect');
-  const citySelect = document.getElementById('citySelect');
-
-  stateSelect.addEventListener('change', function() {
-      const selectedState = stateSelect.value;
-      fetch(`/cities?state=${selectedState}`)
-          .then(response => response.json())
-          .then(data => {
-              citySelect.innerHTML = '';
-              data.forEach(city => {
-                  const option = document.createElement('option');
-                  option.value = city;
-                  option.textContent = city;
-                  citySelect.appendChild(option);
-              });
-          })
-          .catch(error => {
-              console.error('Error fetching cities:', error);
+      document.getElementById('switchButton').addEventListener('change', function() {
+      const new_view = this.checked ? 'table' : 'grid';
+      localStorage.setItem('current_view', new_view);
+      document.getElementById('gridView').classList.toggle('hidden', new_view !== 'grid');
+      document.getElementById('tableView').classList.toggle('hidden', new_view !== 'table');
+      document.getElementById('viewLabel').textContent = new_view.charAt(0).toUpperCase() + new_view.slice(1) + ' View';
           });
-  });
+      });
 
-  citySelect.addEventListener('change', function() {
-      const selectedState = stateSelect.value;
-      const selectedCity = citySelect.value;
-      fetch(`/pincodes?state=${selectedState}&city=${selectedCity}`)
-          .then(response => response.json())
-          .then(data => {
-              pinSelect.innerHTML = '';
-              data.forEach(zip_code => {
-                  const option = document.createElement('option');
-                  option.value = zip_code;
-                  option.textContent = zip_code;
-                  pinSelect.appendChild(option);
-              });
-          })
-          .catch(error => {
-              console.error('Error fetching cities:', error);
-          });
-  });
+    const stateSelect = document.getElementById('stateSelect');
+    const citySelect = document.getElementById('citySelect');
+
+    stateSelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        fetch(`/cities?state=${selectedState}`)
+            .then(response => response.json())
+            .then(data => {
+                citySelect.innerHTML = '';
+                data.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching cities:', error);
+            });
+    });
+
+    citySelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        const selectedCity = citySelect.value;
+        fetch(`/pincodes?state=${selectedState}&city=${selectedCity}`)
+            .then(response => response.json())
+            .then(data => {
+                pinSelect.innerHTML = '';
+                data.forEach(zip_code => {
+                    const option = document.createElement('option');
+                    option.value = zip_code;
+                    option.textContent = zip_code;
+                    pinSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching cities:', error);
+            });
+ });
 </script>
 
   </body>
