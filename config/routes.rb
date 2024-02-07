@@ -43,9 +43,8 @@ Rails.application.routes.draw do
     get "pincodes" => "users/registrations#fetch_pincodes"
   end
 
-  resources :home do
-  get :cars_collection, to: 'home#cars_collection'
-  end
+  get :cars_collection, to: 'home#cars_home'
+  get "car_details/:id", to: 'home#car_details', as: 'car_details'
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

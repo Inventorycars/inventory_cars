@@ -2400,8 +2400,16 @@ input[type="number"]::-webkit-inner-spin-button,
   padding-top: 1rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .align-top {

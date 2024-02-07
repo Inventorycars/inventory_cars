@@ -6,6 +6,10 @@ class HomeController < ApplicationController
 	end
 
 	def cars_home
-		@inventories = Inventory.all
+		@inventories = Inventory.paginate(page: params[:page], per_page: 18)
+	end
+
+	def car_details
+		@inventory = Inventory.find_by(id: params[:id])
 	end
 end
