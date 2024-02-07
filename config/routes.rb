@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post 'fetch_homenet_inventory', to: 'dashboard#fetch_homenet_inventory', as: 'fetch_homenet_inventory'
 
   # Defines the root path route ("/")
-   root to: 'dashboard#index'
+   root to: 'home#index'
 
    namespace :admin do
     resources :dealers
@@ -43,6 +43,9 @@ Rails.application.routes.draw do
     get "pincodes" => "users/registrations#fetch_pincodes"
   end
 
+  resources :home do
+  get :cars_collection, to: 'home#cars_collection'
+  end
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
