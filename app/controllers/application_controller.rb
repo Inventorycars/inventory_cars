@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(Admin)
-      root_path
+     dashboard_index_path
     # elsif resource.is_a?(User)
       # if current_mode == 'buyer'
       #   buyer_dashboard_path
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
       #   seller_dashboard_path
       # end
     else
-      root_path
+      inventories_path
     end
   end
 
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
     elsif resource.is_a?(User)
       new_user_session_path
     else
-      root_path
+      dashboard_index_path
     end
   end
 
