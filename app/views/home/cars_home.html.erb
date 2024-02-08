@@ -1,43 +1,75 @@
 <section class="ftco-section bg-light">
-	<div class="container">
-		<div class="row">
+  <div class="container">
+    <div class="row">
       <% @inventories.each do |inventory| %>
-			<div class=" img-custom  col-md-4">
-				<div class="car-wrap rounded ftco-animate shadow">
-					<div class="img rounded d-flex align-items-end" style="background-image: url(<%= inventory.image_urls.first %>);">
-					</div>
-					<div class="text">
-						<h2 class="mb-0"><a href="car-single.html"><%= inventory.inventory_type %></a></h2>
-						<div class="d-flex mb-3">
-  						<span class="cat"><%= inventory.make %></span>
-  						<p class="price ml-auto"><%= number_to_currency(inventory.price) %></p>
-						</div>
-						<p class="d-flex mb-0 d-block"><a href="#" class=" img-custom btn btn-primary py-2 mr-1">Buy now</a> <a href='<%= car_details_path(inventory) %>'class=" img-custom btn btn-secondary py-2 ml-1">Details</a></p>
-					</div>
-				</div>
-			</div>
+      <div class=" img-custom  col-md-4">
+        <div class="car-wrap rounded ftco-animate shadow">
+          <div class="img rounded d-flex align-items-end" style="background-image: url(<%= inventory.image_urls.first %>);">
+          </div>
+          <div class="text">
+            <h2 class="mb-0"><a href="car-single.html"><%= inventory.inventory_type %></a></h2>
+            <div class="d-flex mb-3">
+              <span class="cat"><%= inventory.make %></span>
+              <p class="price ml-auto"><%= number_to_currency(inventory.price) %></p>
+            </div>
+            <p class="d-flex mb-0 d-block"><a href="#" class=" img-custom btn btn-primary py-2 mr-1">Buy now</a> <a href='<%= car_details_path(inventory) %>'class=" img-custom btn btn-secondary py-2 ml-1">Details</a></p>
+          </div>
+        </div>
+      </div>
       <% end %>
-		</div>
-		<div class="row mt-5">
+    </div>
+    <div class="row mt-5">
       <div class="col text-center">
         <div class="block-27">
           <ul>
-            <li><a href="#">&lt;</a></li>
-            <li class="active"><span>1</span></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&gt;</a></li>
+            <li class="<%= "disabled-cursor" unless @inventories.previous_page %>">
+              <%= link_to(@inventories.previous_page ? "/cars_collection?page=#{@inventories.previous_page}" : "#", class: "#{ "disabled-link" unless @inventories.previous_page }") do %>
+              <p>&lt;</p>
+              <% end %>
+            </li>
+            <% unless @inventories.current_page == 2 || @inventories.current_page == 1%>
+            <li>
+              <%= link_to @inventories.current_page - 2, "/cars_collection?page=#{@inventories.current_page - 2 }" %> 
+            </li>
+            <% end %>
+            <% unless @inventories.current_page == 1 %>
+            <li>
+              <%= link_to @inventories.current_page - 1, "/cars_collection?page=#{@inventories.current_page - 1 }" ,class: "#{ "disabled-link" unless @inventories.current_page != 1 }"%>
+            </li>
+            <% end %>
+            <li class="active">
+              <%= link_to @inventories.current_page, "/cars_collection?page=#{@inventories.current_page }" %>
+            </li>
+            <% if @inventories.next_page %> 
+            <li>
+              <%= link_to @inventories.current_page + 1, "/cars_collection?page=#{@inventories.current_page + 1 }"%>
+            </li>
+            <% end %>
+            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages %>
+            <li>
+              <%= link_to @inventories.current_page + 2, "/cars_collection?page=#{@inventories.current_page + 2 }"%>
+            </li>
+            <% end %>
+            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages || @inventories.current_page + 2 == @inventories.total_pages %>
+            <li>
+              <%= link_to @inventories.total_pages, "/cars_collection?page=#{@inventories.total_pages }" %>
+            </li>
+            <% end %>
+            <li class="<%= "disabled-cursor" unless @inventories.next_page %>">
+              <%= link_to(@inventories.next_page ? "/cars_collection?page=#{@inventories.next_page}" : "#", class: " #{"disabled-link" unless @inventories.next_page}") do %>
+              <p>&gt;</p>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
     </div>
-	</div>
+  </div>
 </section>
-
-
-  
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>   
+<div id="ftco-loader" class="show fullscreen">
+  <svg class="circular" width="48px" height="48px">
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
+  </svg>
+</div>
