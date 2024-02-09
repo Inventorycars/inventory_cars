@@ -10,10 +10,11 @@ class User < ApplicationRecord
 
   before_create :set_homenet_email, if: -> { email.present? }
   before_validation :valid_password, if: :new_record?
-  after_create :send_welcome_mail
+  after_create :send_welcome_mail, if: :dealer?
 
   scope :unconfirmed, -> { where(confirmed_at: nil) }
   scope :confirmed, -> { where.not(confirmed_at: nil) }
+  scope :dealers, -> { where(role: "dealer") }
 
   def valid_password
     token = Devise.friendly_token
@@ -35,4 +36,8 @@ class User < ApplicationRecord
 
     email
   end
+
+   def dealer?
+       role == 'dealer' 
+   end
 end

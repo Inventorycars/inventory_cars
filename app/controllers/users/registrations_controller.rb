@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-   layout 'admin'
+   layout 'home'
+  
   def create
     build_resource(sign_up_params)
     # resource.skip_confirmation_notification!
@@ -9,6 +10,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
+
+   def new_user
+      @user = User.new
+      render 'new_user'
+   end
+
+   def create_user
+    build_resource(sign_up_params)
+     unless sign_up_params[:password] == sign_up_params[:password_confirmation]
+        resource.errors.add(:password, "Confirm does not match")
+        render 'new_user'
+      else
+        resource.update(password: sign_up_params[:password], password_confirmation: sign_up_params[:password_confirmation])
+         if resource.save
+           redirect_to root_path
+        else
+         render 'new_user'
+       end
+      end
+
+   end
 
   def fetch_cities
      state = CS.states(:US).key(params[:state])

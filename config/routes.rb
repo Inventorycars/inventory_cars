@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'inventory_offers/destroy'
   devise_for :admins
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: "users/sessions", passwords: 'users/passwords' }
+  
+  devise_scope :user do
+     get '/signup', to: 'users/registrations#new_user'
+     post '/signup', to: 'users/registrations#create_user'
+  end
+
   resources :inventories do
     collection do
       post :search
@@ -27,7 +33,7 @@ Rails.application.routes.draw do
   post 'fetch_homenet_inventory', to: 'dashboard#fetch_homenet_inventory', as: 'fetch_homenet_inventory'
 
   # Defines the root path route ("/")
-   root to: 'home#index'
+   root to: 'home#cars_home'
 
    namespace :admin do
     resources :dealers

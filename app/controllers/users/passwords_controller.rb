@@ -1,5 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
-	layout 'admin'
+	layout 'home'
 	 def create
 	 super  
 	 end
