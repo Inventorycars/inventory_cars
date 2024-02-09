@@ -20,12 +20,8 @@
     <link rel="stylesheet" href="/assets/css/flaticon.css">
     <link rel="stylesheet" href="/assets/css/icomoon.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="search-filter.css" rel="stylesheet">
     <style type="text/css">
-      .nav-dark-bg{
-      background-color: #000000;
-      width: 100%;
-      height: 11%;
-      }
       .img-custom-container {
       position: relative;
       }
@@ -41,7 +37,7 @@
       }   
       .image-container {
       position: relative;
-      height: 400px;
+      height: 600px;
       background-color: black;
       overflow: hidden;
       }
@@ -85,5 +81,49 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="/assets/js/google-map.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Example recent locations
+        var recentLocations = ["New York", "London", "Paris", "Tokyo"];
+
+        // Populate recent locations dropdown
+        var recentLocationsDropdown = $("#recentLocations");
+        recentLocations.forEach(function(location) {
+          recentLocationsDropdown.append('<a class="dropdown-item" href="#">' + location + '</a>');
+        });
+
+        // Function to handle city selection
+        $(".dropdown-item").click(function() {
+          var selectedCity = $(this).text();
+          $("#cityInput").val(selectedCity);
+        });
+
+        // Example function to handle search button click
+        $("#searchButton").click(function() {
+          var selectedCity = $("#cityInput").val();
+          // Perform search or any other action with the selected city
+          console.log("Searching for:", selectedCity);
+        });
+
+        // Example function to get current location
+        // This can be implemented using Geolocation API
+        function getCurrentLocation() {
+          // Code to get current location
+          // Example:
+          // navigator.geolocation.getCurrentPosition(function(position) {
+          //   var currentLat = position.coords.latitude;
+          //   var currentLon = position.coords.longitude;
+          //   console.log("Current Location:", currentLat, currentLon);
+          // });
+        }
+      });
+            document.getElementById('price').oninput = function() {
+          document.getElementById('priceValue').innerText = this.value;
+      }
+    </script>
+
   </body>
 </html>

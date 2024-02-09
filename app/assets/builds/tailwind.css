@@ -1425,6 +1425,10 @@ input[type="number"]::-webkit-inner-spin-button,
   grid-column: span 3 / span 3;
 }
 
+.float-left {
+  float: left;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -1578,6 +1582,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .ms-3 {
   margin-inline-start: 0.75rem;
+}
+
+.ms-4 {
+  margin-inline-start: 1rem;
 }
 
 .ms-5 {
@@ -2394,10 +2402,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .pt-2 {
   padding-top: 0.5rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
 }
 
 .text-left {

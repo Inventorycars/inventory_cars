@@ -1,0 +1,2 @@
+$('#infinite-scroll-container').append('<%= j(render @inventories) %>');
+$('#page_value').val('<%= @inventories.next_page %>');

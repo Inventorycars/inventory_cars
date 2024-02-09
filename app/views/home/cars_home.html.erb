@@ -1,70 +1,57 @@
-<section class="ftco-section bg-light">
-  <div class="container">
-    <div class="row">
-      <% @inventories.each do |inventory| %>
-      <div class=" img-custom  col-md-4">
-        <div class="car-wrap rounded ftco-animate shadow">
-          <div class="img rounded d-flex align-items-end" style="background-image: url(<%= inventory.image_urls.first %>);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a href="car-single.html"><%= inventory.inventory_type %></a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat"><%= inventory.make %></span>
-              <p class="price ml-auto"><%= number_to_currency(inventory.price) %></p>
-            </div>
-            <p class="d-flex mb-0 d-block"><a href="#" class=" img-custom btn btn-primary py-2 mr-1">Buy now</a> <a href='<%= car_details_path(inventory) %>'class=" img-custom btn btn-secondary py-2 ml-1">Details</a></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-    <div class="row mt-5">
-      <div class="col text-center">
-        <div class="block-27">
-          <ul>
-            <li class="<%= "disabled-cursor" unless @inventories.previous_page %>">
-              <%= link_to(@inventories.previous_page ? "/cars_collection?page=#{@inventories.previous_page}" : "#", class: "#{ "disabled-link" unless @inventories.previous_page }") do %>
-              <p>&lt;</p>
-              <% end %>
-            </li>
-            <% unless @inventories.current_page == 2 || @inventories.current_page == 1%>
-            <li>
-              <%= link_to @inventories.current_page - 2, "/cars_collection?page=#{@inventories.current_page - 2 }" %> 
-            </li>
-            <% end %>
-            <% unless @inventories.current_page == 1 %>
-            <li>
-              <%= link_to @inventories.current_page - 1, "/cars_collection?page=#{@inventories.current_page - 1 }" ,class: "#{ "disabled-link" unless @inventories.current_page != 1 }"%>
-            </li>
-            <% end %>
-            <li class="active">
-              <%= link_to @inventories.current_page, "/cars_collection?page=#{@inventories.current_page }" %>
-            </li>
-            <% if @inventories.next_page %> 
-            <li>
-              <%= link_to @inventories.current_page + 1, "/cars_collection?page=#{@inventories.current_page + 1 }"%>
-            </li>
-            <% end %>
-            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages %>
-            <li>
-              <%= link_to @inventories.current_page + 2, "/cars_collection?page=#{@inventories.current_page + 2 }"%>
-            </li>
-            <% end %>
-            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages || @inventories.current_page + 2 == @inventories.total_pages %>
-            <li>
-              <%= link_to @inventories.total_pages, "/cars_collection?page=#{@inventories.total_pages }" %>
-            </li>
-            <% end %>
-            <li class="<%= "disabled-cursor" unless @inventories.next_page %>">
-              <%= link_to(@inventories.next_page ? "/cars_collection?page=#{@inventories.next_page}" : "#", class: " #{"disabled-link" unless @inventories.next_page}") do %>
-              <p>&gt;</p>
-              <% end %>
-            </li>
-          </ul>
+ <section class="ftco-section bg-light">
+    <div class="container mb-4">
+    <div class="input-group">
+      <input type="text" class="form-control" id="cityInput" placeholder="Search city, area or localite">
+      <button class="btn btn-outline-dark" id="searchButton">Search</button>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recent Locations
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="recentLocations">
+          <!-- Recent locations will be populated here -->
         </div>
       </div>
     </div>
   </div>
+  <%= render 'home/shared/filter' %>
+
+<div class="container">
+  <div class="text-right"></div>
+  <input id= "page_value" hidden= true value=<%= @inventories.next_page %> ></input>
+  <div class="row" id="infinite-scroll-container">
+    <!-- Inventories will be loaded here -->
+     <%= render @inventories %>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+  function isBottomOfPage() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+  }
+
+  function loadMoreContent() {
+    var page = document.getElementById("page_value").value; 
+    if (isBottomOfPage() && page != '') {
+      $.ajax({
+        url: '/cars_collection.js',
+        method: 'GET',
+        data: { page: page }     
+      });
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    // User has reached the bottom of the page
+    loadMoreContent();
+  }
+});
+
+  loadMoreContent();
+</script>
+
+
 </section>
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">

@@ -1,0 +1,53 @@
+<div class="row mt-5">
+      <div class="col text-center">
+        <div class="block-27">
+          <ul>
+            <li class="<%= "disabled-cursor" unless @inventories.previous_page %>">
+              <%= link_to(@inventories.previous_page ? "/cars_collection?page=#{@inventories.previous_page}" : "#", class: "#{ "disabled-link" unless @inventories.previous_page }") do %>
+              <p>&lt;</p>
+              <% end %>
+            </li>
+            <% unless @inventories.current_page == 2 || @inventories.current_page == 1%>
+            <li>
+              <%= link_to @inventories.current_page - 2, "/cars_collection?page=#{@inventories.current_page - 2 }" %> 
+            </li>
+            <% end %>
+            <% unless @inventories.current_page == 1 %>
+            <li>
+              <%= link_to @inventories.current_page - 1, "/cars_collection?page=#{@inventories.current_page - 1 }" ,class: "#{ "disabled-link" unless @inventories.current_page != 1 }"%>
+            </li>
+            <% end %>
+            <li class="active">
+              <%= link_to @inventories.current_page, "/cars_collection?page=#{@inventories.current_page }" %>
+            </li>
+            <% if @inventories.next_page %> 
+            <li>
+              <%= link_to @inventories.current_page + 1, "/cars_collection?page=#{@inventories.current_page + 1 }"%>
+            </li>
+            <% end %>
+            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages %>
+            <li>
+              <%= link_to @inventories.current_page + 2, "/cars_collection?page=#{@inventories.current_page + 2 }"%>
+            </li>
+            <% end %>
+              <% unless  @inventories.current_page == @inventories.total_pages || @inventories.current_page == @inventories.total_pages - 1 || @inventories.current_page == @inventories.total_pages - 2%>
+            <li>
+              <%= link_to "..", "/cars_collection?page=#{@inventories.current_page + 1 }"%>
+            </li>
+
+            <% end %>
+
+            <% unless @inventories.next_page ==  @inventories.total_pages || @inventories.current_page ==  @inventories.total_pages || @inventories.current_page + 2 == @inventories.total_pages %>
+            <li>
+              <%= link_to @inventories.total_pages, "/cars_collection?page=#{@inventories.total_pages }" %>
+            </li>
+            <% end %>
+            <li class="<%= "disabled-cursor" unless @inventories.next_page %>">
+              <%= link_to(@inventories.next_page ? "/cars_collection?page=#{@inventories.next_page}" : "#", class: " #{"disabled-link" unless @inventories.next_page}") do %>
+              <p>&gt;</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>

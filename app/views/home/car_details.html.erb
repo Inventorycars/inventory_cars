@@ -1,3 +1,15 @@
+ <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/assets/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Car details <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Car Details</h1>
+          </div>
+        </div>
+      </div>
+ </section>
+
 <section class="ftco-section ftco-car-details">
   <div class="container">
   	<div class="row justify-content-center">
@@ -7,9 +19,11 @@
 					  <div class="carousel-inner">
 					    <% @data[:inventory].image_urls.each_with_index do |image_url, index| %>
 					      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-									<div class="rounded image-container">
-									    <img src="<%= image_url %>" alt="Image">
-									</div>
+					        <a href="<%= image_url %>" data-lightbox="carousel-images" data-title="Image" target="_blank">
+					          <div class="rounded image-container">
+					            <img src="<%= image_url %>" class="d-block" alt="Image">
+					          </div>
+					        </a>
 					      </div>
 					    <% end %>
 					  </div>
@@ -22,9 +36,10 @@
 					    <span class="visually-hidden">Next</span>
 					  </button>
 					</div>
+
   				<div class="text text-center">
-  					<span class="subheading"><%= @data[:inventory].inventory_type %></span>
-  					<h2><%= @data[:inventory].make %></h2>
+  					<h2 class="m-2 fs-2"><%= @data[:inventory].make %> <span>(<%= @data[:inventory].year %>)</span></h2>
+  					<span class="subheading fs-4"><%= @data[:inventory].model %></span>
   				</div>
   			</div>
   		</div>
@@ -157,18 +172,89 @@
 				    	</div>
 				    </div>
 
-				    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-				        <table class="table">
-						  <tbody>
-						    <% @data[:inventory].attributes.each do |attribute, value| %>
-						      <tr>
-						        <td><strong><%= attribute.capitalize %>:</strong></td>
-						        <td><%= value %></td>
-						      </tr>
-						    <% end %>
-						  </tbody>
-						</table>
-				    </div>
+			      <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+						      <p class="fs-5 text-dark"> <%= @data[:inventory].description %></p>
+						      <div class="row">
+									    <div class="col-md-4">
+									        <h5 class="col">Year:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].year %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Brand:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].make %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Model:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].model %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Doors:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].doors %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Colour:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <div style="color: <%= @data[:inventory].ext_color_hex_code %>">
+									        	<span class="col" style="background-color: <%= @data[:inventory].ext_color_hex_code %>"><%=  @data[:inventory].exterior_color %></span>
+									        </div>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Interior:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									    	<div style="color: <%= @data[:inventory].int_color_hex_code %>">
+									       <span class="col" style="background-color: <%= @data[:inventory].int_color_hex_code %>"><%= @data[:inventory].interior_color %></span>
+									      </div>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Miles:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].miles %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Certified:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].certified %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Drive:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].drivetrain %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Fuel:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].fuel_type %></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Seats:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].passenger_capacity%></span>
+									    </div>
+									    <div class="col-md-4">
+									        <h5 class="col">Transmission:</h5> 
+									    </div>
+									    <div class="col-md-8">
+									        <span class="col"><%= @data[:inventory].transmission %></span>
+									    </div>
+									    
+
+									</div>
+							</div>
 				    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
 				      <div class="row">
 					   		<div class="col-md-7">
