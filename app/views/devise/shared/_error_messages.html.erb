@@ -1,5 +1,4 @@
 <% if resource.errors.any? %>
-<% byebug %>
   <div id="error_explanation" class="p-3 bg-gray-700 text-white rounded-md" data-turbo-cache="false">
     <ul>
       <% resource.errors.full_messages.each do |message| %>

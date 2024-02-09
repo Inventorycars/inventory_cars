@@ -1,7 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   layout 'home'
   def create
-        byebug
     resource = warden.authenticate!(auth_options)
      if resource.role == 'dealer'
       unless resource.is_approved
