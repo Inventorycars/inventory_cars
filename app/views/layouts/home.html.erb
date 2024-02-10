@@ -124,6 +124,34 @@
           document.getElementById('priceValue').innerText = this.value;
       }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+  function isBottomOfPage() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+  }
+
+  function loadMoreContent() {
+    var page = document.getElementById("page_value").value; 
+    if (isBottomOfPage() && page != '') {
+      $.ajax({
+        url: '/cars_collection.js',
+        method: 'GET',
+        data: { page: page }     
+      });
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    // User has reached the bottom of the page
+    loadMoreContent();
+  }
+});
+
+  loadMoreContent();
+</script>
+
 
   </body>
 </html>

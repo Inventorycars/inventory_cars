@@ -13,44 +13,14 @@
       </div>
     </div>
   </div>
-  <%= render 'home/shared/filter' %>
-
+     <%= render 'home/shared/filter' %>
 <div class="container">
-  <div class="text-right"></div>
   <input id= "page_value" hidden= true value=<%= @inventories.next_page %> ></input>
   <div class="row" id="infinite-scroll-container">
     <!-- Inventories will be loaded here -->
      <%= render @inventories %>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-
-  function isBottomOfPage() {
-    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
-  }
-
-  function loadMoreContent() {
-    var page = document.getElementById("page_value").value; 
-    if (isBottomOfPage() && page != '') {
-      $.ajax({
-        url: '/cars_collection.js',
-        method: 'GET',
-        data: { page: page }     
-      });
-    }
-  }
-
-  window.addEventListener('scroll', function() {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    // User has reached the bottom of the page
-    loadMoreContent();
-  }
-});
-
-  loadMoreContent();
-</script>
-
 
 </section>
 <!-- loader -->

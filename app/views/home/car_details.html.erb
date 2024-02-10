@@ -5,6 +5,7 @@
   			<div class="car-details">
   				<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 					<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+						<% if  @data[:inventory].image_urls.present? %>
 					  <div class="carousel-inner">
 					    <% @data[:inventory].image_urls.each_with_index do |image_url, index| %>
 					      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
@@ -26,6 +27,12 @@
 					      <span class="visually-hidden">Next</span>
 					    </button>
 					  <% end %>
+					  <% else %>
+					   <div class="carousel-inner">
+					  <div class="rounded" style="background-image: url('/assets/inventory_placeholder.jpg' %>');">
+           </div>
+         </div>
+           <% end %>
 					</div>
   				<div class="text text-center">
   					<h2 class="m-2 fs-2"><%= @data[:inventory].make %> <span>(<%= @data[:inventory].year %>)</span></h2>
@@ -393,7 +400,7 @@
     	<% @data[:related_inventories].each do |inventory| %>
     	<div class="img-custom col-md-4">
 				<div class="car-wrap rounded ftco-animate">
-					<div class="img rounded d-flex align-items-end" style="background-image: url(<%= inventory.image_urls.first %>);">
+					<div class="img rounded d-flex align-items-end" style="background-image: url(<%= inventory.image_urls ? inventory.image_urls.first : '/assets/inventory_placeholder.jpg' %>);">
 					</div>
 					<div class="text">
 						<h2 class="mb-0"><a href="car-single.html"> <%= inventory.inventory_type %> </a></h2>
