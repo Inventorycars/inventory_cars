@@ -22,8 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         resource.errors.add(:password, "Confirm does not match")
         render 'new_user'
       else
-        resource.update(password: sign_up_params[:password], password_confirmation: sign_up_params[:password_confirmation])
          if resource.save
+          sign_in(resource)
            redirect_to root_path
         else
          render 'new_user'

@@ -60,9 +60,9 @@
   </head>
   <body>
       <%= render '/home/shared/navbar' %>
-    <div class="nav-dark-bg">
-    </div>
+    <div class="content-wrapper">
       <%= yield %>
+    </div>
       <%= render '/home/shared/footer' %>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery-migrate-3.0.1.min.js"></script>
@@ -85,6 +85,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+
+       document.addEventListener("DOMContentLoaded", function() {
+
+    const stateSelect = document.getElementById('stateSelect');
+    const citySelect = document.getElementById('citySelect');
+
+    stateSelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        fetch(`/cities?state=${selectedState}`)
+            .then(response => response.json())
+            .then(data => {
+                citySelect.innerHTML = '';
+                data.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching cities:', error);
+            });
+    });
+
+    citySelect.addEventListener('change', function() {
+        const selectedState = stateSelect.value;
+        const selectedCity = citySelect.value;
+        fetch(`/pincodes?state=${selectedState}&city=${selectedCity}`)
+            .then(response => response.json())
+            .then(data => {
+                pinSelect.innerHTML = '';
+                data.forEach(zip_code => {
+                    const option = document.createElement('option');
+                    option.value = zip_code;
+                    option.textContent = zip_code;
+                    pinSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching cities:', error);
+            });
+ });
+  });
+
       $(document).ready(function() {
         // Example recent locations
         var recentLocations = ["New York", "London", "Paris", "Tokyo"];
@@ -120,37 +164,41 @@
           // });
         }
       });
-            document.getElementById('price').oninput = function() {
+          document.getElementById('price').oninput = function() {
           document.getElementById('priceValue').innerText = this.value;
       }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+    <script>
 
-  function isBottomOfPage() {
-    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
-  }
-
-  function loadMoreContent() {
-    var page = document.getElementById("page_value").value; 
-    if (isBottomOfPage() && page != '') {
-      $.ajax({
-        url: '/cars_collection.js',
-        method: 'GET',
-        data: { page: page }     
-      });
+    function isBottomOfPage() {
+      return window.innerHeight + window.scrollY >= document.body.offsetHeight;
     }
-  }
 
-  window.addEventListener('scroll', function() {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    // User has reached the bottom of the page
-    loadMoreContent();
-  }
+    function loadMoreContent() {
+      var page = document.getElementById("page_value").value; 
+      if (isBottomOfPage() && page != '') {
+        $.ajax({
+          url: '/cars_collection.js',
+          method: 'GET',
+          data: { page: page }     
+        });
+      }
+    }
+
+    window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      // User has reached the bottom of the page
+      loadMoreContent();
+    }
+    });
+
+window.addEventListener('popstate', function(event) {
+    location.reload();
 });
 
-  loadMoreContent();
-</script>
+
+    </script>
 
 
   </body>

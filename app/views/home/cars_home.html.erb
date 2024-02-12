@@ -14,13 +14,13 @@
     </div>
   </div>
      <%= render 'home/shared/filter' %>
-<div class="container">
-  <input id= "page_value" hidden= true value=<%= @inventories.next_page %> ></input>
-  <div class="row" id="infinite-scroll-container">
-    <!-- Inventories will be loaded here -->
-     <%= render @inventories %>
-  </div>
-</div>
+    <div class="container">
+      <input id= "page_value" hidden= true value=<%= @inventories.next_page %> ></input>
+      <div class="row" id="infinite-scroll-container">
+        <!-- Inventories will be loaded here -->
+         <%= render @inventories %>
+      </div>
+    </div>
 
 </section>
 <!-- loader -->
