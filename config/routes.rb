@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   get :cars_collection, to: 'home#cars_home'
   get "car_details/:id", to: 'home#car_details', as: 'car_details'
-  post 'filter', to: 'home#filtered_data'
+  get 'filter', to: 'home#filtered_data'
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

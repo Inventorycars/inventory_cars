@@ -58,12 +58,12 @@
       }
     </style>
   </head>
-  <body>
-      <%= render '/home/shared/navbar' %>
+  <body style="display: grid;">
+      <%= render '/home/shared/navbar' if current_user %>
     <div class="content-wrapper">
       <%= yield %>
     </div>
-      <%= render '/home/shared/footer' %>
+      <%= render '/home/shared/footer' if current_user %> 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="/assets/js/popper.min.js"></script>

@@ -1,4 +1,4 @@
-<form action="/filter" method="post">
+<form action="/filter" method="get">
   <div class="border border-light float-left rounded" style="width: 280px;">
     <h3 class="subheading m-3 fw-bold text-dark">Filter</h3>
     
@@ -9,28 +9,28 @@
           <label class="text-dark m-2 border border-light text-dark p-2 fw-bold">Brand</label>
           <div class="m-2">
            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="mercedes" name="brand" value="mercedes">
-              <label class="form-check-label text-dark" for="mercedes">Mercedes</label>
+              <input class="form-check-input" type="checkbox" id="mercedes" name="brand" value="Mercedes">
+              <label class="form-check-label text-dark" for="Mercedes">Mercedes</label>
           </div>
           <div class="form-check form-check-inline">
-              <input type="checkbox" id="bmw" name="brand" value="bmw">
-              <label class="form-check-label text-dark" for="bmw">BMW</label>
+              <input type="checkbox" id="bmw" name="brand" value="BMW">
+              <label class="form-check-label text-dark" for="BMW">BMW</label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="audi" name="brand" value="audi">
-              <label class="form-check-label text-dark" for="audi">Audi</label>
+              <input class="form-check-input" type="checkbox" id="audi" name="brand" value="Audi">
+              <label class="form-check-label text-dark" for="Audi">Audi</label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="porsche" name="brand" value="porsche">
-              <label class="form-check-label text-dark" for="porsche">Porsche</label>
+              <input class="form-check-input" type="checkbox" id="porsche" name="brand" value="Porsche">
+              <label class="form-check-label text-dark" for="Porsche">Porsche</label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="ford" name="brand" value="ford">
-              <label class="form-check-label text-dark" for="ford">Ford</label>
+              <input class="form-check-input" type="checkbox" id="ford" name="brand" value="Ford">
+              <label class="form-check-label text-dark" for="Ford">Ford</label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="toyota" name="brand" value="toyota">
-              <label class="form-check-label text-dark" for="toyota">Toyota</label>
+              <input class="form-check-input" type="checkbox" id="toyota" name="brand" value="Toyota">
+              <label class="form-check-label text-dark" for="Toyota">Toyota</label>
           </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
       <div class="col-md-12">
         <div class="form-group img-custom shadow">
           <label class="text-dark m-2 border border-light text-dark p-2 fw-bold">Price</label>
-          <input type="range" id="price" name="price" min="0" max="60000" value="">
+          <input type="range" id="price" name="price" min="0" max="60000" value='0'>
           <span class="form-check-label text-dark ms-4" id='priceValue'></span>
         </div>
       </div>
