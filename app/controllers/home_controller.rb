@@ -6,11 +6,7 @@ class HomeController < ApplicationController
     end
 
     def cars_home
-      if current_user&.present?
-        @inventories ||= Inventory.paginate(page: params[:page], per_page: 18).order(created_at: :desc)
-      else
-        redirect_to new_user_session_path
-      end
+        @inventories = Inventory.paginate(page: params[:page], per_page: 18).order(created_at: :desc)
     end
 
    def car_details
@@ -20,14 +16,13 @@ class HomeController < ApplicationController
    end
 
    def filtered_data
-      brand = params[:brand]
+      brand = params[:brands]
       price = params[:price]
       year = params[:year]
       transmission = params[:transmission]
       engine_type = params[:engine_type]
       miles_driven = params[:miles_driven]
       fuel_type = params[:fuel_type]
-
       @inventories = Inventory.paginate(page: params[:page], per_page: 18).order(created_at: :desc)
       
       @inventories = @inventories.where(make: brand) if brand.present?
@@ -35,7 +30,7 @@ class HomeController < ApplicationController
       @inventories = @inventories.where(year: year) if year.present?
       @inventories = @inventories.where(transmission: transmission) if transmission.present?
       @inventories = @inventories.where(engine_type: engine_type) if engine_type.present?
-      @inventories = @inventories.where(miles_driven: miles_driven) if miles_driven.present?
+      @inventories = @inventories.where(miles: miles_driven) if miles_driven.present?
       @inventories = @inventories.where(fuel_type: fuel_type) if fuel_type.present?
     render 'cars_home'
   end

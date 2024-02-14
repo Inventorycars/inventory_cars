@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post :next_step
     end
   end
+  get :my_inventories,  to: 'inventories#my_inventories'
  delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   post 'fetch_homenet_inventory', to: 'dashboard#fetch_homenet_inventory', as: 'fetch_homenet_inventory'
 
   # Defines the root path route ("/")
-   root to: 'home#cars_home'
+   root to: 'inventories#index'
 
    namespace :admin do
     resources :dealers

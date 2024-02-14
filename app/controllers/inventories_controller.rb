@@ -3,7 +3,12 @@ class InventoriesController < ApplicationController
   
    layout 'admin'
   def index
+    @inventories = Inventory.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+  end
+
+  def my_inventories
     @inventories = current_user.inventories.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+    render :index
   end
 
   def show

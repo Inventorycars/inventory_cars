@@ -59,11 +59,11 @@
     </style>
   </head>
   <body style="display: grid;">
-      <%= render '/home/shared/navbar' if current_user %>
+      <%= render '/home/shared/navbar' %>
     <div class="content-wrapper">
       <%= yield %>
     </div>
-      <%= render '/home/shared/footer' if current_user %> 
+      <%= render '/home/shared/footer' %> 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="/assets/js/popper.min.js"></script>
@@ -77,13 +77,14 @@
     <script src="/assets/js/jquery.animateNumber.min.js"></script>
     <script src="/assets/js/bootstrap-datepicker.js"></script>
     <script src="/assets/js/jquery.timepicker.min.js"></script>
-    <script src="/assets/js/scrollax.min.js"></script>
+    <%# <script src="/assets/js/scrollax.min.js"></script> %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="/assets/js/google-map.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <%# <script src="/assets/js/main.js"></script> %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <script>
 
        document.addEventListener("DOMContentLoaded", function() {
