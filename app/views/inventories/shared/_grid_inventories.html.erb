@@ -1,7 +1,7 @@
 <div class="row row-cols-1 row-cols-md-5 mb-4 rounded-2">
   <% @inventories.each do |inventory| %>
     <div class="col mb-4 mt-3">
-      <div class="card h-100 shadow clickable-card" onclick="window.location.href='<%= inventory_path(inventory) %>'">
+      <div class="card h-100 shadow clickable-card">
         <% if inventory.image_urls.present? %>
           <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75") %>
         <% else %>
@@ -27,7 +27,8 @@
           <% else %>
             <div style="text-align: center;">
               <%= link_to "Details", inventory_path(inventory), class: 'btn btn-success btn-sm ml-1' %>
-              <%= link_to "Make an offer", inventory_path(inventory), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+              <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+
               </div>
           <% end %>
         </div>

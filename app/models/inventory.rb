@@ -8,6 +8,7 @@ class Inventory < ApplicationRecord
 
   belongs_to :user
   has_many_attached :image_list
+  has_many :inventory_offers,  dependent: :destroy
 
   scope :live, -> {where(listed: true)}
   scope :pause, -> {where(listed: false)}

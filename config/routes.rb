@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       post :next_step
     end
   end
+
+  resources :inventory_offers
+
   get :my_inventories,  to: 'inventories#my_inventories'
  delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

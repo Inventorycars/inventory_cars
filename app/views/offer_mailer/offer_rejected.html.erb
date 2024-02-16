@@ -1,0 +1,17 @@
+<h2>Dear <%= "#{@first_name}" " #{@last_name}" %></h2>
+
+
+<%=link_to "Resend Offer", edit_inventory_offer_url(id: @offer_id, inventory_offer: {status: 'resent'}), html_options = { style: "font-weight: bold", target: "_blank" } %>
+
+
+<p> Thank you for choosing Inventory Cars as your trusted partner in inventory management. We're excited about the journey ahead and can't wait to see your business thrive with our services.</p>
+
+<p>Should you need anything, please don't hesitate to reach out. We're here to assist you every step of the way.</p>
+
+
+<p>Best regards,</p>
+<p>Mike Miles</p>
+<p>Founder & CEO</p>
+<p>Inventory Cars</p>
+<p>209.273.9668</p>
+<p>Email#3</p>

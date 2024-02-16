@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h5 class="card-title">Create Offer</h5>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @offer, url: inventory_offers_path, class: "needs-validation", novalidate: true) do |form| %>
+            <div class="form-group">
+              <%= form.label :offer_value, class: "form-label", style: "color: black;" %>
+              <%= form.number_field :offer, class: "form-control", required: true %>
+              <div class="invalid-feedback">
+                Please enter a valid offer value.
+              </div>
+            </div>
+            <%= form.hidden_field :status, value: "sent" %>
+            <%= form.hidden_field :inventory_id, value: "#{params[:inventory_id].to_i}" %>
+            <div class="text-center">
+              <%= form.submit "Submit", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

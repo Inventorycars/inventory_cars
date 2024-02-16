@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable#, :confirmable
          
   has_many :inventories
+  has_many :inventory_offers, dependent: :destroy
 
   validates :first_name, :last_name, :phone_number, :city, presence: true
 
