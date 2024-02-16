@@ -47,6 +47,6 @@ class InventoryOffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:inventory_offer).permit(:inventory_id, :offer_value, :status, :rejection_reason)
+    params.require(:inventory_offer).permit(:inventory_id, :offer, :status, :rejection_reason)
   end
 end

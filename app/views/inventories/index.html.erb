@@ -11,6 +11,13 @@
     <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
     <li class="breadcrumb-item active">Inventories</li>
   </ol>
+  <div class="d-flex justify-content-end m-2"> 
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter</button>
+  </div> 
+
+  <div>
+    <%= render 'inventories/shared/filter_bar' %>
+  </div>
   <div class="card mb-4">
     <div class="card-body">
       Your Uploaded Inventories Are Shown here
@@ -70,3 +77,12 @@
     <% end %>
   </div>
 </div>
+
+<style>
+  .filter-menu-container { display: none; }
+  .filter-menu-container.active { display: block; }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('#filterBarBtn').click(function() { $('.filter-menu-container').toggleClass('active'); });
+</script>

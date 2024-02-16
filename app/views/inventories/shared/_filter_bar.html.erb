@@ -1,0 +1,188 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Filter</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/filter" method="get">
+        <div class="border border-light float-left rounded">
+          
+          <!-- Brand Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Brand</label>
+                <div class="p-3">
+                 <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="mercedes" name="brand[]" value="Mercedes">
+                    <label class="form-check-label text-dark" for="Mercedes">Mercedes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" id="bmw" name="brand[]" value="BMW">
+                    <label class="form-check-label text-dark" for="BMW">BMW</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="audi" name="brand[]" value="Audi">
+                    <label class="form-check-label text-dark" for="Audi">Audi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="porsche" name="brand[]" value="Porsche">
+                    <label class="form-check-label text-dark" for="Porsche">Porsche</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="ford" name="brand[]" value="Ford">
+                    <label class="form-check-label text-dark" for="Ford">Ford</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="toyota" name="brand[]" value="Toyota">
+                    <label class="form-check-label text-dark" for="Toyota">Toyota</label>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Price Filter -->
+          <div class="row m-3">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow text-left">
+                <label class="text-dark m-2 border border-light text-dark fw-bold text-left">Price</label>
+                <input type="range" id="price" name="price" min="0" max="100000" value='0' style="width: 60%;">
+                <span class="form-check-label text-dark ms-4" id='priceValue'></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Year</label>
+                <div class="p-3">
+                   <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="year2022" value="2022">
+                      <label class="form-check-label text-dark" for="year2022">2022</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="year2021" value="2021">
+                      <label class="form-check-label text-dark" for="year2021">2021</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="year2020" value="2020">
+                      <label class="form-check-label text-dark" for="year2020">2020</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="year2019" value="2019">
+                      <label class="form-check-label text-dark" for="year2019">2019</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transmission Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Transmission</label>
+                <div class="p-3">
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="manual" value="manual">
+                  <label class="form-check-label text-dark" for="manual">Manual</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="automatic" value="automatic">
+                  <label class="form-check-label text-dark" for="automatic">Automatic</label>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engine Type Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Engine Type</label>
+                <div class="p-3">
+                   <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="engine2L" value="2L">
+                      <label class="form-check-label text-dark" for="engine2L">2.0L</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="engine3L" value="3L">
+                      <label class="form-check-label text-dark" for="engine3L">3.0L</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="engine4L" value="4L">
+                      <label class="form-check-label text-dark" for="engine4L">4.0L</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Miles Driven Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Miles Driven</label>
+                <div class="p-3">
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="milesBelow25K" value="<25000">
+                      <label class="form-check-label text-dark" for="milesBelow25K">Below 25,000</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="miles25Kto70K" value="25000-70000">
+                      <label class="form-check-label text-dark" for="miles25Kto70K">25,000 - 70,000</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fuel Type Filter -->
+          <div class="row m-3 text-center">
+            <div class="col-md-12">
+              <div class="form-group img-custom shadow">
+                <label class="text-dark m-1 border border-light text-dark fw-bold">Fuel Type</label>
+                <div class="p-3">
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="petrol" value="petrol">
+                      <label class="form-check-label text-dark" for="petrol">Petrol</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="diesel" value="diesel">
+                      <label class="form-check-label text-dark" for="diesel">Diesel</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="hybrid" value="hybrid">
+                      <label class="form-check-label text-dark" for="hybrid">Hybrid</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="electric" value="electric">
+                      <label class="form-check-label text-dark" for="electric">Electric</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">   
+          <div class="row m-3 mt-2">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-outline-success">Apply Filter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script> 
+  document.getElementById('price').oninput = function() {
+    document.getElementById('priceValue').innerText = this.value;
+  }
+</script>

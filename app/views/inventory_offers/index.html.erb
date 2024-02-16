@@ -1,24 +1,25 @@
 <div class="row row-cols-1 row-cols-md-5 mb-4 rounded-2">
-  <% @offers.each do |offer| %>
+  <% @offers.each do |offers| %>
     <div class="col mb-4 mt-3">
       <div class="card h-100 shadow clickable-card">
-        <% if offer.inventory.image_urls.present? %>
-          <%= image_tag(offer.inventory.image_urls.first, class: "card-img-top img-fluid h-75") %>
+        <% if offers.inventory.image_urls.present? %>
+          <%= image_tag(offers.inventory.image_urls.first, class: "card-img-top img-fluid h-75") %>
         <% else %>
           <div class="card-img-top img-fluid h-75 bg-light"></div>
         <% end %>
         <div class="card-body shadow">
-          <h5 class="card-title"><%= offer.inventory.model %></h5>
-          <p class="card-text">Offer Value: <%= number_to_currency(offer.offer) %></p>
+          <h5 class="card-title"><%= offers.inventory.model %></h5>
+          
+          <p class="card-text">Offer Value: <%= number_to_currency(offers.offer) %></p>
 
            <div style="text-align: center;">
-	          <% unless offer.inventory.user_id == current_user.id %>
-	            <%= link_to inventory_offer_path(offer), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm ml-1' do %>
-	            <p> Delete offer </p>
+	          <% unless offers.inventory.user_id == current_user.id %>
+	            <%= link_to inventory_offer_path(offers), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm ml-1' do %>
+	            Delete offer 
 	            <% end %>
 	          <% else %>
-	              <%= link_to "Accept", edit_inventory_offer_url(id: offer.id, offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1' %>
-	              <%= link_to "Reject", edit_inventory_offer_url(id: offer.id, offer: {status: 'rejected'}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+	              <%= link_to "Accept", edit_inventory_offer_url(id: offers.id, offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1' %>
+	              <%= link_to "Reject", edit_inventory_offer_url(id: offers.id, offer: {status: 'rejected'}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
 	          <% end %>
 	        </div>
         </div>

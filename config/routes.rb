@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :inventory_offers
 
   get :my_inventories,  to: 'inventories#my_inventories'
- delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'
+  delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'switch_mode', to: 'application#switch_mode', as: 'switch_mode'
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   get :cars_collection, to: 'home#cars_home'
   get "car_details/:id", to: 'home#car_details', as: 'car_details'
-  get 'filter', to: 'home#filtered_data'
+  get 'filter', to: 'inventories#filtered_data'
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

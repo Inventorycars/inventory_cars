@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_11_113717) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_16_091556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,9 +122,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_11_113717) do
   create_table "inventory_offers", force: :cascade do |t|
     t.bigint "inventory_id", null: false
     t.bigint "user_id", null: false
-    t.integer "offer"
+    t.bigint "offer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
+    t.string "rejection_reason"
     t.index ["inventory_id"], name: "index_inventory_offers_on_inventory_id"
     t.index ["user_id"], name: "index_inventory_offers_on_user_id"
   end
