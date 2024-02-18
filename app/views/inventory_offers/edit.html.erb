@@ -10,10 +10,10 @@
             <div class="form-group">
               <% if params[:inventory_offer][:status] == "rejected" %>
                 <%= form.label :rejection_reason, class: "form-label", style: "color: black;" %>
-                <%= form.text_field :rejection_reason, class: "form-control", required: true %>
+               <%= form.text_field :rejection_reason, style: "color: black; !important;", required: true %>
               <% else %>
                 <%= form.label :offer_value, class: "form-label",style: "color: black;"  %>
-                <%= form.number_field :offer, class: "form-control", required: true %>
+                <%= form.number_field :offer, class: "form-control", style: "color: black; !important;", required: true %>
                 <div class="invalid-feedback">
                   Please enter a valid offer value.
                 </div>

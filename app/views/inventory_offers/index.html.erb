@@ -14,12 +14,13 @@
 
            <div style="text-align: center;">
 	          <% unless offers.inventory.user_id == current_user.id %>
+              <%= link_to "Edit Offer", edit_inventory_offer_url(id: offers.id, inventory_offer: {status: 'resent'}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
 	            <%= link_to inventory_offer_path(offers), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm ml-1' do %>
 	            Delete offer 
 	            <% end %>
 	          <% else %>
-	              <%= link_to "Accept", edit_inventory_offer_url(id: offers.id, offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1' %>
-	              <%= link_to "Reject", edit_inventory_offer_url(id: offers.id, offer: {status: 'rejected'}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+	              <%= link_to "Accept", edit_inventory_offer_url(id: offers.id, inventory_offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1' %>
+	              <%= link_to "Reject", edit_inventory_offer_url(id: offers.id, inventory_offer: {status: 'rejected'}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
 	          <% end %>
 	        </div>
         </div>
