@@ -9,7 +9,7 @@
     "flowbite": "^1.8.1",
     "jquery": "^3.7.1",
     "rails_admin": "3.1.2",
-    "sass": "^1.68.0",
+    "sass": "^1.71.0",
     "tom-select": "^2.2.2"
   },
   "name": "inventory_cars",
