@@ -2,7 +2,7 @@ class InventoryOffersController < ApplicationController
   
   layout 'admin'
   def index
-    @offers = InventoryOffer.all.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+    @offers = InventoryOffer.all.paginate(page: params[:page], per_page: 15).order(created_at: :desc).includes(:inventory)
   end
 
   def new

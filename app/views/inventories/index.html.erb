@@ -44,33 +44,7 @@
       <div id="tableView" class="hidden">
         <%= render 'inventories/shared/table_inventories' %>
       </div>
-      <nav aria-label="Page navigation example" id="paginationControls">
-        <ul class="pagination">
-          <li class="page-item">
-            <%= link_to 'Previous', (@inventories.previous_page ? "/inventories?page=#{@inventories.previous_page}" : "#"), class: "page-link bi bi-caret-left #{"disabled" unless @inventories.previous_page}" %>
-          </li>
-          <li class="page-item <%= "disabled" if @inventories.current_page == 1 %>">
-            <%= link_to '1', "/inventories?page=1", class: "page-link" %>
-          </li>
-          <li class="page-item <%= "disabled" if @inventories.current_page == 2 %>">
-            <%= link_to '2', "/inventories?page=2", class: "page-link" %>
-          </li>
-          <% if @inventories.total_pages > 3 %>
-          <li class="page-item"><span class="page-link">...</span></li>
-          <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages - 1 %>">
-            <%= link_to (@inventories.total_pages - 1), "/inventories?page=#{@inventories.total_pages - 1}", class: "page-link" %>
-          </li>
-          <li class="page-item <%= "disabled" if @inventories.current_page == @inventories.total_pages %>">
-            <%= link_to @inventories.total_pages, "/inventories?page=#{@inventories.total_pages}", class: "page-link" %>
-          </li>
-          <% end %>
-          <li class="page-item">
-            <%= link_to(@inventories.next_page ? "/inventories?page=#{@inventories.next_page}" : "#", class: "page-link #{"disabled" unless @inventories.next_page}") do %>
-            Next<i class="bi bi-caret-right"></i>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
+      <%= paginate @inventories %>
     </div>
     <% else %>
     <p class="m-2 p-2 ">You do not have any inventories please upload some </p>

@@ -19,6 +19,26 @@
           <h3 class="text-center">Update your inventory</h3>
           <hr>
           <%= form_with(model: @inventory, url: inventory_path(@inventory), method: :patch, class: "row g-3") do |form| %>
+          <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner shadow-lg">
+              <% if @inventory.image_urls.present? %>
+                <% @inventory.image_list.each_with_index  do |image_url, index| %>
+                <div class="carousel-item <%= 'active' if index.zero? %>">
+                  <%= image_tag(image_url, class: "d-block w-100", style: "width: 40%; height: 20%; max-height: 600px; object-fit: cover;", onclick: "document.getElementById('image_list').click();" )%>
+                </div>
+                <% end %>
+                <% image_tag(@inventory.image_urls.first, class: "h-100", style: "width: 40%; height: 20%;") %>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+          </div>
           <div class="col-md-6">
             <%= form.label :inventory_type, class: "form-label" %>
             <%= form.text_field :inventory_type, class: "form-control text-dark" %>
@@ -216,8 +236,8 @@
             <%= form.text_field :transmission_gear, class: "form-control text-dark" %>
           </div>
           <div class="col-md-6">
-            <%= form.label :image_urls, class: "form-label" %>
-            <%= form.text_field :image_urls, multiple: true, class: "form-control text-dark" %>
+            <%= form.label :image, class: "form-label" %>
+            <%= form.file_field :image_list, multiple: true,id: 'image_list', class: "form-control text-dark" %>
           </div>
           <div class="col-12">
             <%= form.submit "Update", class: "btn btn-secondary w-100" %>

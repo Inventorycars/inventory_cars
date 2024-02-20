@@ -78,7 +78,7 @@ class InventoriesController < ApplicationController
   end
 
   def update
-    if @inventory.update(inventory_params) && @inventory.finalize!
+    if @inventory.update(inventory_params) && @inventory.finalized?
       redirect_to inventory_url(@inventory), notice: "Inventory was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -105,22 +105,22 @@ class InventoriesController < ApplicationController
   end
 
   def filtered_data
-    brand = params[:brand]
-    price = params[:price]
-    year = params[:year]
-    transmission = params[:transmission]
-    engine_type = params[:engine_type]
-    miles_driven = params[:miles_driven]
-    fuel_type = params[:fuel_type]
+    @brand = params[:brand]
+    @price = params[:price]
+    @year = params[:year]
+    @transmission = params[:transmission]
+    @engine_type = params[:engine_type]
+    @miles_driven = params[:miles_driven]
+    @fuel_type = params[:fuel_type]
     @inventories = Inventory.paginate(page: params[:page], per_page: 18).order(created_at: :desc)
-    
-    @inventories = @inventories.where(make: brand) if brand.present?
-    @inventories = @inventories.where('price <= ?', price.to_i) if  price.to_i > 0
-    @inventories = @inventories.where(year: year) if year.present?
-    @inventories = @inventories.where(transmission: transmission) if transmission.present?
-    @inventories = @inventories.where(engine_type: engine_type) if engine_type.present?
-    @inventories = @inventories.where(miles: miles_driven) if miles_driven.present?
-    @inventories = @inventories.where(fuel_type: fuel_type) if fuel_type.present?
+
+    @inventories = @inventories.where(make: @brand) if @brand.present?
+    @inventories = @inventories.where('price <= ?', @price.to_i) if  @price.to_i > 0
+    @inventories = @inventories.where(year: @year) if @year.present?
+    @inventories = @inventories.where(transmission: @transmission) if @transmission.present?
+    @inventories = @inventories.where(engine_cylinders: @engine_type) if @engine_type.present?
+    @inventories = @inventories.where(miles: @miles_driven) if @miles_driven.present?
+    @inventories = @inventories.where(fuel_type: @fuel_type) if @fuel_type.present?
     render 'index'
   end
 
@@ -134,6 +134,6 @@ class InventoriesController < ApplicationController
     end
 
     def inventory_params
-      params.require(:inventory).permit(:inventory_type, :stock, :vin, :year, :make, :model, :body, :trim, :doors, :exterior_color, :interior_color, :engine_cylinders, :engine_displacement, :transmission, :miles, :price, :msrp, :book_value, :invoice, :certified, :date_in_stock, :description, :options, :categorize_options, :comments, :style_description, :ext_color_generic, :ext_color_code, :ext_color_hex_code, :int_color_generic, :int_color_code, :int_color_hex_code, :int_upholstery, :engine_block_type, :engine_aspiration_type, :engine_description, :transmission_speed, :transmission_description, :drivetrain, :fuel_type, :city_mpg, :highway_mpg, :epa_classifications, :wheelbase_code, :internet_price, :misc_price1, :misc_price2, :mise_price3, :factory_codes, :market_class, :passenger_capacity, :engine_displacement_cubic_inches, :transmission_gear, :image_urls => [], :image_list => [] )
+      params.require(:inventory).permit(:inventory_type, :stock, :vin, :year, :make, :model, :body, :trim, :doors, :exterior_color, :interior_color, :engine_cylinders, :engine_displacement, :transmission, :miles, :price, :msrp, :book_value, :invoice, :certified, :date_in_stock, :description, :options, :categorize_options, :comments, :style_description, :ext_color_generic, :ext_color_code, :ext_color_hex_code, :int_color_generic, :int_color_code, :int_color_hex_code, :int_upholstery, :engine_block_type, :engine_aspiration_type, :engine_description, :transmission_speed, :transmission_description, :drivetrain, :fuel_type, :city_mpg, :highway_mpg, :epa_classifications, :wheelbase_code, :internet_price, :misc_price1, :misc_price2, :mise_price3, :factory_codes, :market_class, :passenger_capacity, :engine_displacement_cubic_inches, :transmission_gear, image_list: [])
     end
 end

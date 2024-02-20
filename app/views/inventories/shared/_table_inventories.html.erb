@@ -28,6 +28,7 @@
          <td><%= inventory.ext_color_generic %></td>
          <td><%= inventory.int_color_generic %></td>
          <td>
+        <% if inventory.user_id == current_user.id %>
              <%= link_to inventory_path(inventory), class: 'btn btn-primary btn-sm m-2 shadow' do %>
             <i class="bi bi-eye"></i>
           <% end %>
@@ -39,6 +40,10 @@
           <%= link_to inventory_path(inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
             <i class="bi bi-trash"></i> 
           <% end %>
+        <% else %>
+          <%= link_to "Details", inventory_path(inventory), class: 'btn btn-success btn-sm ml-1' %>
+          <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+        <% end %>
       </tr>
       <% end %>
    </tbody>

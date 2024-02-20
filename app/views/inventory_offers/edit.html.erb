@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="card mt-5">
         <div class="card-header">
           <h5 class="card-title">Edit Offer</h5>
@@ -22,7 +22,7 @@
             </div>
             <%= form.hidden_field :status, value: "#{params[:inventory_offer][:status]}" %>
 
-            <div class="text-center">
+            <div class="mt-2 text-center">
               <%= form.submit "Update", class: "btn btn-primary" %>
             </div>
           <% end %>

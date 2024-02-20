@@ -17,12 +17,12 @@
         <h4 class="text-center m-3">Images</h4>
         <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner shadow-lg">
-            <% if @inventory.image_urls %>
-            <% @inventory.image_urls.first.split(",").each_with_index do |image_url, index| %>
-            <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
-            </div>
-            <% end %>
+            <% if @inventory.image_list %>
+              <% @inventory.image_list.each_with_index  do |image_url, index| %>
+              <div class="carousel-item <%= 'active' if index.zero? %>">
+                <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+              </div>
+              <% end %>
             <% end %>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
@@ -35,11 +35,15 @@
           </button>
         </div>
         <div class="m-4">
-          <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
-          <i class="bi bi-pencil"></i> 
-          <% end %>
-          <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
-          <i class="bi bi-trash"></i> 
+          <% if @inventory.user_id == current_user.id %>
+            <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+            <i class="bi bi-pencil"></i> 
+            <% end %>
+            <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+            <i class="bi bi-trash"></i> 
+            <% end %>
+          <% else %>
+            <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: @inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
           <% end %>
         </div>
       </div>
