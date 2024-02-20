@@ -12,11 +12,10 @@
     <li class="breadcrumb-item active">Inventories</li>
   </ol>
   <div class="d-flex justify-content-end m-2"> 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter</button>
-  </div> 
+    <button type="button" class="btn btn-primary" id="filterBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter</button>
 
-  <div>
-    <%= render 'inventories/shared/filter_bar' %>
+    <div id="filterBar"></div>
+
   </div>
   <div class="card mb-4">
     <div class="card-body">
@@ -45,18 +44,15 @@
         <%= render 'inventories/shared/table_inventories' %>
       </div>
       <%= paginate @inventories %>
+      
     </div>
     <% else %>
     <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
     <% end %>
   </div>
 </div>
-
-<style>
-  .filter-menu-container { display: none; }
-  .filter-menu-container.active { display: block; }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $('#filterBarBtn').click(function() { $('.filter-menu-container').toggleClass('active'); });
+    var container = document.createElement('div');
+    container.innerHTML = '<%= j render "inventories/shared/filter_bar" %>';
+    document.getElementById('filterBar').appendChild(container);
 </script>

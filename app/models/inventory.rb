@@ -45,7 +45,18 @@ class Inventory < ApplicationRecord
     event :pause do
       transitions from: :live, to: :paused
     end
+  end
 
+  def self.filter_data
+    filter = {}
+    filter['brand'] = Inventory.all.pluck(:make).uniq
+    filter['price'] = Inventory.all.pluck(:price).uniq
+    filter['year'] = Inventory.all.pluck(:year).uniq
+    filter['transmission'] = Inventory.all.pluck(:transmission).uniq
+    filter['engine_cylinders'] = Inventory.all.pluck(:engine_cylinders).uniq
+    filter['miles'] = Inventory.all.pluck(:miles).uniq
+    filter['fuel_type'] = Inventory.all.pluck(:fuel_type).uniq
+    filter
   end
 
   def set_image_processed

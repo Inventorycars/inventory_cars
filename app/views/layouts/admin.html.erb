@@ -21,7 +21,7 @@
     <%= render '/shared/admin_sidebar'%>
     <% end %>
     <div id="layoutSidenav_content">
-    <div class="m-3 mt-5">
+    <div class=" p-2 mt-4">
       <%= yield %>
     </div>
     <%= render '/shared/footer'%>
@@ -94,6 +94,22 @@
                 console.error('Error fetching cities:', error);
             });
  });
+
+    function removeFilter() {
+      var checkboxes = document.querySelectorAll('input[type=checkbox]');
+      var ranges = document.querySelectorAll('input[type=range]');
+      ranges.forEach(function(range) {
+        range.value = 0;
+        document.getElementById('priceValue').innerText = 0;
+      });
+      checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+    };
+
+  function pricesValue(val) {
+    document.getElementById('priceValue').innerText = val
+  }
 </script>
 
   </body>

@@ -5,8 +5,9 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Filter</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <% filter_data = Inventory.filter_data %>
       <div class="modal-body">
-        <form action="/filter" method="get">
+        <form action="/filter" method="get" data-remote="true">
           <div class="border border-light float-left rounded">
             <!-- Brand Filter -->
             <div class="row m-3 text-center">
@@ -14,7 +15,7 @@
                 <div class="form-group img-custom shadow">
                   <label class="text-dark m-1 border border-light text-dark fw-bold">Brand</label>
                   <div class="p-3">
-                    <% brands = ['Mercedes', 'BMW', 'Audi', 'Porsche', 'Ford', 'Toyota'] %>
+                    <% brands = filter_data['brand'] %>
                     <% brands.each do |brand| %>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="<%= brand.downcase %>" name="brand[]" value="<%= brand %>" <%= 'checked' if @brand&.include?(brand) %>>
@@ -31,7 +32,7 @@
               <div class="col-md-12">
                 <div class="form-group img-custom shadow text-left">
                   <label class="text-dark m-2 border border-light text-dark fw-bold text-left">Price</label>
-                  <input type="range" id="price" name="price" min="0" max="100000" value="<%= @price.to_i %>" style="width: 60%;">
+                  <input type="range" id="price" name="price" min="0" max="100000" value="<%= @price.to_i %>" style="width: 60%;" oninput="pricesValue(this.value)">
                   <span class="form-check-label text-dark ms-4" id="priceValue"><%= @price.to_i %></span>
                 </div>
               </div>
@@ -43,11 +44,11 @@
                 <div class="form-group img-custom shadow">
                   <label class="text-dark m-1 border border-light text-dark fw-bold">Year</label>
                   <div class="p-3">
-                    <% years = ['2017', '2018', '2019', '2020', '2021', '2022', '2023'] %>
+                    <% years = filter_data['year'] %>
                     <% years.each do |year| %>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="year[]"  id="year2022" value="<%= year %>" <%= 'checked' if @year&.include?(year) %>>
-                      <label class="form-check-label text-dark", for="year<%= year %>">2022</label>
+                      <label class="form-check-label text-dark" for="year<%= year %>"><%= year %></label>
                     </div>
                     <% end %>
                   </div>
@@ -103,14 +104,14 @@
                 <div class="form-group img-custom shadow">
                   <label class="text-dark m-1 border border-light text-dark fw-bold">Miles Driven</label>
                   <div class="p-3">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name='miles_driven' id="milesBelow25K" value="<25000" <%= 'checked' if @miles_driven == '<25000' %>>
-                      <label class="form-check-label text-dark" for="milesBelow25K">Below 25,000</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name='miles_driven' id="miles25Kto70K" value="25000-70000" <%= 'checked' if @miles_driven == '25000-70000' %>>
-                      <label class="form-check-label text-dark" for="miles25Kto70K">25,000 - 70,000</label>
-                    </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" name='miles_driven' id="milesBelow25K" value="<25000" <%= 'checked' if @miles_driven == '<25000' %>>
+                          <label class="form-check-label text-dark" for="milesBelow25K">Below 25,000</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" name='miles_driven' id="miles25Kto70K" value="25000-70000" <%= 'checked' if @miles_driven == '25000-70000' %>>
+                          <label class="form-check-label text-dark" for="miles25Kto70K">25,000 - 70,000</label>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -122,11 +123,11 @@
                 <div class="form-group img-custom shadow">
                   <label class="text-dark m-1 border border-light text-dark fw-bold">Fuel Type</label>
                   <div class="p-3">
-                    <% fuels = ['petrol', 'diesel', 'diesel', 'electric'] %>
+                    <% fuels = filter_data['fuel_type'] %>
                     <% fuels.each do |fuel| %>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="petrol" name="fuel_type[]" value="<%= fuel %>" <%= 'checked' if @fuel_type&.include?(fuel) %>>
-                      <label class="form-check-label text-dark" for="petrol">Petrol</label>
+                      <input class="form-check-input" type="checkbox" id=<% fuel %> name="fuel_type[]" value="<%= fuel %>" <%= 'checked' if @fuel_type&.include?(fuel) %>>
+                      <label class="form-check-label text-dark" for="petrol"><%= fuel %></label>
                     </div>
                     <% end %>
                   </div>
@@ -137,10 +138,10 @@
           <div class="modal-footer d-flex justify-content-center">   
             <div class="row">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-outline-success">Apply Filter</button>
+                <button type="submit" class="btn btn-outline-success" >Apply Filter</button>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-outline-danger" style="width: 110% !important" id="removeFilterBtn">Remove Filter</button>
+                <button type="button" class="btn btn-outline-danger" style="width: 110% !important" id="removeFilterBtn" onclick="removeFilter()">Remove Filter</button>
               </div>
             </div>
           </div>
@@ -150,27 +151,3 @@
     </div>
   </div>
 </div>
-<script>
-  // Function to uncheck all checkboxes
-  function uncheckAllCheckboxes() {
-    var checkboxes = document.querySelectorAll('input[type=checkbox]');
-    var ranges = document.querySelectorAll('input[type=range]');
-    ranges.forEach(function(range) {
-      range.value = 0;
-      document.getElementById('priceValue').innerText = 0;
-    });
-    checkboxes.forEach(function(checkbox) {
-      checkbox.checked = false;
-    });
-  }
-
-  // Event listener for the Remove Filter button
-  document.getElementById('removeFilterBtn').addEventListener('click', function() {
-    uncheckAllCheckboxes();
-  });
-
-  document.getElementById('price').oninput = function() {
-    
-    document.getElementById('priceValue').innerText = this.value
-  }
-</script>
