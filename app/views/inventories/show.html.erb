@@ -17,11 +17,17 @@
         <h4 class="text-center m-3">Images</h4>
         <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner shadow-lg">
-            <% if @inventory.image_list %>
+            <% if @inventory.image_list.present? %>
               <% @inventory.image_list.each_with_index  do |image_url, index| %>
-              <div class="carousel-item <%= 'active' if index.zero? %>">
-                <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
-              </div>
+                <div class="carousel-item <%= 'active' if index.zero? %>">
+                  <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+                </div>
+              <% end %>
+            <% elsif @inventory.image_urls %>
+              <% @inventory.image_urls.first.split(",").each_with_index do |image_url, index| %>
+                <div class="carousel-item <%= 'active' if index.zero? %>">
+                  <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+                </div>
               <% end %>
             <% end %>
           </div>

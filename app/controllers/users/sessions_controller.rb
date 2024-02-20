@@ -1,5 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
-  layout 'home'
+  layout 'admin'
   def create
     resource = warden.authenticate!(auth_options)
      if resource.role == 'dealer'

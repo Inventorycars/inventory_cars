@@ -49,13 +49,14 @@ class Inventory < ApplicationRecord
 
   def self.filter_data
     filter = {}
-    filter['brand'] = Inventory.all.pluck(:make).uniq
-    filter['price'] = Inventory.all.pluck(:price).uniq
-    filter['year'] = Inventory.all.pluck(:year).uniq
-    filter['transmission'] = Inventory.all.pluck(:transmission).uniq
-    filter['engine_cylinders'] = Inventory.all.pluck(:engine_cylinders).uniq
-    filter['miles'] = Inventory.all.pluck(:miles).uniq
-    filter['fuel_type'] = Inventory.all.pluck(:fuel_type).uniq
+    inventories = Inventory.all
+    filter['brand'] = inventories.pluck(:make).uniq
+    filter['price'] = [inventories.pluck(:price).min, inventories.pluck(:price).max]
+    filter['year'] = inventories.pluck(:year).uniq
+    filter['transmission'] = inventories.pluck(:transmission).uniq
+    filter['engine_cylinders'] = inventories.pluck(:engine_cylinders).uniq
+    filter['miles'] = inventories.pluck(:miles).uniq
+    filter['fuel_type'] = inventories.pluck(:fuel_type).uniq
     filter
   end
 

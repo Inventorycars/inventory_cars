@@ -2,9 +2,9 @@
    <!-- Navbar Brand-->
    <img src="/assets/car.webp" width="150" height="150" class="p-2" />
    <%# <%= link_to "Cars Inventory", root_path, class: "navbar-brand ps-3 fw-bold", style: "width: 192px;" % > %>
-   <button class="btn btn-outline-secondary " id="sidebarToggle" type="button"><i class="fas fa-bars"></i></button>
+   <% if current_user || current_admin %>
+      <button class="btn btn-outline-secondary " id="sidebarToggle" type="button"><i class="fas fa-bars"></i></button>
    <!-- Sidebar Toggle-->
-    <% if current_user || current_admin %>
    <% end %>
    <!-- Navbar Search-->
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">

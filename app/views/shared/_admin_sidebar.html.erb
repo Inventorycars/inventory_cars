@@ -5,54 +5,38 @@
          <!-- Sidebar Heading -->
          <div class="sb-sidenav-menu-heading">Core</div>
          <!-- Dashboard Link -->
-         <a class="nav-link" href="<%= root_path %>">
+         <a class="nav-link" href="<%= root_path unless current_admin %>">
             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
             Dashboard
          </a>
          <!-- Interface Heading -->
          <!-- Layouts -->
-          <% if current_user %>
-         <div class="sb-sidenav-menu-heading">Interface</div>
-         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+         <% if current_user %>
+            <div class="sb-sidenav-menu-heading">Interface</div>
+            <a class="nav-link <%= ((request.url.include? 'inventories') || (params[:controller] == 'inventories')) ? 'active' : 'collapsed' %>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                 Inventory
+               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse <%= 'show' if ((request.url.include? 'inventories') || (params[:controller] == 'inventories')) %>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+               <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link <%= 'active' if (params[:controller] == 'inventories') && (params[:action] == 'index') %>" href="/inventories">List Inventories</a>
+                  <a class="nav-link <%= 'active' if request.url.include? 'my_inventories' %>" href="/my_inventories">My Inventories</a>
+                  <a class="nav-link <%= 'active' if request.url.include? 'upload_csv' %>" href="/inventories/upload_csv">Add Inventory</a>
+               </nav>
+            </div>
+
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-            Dealer Actions
-            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-         </a>
-         <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-               <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                  Inventory
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-               </a>
-               <div class="collapse show" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                     <a class="nav-link" href="/inventories">List Inventories</a>
-                     <a class="nav-link" href="/my_inventories">My Inventories</a>
-                     <a class="nav-link" href="/inventories/upload_csv">Add Inventory</a>
-                     <a class="nav-link" href="/inventory_offers">My offers</a>
-                  </nav>
-               </div>
-               <%#      <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                  Error
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                  </a>
-                  <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="401.html">401 Page</a>
-                    <a class="nav-link" href="404.html">404 Page</a>
-                    <a class="nav-link" href="500.html">500 Page</a>
-                  </nav>
-                  </div>
-                  </nav> %>
-         </div>
+            My offers
+            </a>
          <% end %>
          <!-- Addons Heading -->
          <% if current_admin %>
-         <div class="sb-sidenav-menu-heading">Addons</div>
-         <a class="nav-link" href="/admin/user_list">
-         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-         Users
-         </a>
+            <a class="nav-link active" href="/admin/user_list">
+               <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+               Users
+            </a>
          <% end %>
       </div>
    </div>

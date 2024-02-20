@@ -125,15 +125,16 @@
                   <div class="p-3">
                     <% fuels = filter_data['fuel_type'] %>
                     <% fuels.each do |fuel| %>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id=<% fuel %> name="fuel_type[]" value="<%= fuel %>" <%= 'checked' if @fuel_type&.include?(fuel) %>>
-                      <label class="form-check-label text-dark" for="petrol"><%= fuel %></label>
-                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="<%= fuel.downcase %>" name="fuel_type[]" value="<%= fuel %>" <%= 'checked' if @fuel_type&.include?(fuel) %>>
+                        <label class="form-check-label text-dark" for="<%= fuel.downcase %>"><%= fuel %></label>
+                      </div>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
           <div class="modal-footer d-flex justify-content-center">   
             <div class="row">

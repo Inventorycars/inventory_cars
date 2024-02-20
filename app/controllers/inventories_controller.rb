@@ -78,7 +78,7 @@ class InventoriesController < ApplicationController
   end
 
   def update
-    if @inventory.update(inventory_params) && @inventory.finalized?
+    if @inventory.update(inventory_params)# && @inventory.finalized?
       redirect_to inventory_url(@inventory), notice: "Inventory was successfully updated."
     else
       render :edit, status: :unprocessable_entity

@@ -1,58 +1,55 @@
 <% if flash[:notice].present? %>
 <div id="flash-message-container">
-  <div id="flash-message" class="alert alert-lite border border-lite mt-4" role="alert">
-    <i class="bi bi-bag-check-fill m-2"></i><%= flash[:notice] %>
-  </div>
+   <div id="flash-message" class="alert alert-lite border border-lite mt-4" role="alert">
+      <i class="bi bi-bag-check-fill m-2"></i><%= flash[:notice] %>
+   </div>
 </div>
 <% end %>
 <div class="container-fluid px-4 p-3 mb-5 bg-body-tertiary rounded">
-  <h1 class="mt-4">Inventories</h1>
-  <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
-    <li class="breadcrumb-item active">Inventories</li>
-  </ol>
-  <div class="d-flex justify-content-end m-2"> 
-    <button type="button" class="btn btn-primary" id="filterBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter</button>
-
-    <div id="filterBar"></div>
-
-  </div>
-  <div class="card mb-4">
-    <div class="card-body">
-      Your Uploaded Inventories Are Shown here
-      <%= link_to 'Upload CSV', upload_csv_inventories_path, target: '_blan' %>
-    </div>
-  </div>
-  <div class="card mb-4">
-    <div class="card-header">
-      <i class="bi bi-archive-fill me-1"></i>
-      Inventories
-    </div>
-    <% unless @inventories.empty? %>
-    <div class="card-body">
-      <!-- Switch Button -->
-      <div class="form-check form-switch m-2">
-        <input class="form-check-input shadow" type="checkbox" id="switchButton">
-        <label id="viewLabel" class="form-check-label" for="switchButton">Change View</label>
+   <h1 class="mt-4">Inventories</h1>
+   <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+      <li class="breadcrumb-item active">Inventories</li>
+   </ol>
+   <div class="d-flex justify-content-end m-2">
+      <button type="button" class="btn btn-primary" id="filterBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter</button>
+      <div id="filterBar"></div>
+   </div>
+   <div class="card mb-4">
+      <div class="card-body">
+         Your Uploaded Inventories Are Shown here
+         <%= link_to 'Upload CSV', upload_csv_inventories_path, target: '_blan' %>
       </div>
-      <!-- Grid View Placeholder -->  
-      <div id="gridView" class="hidden">
-        <%= render 'inventories/shared/grid_inventories' %>
+   </div>
+   <div class="card mb-4">
+      <div class="card-header">
+         <i class="bi bi-archive-fill me-1"></i>
+         Inventories
       </div>
-      <!-- Table View Placeholder -->
-      <div id="tableView" class="hidden">
-        <%= render 'inventories/shared/table_inventories' %>
+      <% unless @inventories.empty? %>
+      <div class="card-body">
+         <!-- Switch Button -->
+         <div class="form-check form-switch m-2">
+            <input class="form-check-input shadow" type="checkbox" id="switchButton">
+            <label id="viewLabel" class="form-check-label" for="switchButton">Change View</label>
+         </div>
+         <!-- Grid View Placeholder -->  
+         <div id="gridView" class="hidden">
+            <%= render 'inventories/shared/grid_inventories' %>
+         </div>
+         <!-- Table View Placeholder -->
+         <div id="tableView" class="hidden">
+            <%= render 'inventories/shared/table_inventories' %>
+         </div>
+         <%= paginate @inventories %>
       </div>
-      <%= paginate @inventories %>
-      
-    </div>
-    <% else %>
-    <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
-    <% end %>
-  </div>
+      <% else %>
+      <p class="m-2 p-2 ">You do not have any inventories please upload some </p>
+      <% end %>
+   </div>
 </div>
 <script>
-    var container = document.createElement('div');
-    container.innerHTML = '<%= j render "inventories/shared/filter_bar" %>';
-    document.getElementById('filterBar').appendChild(container);
+   var container = document.createElement('div');
+   container.innerHTML = '<%= j render "inventories/shared/filter_bar" %>';
+   document.getElementById('filterBar').appendChild(container);
 </script>

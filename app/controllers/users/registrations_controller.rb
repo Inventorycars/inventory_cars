@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-   layout 'home'
+   layout 'admin'
   
   def create
     build_resource(sign_up_params)

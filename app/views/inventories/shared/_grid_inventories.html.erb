@@ -9,8 +9,18 @@
           <div class="card-img-top img-fluid h-75 bg-light"></div>
         <% end %>
         <div class="card-body shadow">
-          <h5 class="card-title"><%= inventory.model %></h5>
-          <p class="card-text">Type: <%= inventory.inventory_type %></p>
+          
+          <div class="row col-md-12">
+            <div class="col-md-6">
+              <h6 class="card-title"><%= inventory.make %></h6>
+            </div>
+            <div class="col-md-6">
+              <h6 class="card-title" style="text-align: right;">
+                <%= inventory.model %>
+              </h6>
+            </div>
+          </div>
+          <p class="card-text">MFG Year: <%= inventory.year %></p>
           <p class="card-text">Price: <%= number_to_currency(inventory.price) %></p>
 
           <% if inventory.user_id == current_user.id %>
@@ -29,8 +39,7 @@
             <div style="text-align: center;">
               <%= link_to "Details", inventory_path(inventory), class: 'btn btn-success btn-sm ml-1' %>
               <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
-
-              </div>
+            </div>
           <% end %>
         </div>
       </div>
