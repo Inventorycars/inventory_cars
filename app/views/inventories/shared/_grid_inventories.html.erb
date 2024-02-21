@@ -2,9 +2,10 @@
   <% @inventories.each do |inventory| %>
     <div class="col mb-4 mt-3">
       <div class="card h-100 shadow clickable-card" onclick="window.location.href='<%= inventory_path(inventory) %>'">
-        <% if inventory.image_urls.present?  %>
+        <% if inventory.image_list.present? %>
+            <%= image_tag(inventory.image_list.first, class: "card-img-top img-fluid h-75") %>
+        <% elsif inventory.image_urls.present?  %>
           <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75")  %>
-
         <% else %>
           <div class="card-img-top img-fluid h-75 bg-light"></div>
         <% end %>

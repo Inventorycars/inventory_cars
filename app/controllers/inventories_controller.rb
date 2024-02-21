@@ -26,10 +26,12 @@ class InventoriesController < ApplicationController
   def create
     @inventory = current_user.inventories.new(inventory_params)
 
-    if @inventory.save && @inventory.step_2!
-      render turbo_stream: turbo_stream.update('inventory_form', partial: 'inventories/form_steps/2', locals: { inventory: @inventory, step: @step })
+    if @inventory.save #&& @inventory.step_2!
+      redirect_to root_path, notice: "Inventory was successfully created."
+      # render turbo_stream: turbo_stream.update('inventory_form', partial: 'inventories/form_steps/2', locals: { inventory: @inventory, step: @step })
     else
-      render turbo_stream: turbo_stream.update('inventory_form', partial: 'inventories/form_steps/1', locals: { inventory: @inventory, step: @step })
+      render :new, status: :unprocessable_entity
+      # render turbo_stream: turbo_stream.update('inventory_form', partial: 'inventories/form_steps/1', locals: { inventory: @inventory, step: @step })
     end
 
   end
@@ -89,7 +91,7 @@ class InventoriesController < ApplicationController
     @inventory.destroy
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@inventory) }
-      format.html { redirect_to inventories_path, notice: "Inventory was successfully removed." }
+      format.html { redirect_to root_path, notice: "Inventory was successfully removed." }
     end
   end
 

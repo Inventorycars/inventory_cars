@@ -1,0 +1,161 @@
+<div class="p-3 m-1">
+  <h1 class="mt-4">New Inventory</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+    <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
+    <li class="breadcrumb-item active">New</li>
+  </ol>
+  <hr>
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="bi bi-ticket-detailed-fill me-1"></i>
+      New Inventory
+    </div>
+    <div class="container-fluid">
+      <div class="row p-3">
+        <div class="">
+          <div class="card border-2 p-4 card image_urlshadow-lg rounded-lg">
+            <h3 class="text-center">Create new inventory</h3>
+            <hr>
+            <%= form_with(model: @inventory, url: inventories_path, method: :post, class: "row g-3", multipart: true) do |form| %>
+              
+
+              <% fields = [
+							 [:inventory_type, "Inventory Type"],
+							 [:stock, "Stock"],
+							 [:vin, "VIN"],
+							 [:year, "Year"],
+							 [:make, "Make"],
+							 [:model, "Model"],
+							 [:body, "Body"],
+							 [:trim, "Trim"],
+							 [:doors, "Doors"],
+							 [:exterior_color, "Exterior Color"],
+							 [:interior_color, "Interior Color"],
+							 [:engine_cylinders, "Engine Cylinders"],
+							 [:engine_displacement, "Engine Displacement"],
+							 [:transmission, "Transmission"],
+							 [:miles, "Miles"],
+							 [:price, "Price"],
+							 [:msrp, "MSRP"],
+							 [:book_value, "Book Value"],
+							 [:invoice, "Invoice"],
+							 [:certified, "Certified"],
+							 [:date_in_stock, "Date In Stock"],
+							 [:description, "Description"],
+							 [:options, "Options"],
+							 [:comments, "Comments"],
+							 [:style_description, "Style Description"],
+							 [:ext_color_generic, "Exterior Color Generic"],
+							 [:ext_color_code, "Exterior Color Code"],
+							 [:ext_color_hex_code, "Exterior Color Hex Code"],
+							 [:int_color_generic, "Interior Color Generic"],
+							 [:int_upholstery, "Interior Upholstery"],
+							 [:engine_block_type, "Engine Block Type"],
+							 [:engine_aspiration_type, "Engine Aspiration Type"],
+							 [:engine_description, "Engine Description"],
+							 [:transmission_speed, "Transmission Speed"],
+							 [:transmission_description, "Transmission Description"],
+							 [:drivetrain, "Drivetrain"],
+							 [:fuel_type, "Fuel Type"],
+							 [:city_mpg, "City MPG"],
+							 [:highway_mpg, "Highway MPG"],
+							 [:epa_classifications, "EPA Classifications"],
+							 [:wheelbase_code, "Wheelbase Code"],
+							 [:internet_price, "Internet Price"],
+							 [:misc_price1, "Misc Price 1"],
+							 [:misc_price2, "Misc Price 2"],
+							 [:factory_codes, "Factory Codes"],
+							 [:market_class, "Market Class"],
+							 [:passenger_capacity, "Passenger Capacity"],
+							 [:engine_displacement_cubic_inches, "Engine Displacement (Cubic Inches)"],
+							 [:transmission_gear, "Transmission Gear"]
+							] %>
+              <% fields.each do |field, label| %>
+                <div class="col-md-6">
+                  <%= form.label field, label, class: "form-label" %>
+                  <%= form.text_field field, class: "form-control text-dark" %>
+                  <% if @inventory.errors.has_key?(field) %>
+                    <p class="text-danger"><%= @inventory.errors[field].first %></p>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <!-- Image Upload Section -->
+              <div class="col-md-6">
+                <%= form.label :image, class: "form-label" %>
+                <button type="button" class="col-md-12 p-2 form-control text-dark" onclick="document.getElementById('image_list').click()">Select Image</button>
+                <div class="d-none">
+                  <%= form.file_field :image_list, multiple: true, id: 'image_list', class: "form-control text-dark", onchange: "readURL(this);" %>
+                </div>
+              </div>
+              <div id="preview-container"></div>
+              <!-- End Image Upload Section -->
+
+              <div class="col-12">
+                <%= form.submit "Create", class: "btn btn-secondary w-100" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('image_list');
+    
+    fileInput.addEventListener('change', function() {
+      addImages();
+    });
+
+    // Trigger initial loading of existing images
+    addImages();
+  });
+
+  function addImages() {
+    const fileInput = document.getElementById('image_list');
+    const fileList = new DataTransfer();
+
+    // Add existing images
+    <% @inventory.image_list.each do |image| %>
+      var imageUrl = "<%= rails_blob_path(image, only_path: true) %>";
+      fetch(`http://localhost:3000/${imageUrl}`)
+        .then(response => response.blob())
+        .then(blob => {
+          const file = new File([blob], "<%= image.filename %>", { type: blob.type });
+          fileList.items.add(file);
+          fileInput.files = fileList.files;
+        });
+    <% end %>
+
+    // Add newly selected images
+    for (let i = 0; i < fileInput.files.length; i++) {
+      fileList.items.add(fileInput.files[i]);
+    }
+    fileInput.files = fileList.files;
+  }
+
+  function readURL(input) {
+    var previewContainer = document.getElementById('preview-container');
+    previewContainer.innerHTML = ''; // Clear previous previews
+
+    if (input.files && input.files.length > 0) {
+      for (var i = 0; i < input.files.length; i++) {
+        var reader = new FileReader();
+        let image = document.createElement('img');
+
+        reader.onload = function (e) {
+          image.src = e.target.result;
+          image.width = 350;
+          image.heigth = 200;
+          image.style ="padding: 4px 4px 4px 4px; margin: 2px;"
+          previewContainer.appendChild(image);
+        };
+        reader.readAsDataURL(input.files[i]);
+      }
+    }
+  }
+</script>

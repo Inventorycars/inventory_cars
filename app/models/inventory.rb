@@ -8,6 +8,7 @@ class Inventory < ApplicationRecord
 
   belongs_to :user
   has_many_attached :image_list
+  validates_presence_of :price, :year, :make, :model
   has_many :inventory_offers,  dependent: :destroy
 
   scope :live, -> {where(listed: true)}
@@ -51,7 +52,6 @@ class Inventory < ApplicationRecord
     filter = {}
     inventories = Inventory.all
     filter['brand'] = inventories.pluck(:make).uniq
-    filter['price'] = [inventories.pluck(:price).min, inventories.pluck(:price).max]
     filter['year'] = inventories.pluck(:year).uniq
     filter['transmission'] = inventories.pluck(:transmission).uniq
     filter['engine_cylinders'] = inventories.pluck(:engine_cylinders).uniq
