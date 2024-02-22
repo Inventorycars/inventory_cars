@@ -1,49 +1,145 @@
-<div class="row row-cols-1 row-cols-md-5 mb-4 rounded-2">
-  <% @inventories.each do |inventory| %>
-    <div class="col mb-4 mt-3">
-      <div class="card h-100 shadow clickable-card" onclick="window.location.href='<%= inventory_path(inventory) %>'">
-        <% if inventory.image_list.present? %>
-            <%= image_tag(inventory.image_list.first, class: "card-img-top img-fluid h-75") %>
-        <% elsif inventory.image_urls.present?  %>
-          <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75")  %>
-        <% else %>
-          <div class="card-img-top img-fluid h-75 bg-light"></div>
-        <% end %>
-        <div class="card-body shadow">
-          
-          <div class="row col-md-12">
-            <div class="col-md-6">
-              <h6 class="card-title"><%= inventory.make %></h6>
-            </div>
-            <div class="col-md-6">
-              <h6 class="card-title" style="text-align: right;">
-                <%= inventory.model %>
-              </h6>
-            </div>
+<div class="">
+  <div class="row" id="ads">
+    <% @inventories.each do |inventory| %>
+      <div class="col-md-3" style="padding-bottom: 30px;">
+          <div class="card rounded">
+              <div class="card-image">
+                  <%# <span class="card-notify-badge">Price Reduced</span> %>
+                  <span class="card-notify-year"><%= inventory.year %></span>
+                  <div class="one-car-image">
+                    <% if inventory.image_list.present? %>
+                        <%= image_tag(inventory.image_list.first, class: "card-img-top img-fluid h-75") %>
+                    <% elsif inventory.image_urls.present?  %>
+                      <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75")  %>
+                    <% else %>
+                      <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC011A021001.jpg&width=440&height=262" alt="Alternate Text" />
+                    <% end %>
+                  </div>
+                  <%# <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC091A021001.jpg&width=440&height=262" alt="Alternate Text" /> %>
+              </div>
+              <div class="card-image-overlay m-auto" style="margin-top: 10px !important;">
+                  <span class="card-detail-badge"><%= inventory.fuel_type %></span>
+                  <span class="card-detail-badge">$<%= inventory.price %></span>
+                  <span class="card-detail-badge"><%= inventory.miles %> Kms</span>
+              </div>
+              <div class="card-body text-center">
+                  <div class="ad-title m-auto">
+                    <h5><%= inventory.make %> <%= inventory.model %></h5>
+                  </div>
+                  <a class="ad-btn" href="<%= inventory_path(inventory) %>">View</a>
+                  <% if inventory.user_id == current_user.id %>
+                    <a class="ad-btn" href="<%= edit_inventory_path(inventory) %>">Edit</a>
+                  <% end %>
+              </div>
           </div>
-          <p class="card-text">MFG Year: <%= inventory.year %></p>
-          <p class="card-text">Price: <%= number_to_currency(inventory.price) %></p>
-
-          <% if inventory.user_id == current_user.id %>
-            <%= link_to inventory_path(inventory), class: 'btn btn-primary btn-sm m-2 shadow' do %>
-              <i class="bi bi-eye"></i>
-            <% end %>
-            <%= link_to edit_inventory_path(inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
-              <i class="bi bi-pencil"></i> 
-            <% end %>
-
-            <%= link_to inventory_path(inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
-              <i class="bi bi-trash"></i> 
-            <% end %>
-
-          <% else %>
-            <div style="text-align: center;">
-              <%= link_to "Details", inventory_path(inventory), class: 'btn btn-success btn-sm ml-1' %>
-              <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
-            </div>
-          <% end %>
-        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>
+<style type="text/css">
+  <%#   source https://bootsnipp.com/snippets/N6yNO %>
+  body {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Category Ads */
+
+  #ads {
+    margin: 30px 0 30px 0;
+  }
+
+  #ads .card-notify-badge {
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    background: #f2d900;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px; 
+    color: #000;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  #ads .card-notify-year {
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    background: #ff4444;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;      
+    font-size: 14px;      
+    width: 50px;
+    height: 50px;    
+    padding: 15px 0 0 0;
+  }
+
+
+  #ads .card-detail-badge {      
+    background: #f2d900;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 14px;        
+  }
+
+     
+
+  #ads .card:hover {
+    background: #fff;
+    box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  #ads .card-image-overlay {
+    font-size: 20px;
+  }
+
+
+  #ads .card-image-overlay span {
+    display: inline-block;              
+  }
+
+  .card-image{
+    height: 450px !important;
+  }
+
+  .img-fluid{
+    max-height: 450px !important;
+  }
+
+  #ads .ad-btn {
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    border-radius: 80px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    border: 3px solid #e6de08;
+    display: block;
+    text-decoration: none;
+    margin: 20px auto 1px auto;
+    color: #000;
+    overflow: hidden;        
+    position: relative;+
+    background-color: #e6de08;
+    }
+
+  #ads .ad-btn:hover {
+    background-color: #e6de08;
+    color: #1e1717;
+    border: 2px solid #e6de08;
+    background: transparent;
+    transition: all 0.3s ease;
+    box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+    }
+
+  #ads .ad-title h5 {
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+</style>
