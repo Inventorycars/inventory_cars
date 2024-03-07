@@ -19,10 +19,25 @@ class InventoryOffersController < ApplicationController
     redirect_to root_path
     end
   end
-
+  
   def edit
     @offer = InventoryOffer.find_by_id(params[:id])
-    update if offer_params[:status] == "accepted"
+
+    if @offer.status == "accepted" && %w[rejected requote].include?(offer_params[:status])
+      flash[:notice] = "Offer already accepted!"
+      
+      case offer_params[:status]
+      when 'rejected'
+        redirect_to offers_received_inventory_offers_path
+      when 'requote'
+        redirect_to offers_sent_inventory_offers_path
+      end
+    elsif @offer.status == "accepted"
+      flash[:notice] = "Invalid status for an accepted offer!"
+      redirect_to root_path
+    else
+      update
+    end
   end
 
   def update
