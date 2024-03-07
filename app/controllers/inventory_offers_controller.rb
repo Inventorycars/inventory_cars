@@ -1,5 +1,6 @@
 class InventoryOffersController < ApplicationController
-  
+  before_action :set_inventory_offer, only: :update_status
+
   layout 'admin'
   def index
     @offers = InventoryOffer.all.paginate(page: params[:page], per_page: 15).order(created_at: :desc).includes(:inventory)
@@ -22,33 +23,23 @@ class InventoryOffersController < ApplicationController
   
   def edit
     @offer = InventoryOffer.find_by_id(params[:id])
-
-    if @offer.status == "accepted" && %w[rejected requote].include?(offer_params[:status])
-      flash[:notice] = "Offer already accepted!"
-      
-      case offer_params[:status]
-      when 'rejected'
-        redirect_to offers_received_inventory_offers_path
-      when 'requote'
-        redirect_to offers_sent_inventory_offers_path
-      end
-    elsif @offer.status == "accepted"
-      flash[:notice] = "Invalid status for an accepted offer!"
-      redirect_to root_path
-    else
-      update
-    end
   end
 
   def update
     @offer = InventoryOffer.find_by_id(params[:id])
     offer_value = params[:inventory_offer][:offer].to_i
     if @offer.update(offer_params)
-      redirect_to root_path
+      redirect_to offers_sent_inventory_offers_path
     else
       flash[:notice] = @offer&.errors&.first&.options[:message]
       redirect_to root_path 
     end
+  end
+
+  def update_status
+    @inventory_offer.update(status: offer_params[:status])
+    flash[:notice] = "InventoryOffer successfully #{@inventory_offer.status.capitalize}"
+    redirect_to offers_received_inventory_offers_path
   end
 
   def destroy
@@ -77,5 +68,9 @@ class InventoryOffersController < ApplicationController
 
   def offer_params
     params.require(:inventory_offer).permit(:inventory_id, :offer, :status, :rejection_reason)
+  end
+
+  def set_inventory_offer
+    @inventory_offer = InventoryOffer.find_by_id(params[:id])
   end
 end

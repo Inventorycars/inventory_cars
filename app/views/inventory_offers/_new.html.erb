@@ -6,7 +6,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Offer</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,7 +17,7 @@
               <%= form.label :offer_value, class: "form-label", style: "color: black;" %>
               <%= form.number_field :offer, class: "form-control", required: true %>
             </div>
-            <%= form.hidden_field :inventory_id, value: "#{params[:inventory_id].to_i}" %>
+            <%= form.hidden_field :inventory_id, value: "#{@offer.inventory_id || params[:inventory_id].to_i}" %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

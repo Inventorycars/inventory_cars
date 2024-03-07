@@ -12,7 +12,7 @@
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
     <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
-    <li class="breadcrumb-item active">Upload Inventories</li>
+    <li class="breadcrumb-item active">Offers Received</li>
   </ol>
   <div class="card mb-4">
     <div class="card-header">
@@ -39,10 +39,10 @@
               <td><%= offer.offer %></td>
               <td><%= offer.status || '-' %></td>
               <td>
-                <button onclick="showConfirmationPopup('<%= edit_inventory_offer_url(id: offer.id, inventory_offer: { status: 'accepted' }) %>')" class="btn btn-success btn-sm ml-1" style="background-color: green; font-weight: bold">Accept</button>
-              </td>
-              <td>
-                <button onclick="showConfirmationPopup('<%= edit_inventory_offer_url(id: offer.id, inventory_offer: { status: 'rejected' }) %>')" class="btn btn-success btn-sm ml-1" style="background-color: red; font-weight: bold">Reject</button>
+                <button onclick="showConfirmationPopup('<%= update_status_inventory_offers_path(id: offer.id, inventory_offer: { status: 'accepted' }) %>')" class="btn btn-success btn-sm ml-1" style="background-color: green; font-weight: bold">Accept</button>
+                <button onclick="showConfirmationPopup('<%= update_status_inventory_offers_path(id: offer.id, inventory_offer: { status: 'rejected' }) %>')" class="btn btn-success btn-sm ml-1" style="background-color: red; font-weight: bold">Reject</button>
+              
+                <button onclick="showConfirmationPopup('<%= update_status_inventory_offers_path(id: offer.id, inventory_offer: { status: 'requote' }) %>')" class="btn btn-warning btn-sm ml-1" style=" font-weight: bold">Requote</button>
               </td>
             </tr>
           <% end %>

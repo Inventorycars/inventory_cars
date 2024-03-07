@@ -10,9 +10,9 @@
    <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
       <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
-      <li class="breadcrumb-item active">Upload Inventories</li>
+      <li class="breadcrumb-item active">Offers Sent</li>
    </ol>
-   <div class="offer_popup">
+   <div class="">
    <div class="card mb-4">
       <div class="card-header">
          <i class="bi bi-cloud-arrow-up-fill me-1"></i>
@@ -48,7 +48,7 @@
    <%= paginate @offers %>
 </div>
 </div>
-
+<div class="offer_popup"></div>
 <script>
    function requote(offer_id){
     $.ajax({
