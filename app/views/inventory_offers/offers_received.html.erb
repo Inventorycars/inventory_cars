@@ -19,7 +19,13 @@
                   <th scope="col">Inventory</th>
                   <th scope="col">Offer</th>
                   <th scope="col">Status</th>
-                  <th></th>
+
+                  <th scope="col">Rejection Reason</th>
+                  <th >  <%= link_to "Accept", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: green;" %>
+                    <%= link_to "Reject", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: red;" %>
+                    <%= link_to "Requote", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: blue;" %>
+                  </th>
+  
                </tr>
                <% @offers.each_with_index do |offer, index| %>
                  <tr>
