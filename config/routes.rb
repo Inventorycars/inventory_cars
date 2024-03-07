@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get :offers_sent
       get :offers_received
+      get :requote
     end
   end
 

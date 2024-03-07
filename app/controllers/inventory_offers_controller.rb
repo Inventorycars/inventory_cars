@@ -25,9 +25,9 @@ class InventoryOffersController < ApplicationController
     update if offer_params[:status] == "accepted"
   end
 
-
   def update
     @offer = InventoryOffer.find_by_id(params[:id])
+    offer_value = params[:inventory_offer][:offer].to_i
     if @offer.update(offer_params)
       redirect_to root_path
     else
@@ -46,6 +46,11 @@ class InventoryOffersController < ApplicationController
 
   def offers_sent
     @offers = current_user.inventory_offers.order(created_at: :desc).includes(:inventory).paginate(page: params[:page], per_page: 4)
+  end
+
+  def requote
+    @offer = InventoryOffer.find_by_id(params[:offer_id])
+    render :new
   end
 
   def offers_received

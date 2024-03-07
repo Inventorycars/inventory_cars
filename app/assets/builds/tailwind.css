@@ -1445,6 +1445,10 @@ input[type="number"]::-webkit-inner-spin-button,
   margin: 1rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -1694,6 +1698,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .h-6 {
   height: 1.5rem;
+}
+
+.h-60 {
+  height: 15rem;
 }
 
 .h-8 {
@@ -2060,6 +2068,12 @@ input[type="number"]::-webkit-inner-spin-button,
   overflow-x: hidden;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .whitespace-normal {
   white-space: normal;
 }
@@ -2412,10 +2426,6 @@ input[type="number"]::-webkit-inner-spin-button,
   text-align: center;
 }
 
-.text-right {
-  text-align: right;
-}
-
 .align-top {
   vertical-align: top;
 }
@@ -2473,6 +2483,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .font-semibold {
   font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .leading-6 {

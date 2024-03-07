@@ -11,7 +11,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with(model: @offer, url: inventory_offers_path, class: "needs-validation", novalidate: true) do |form| %>
+      <%= form_with(model: @offer, class: "needs-validation", novalidate: true) do |form| %>
         <div class="modal-body">
             <div class="form-group">
               <%= form.label :offer_value, class: "form-label", style: "color: black;" %>

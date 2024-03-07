@@ -5,6 +5,7 @@
       <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
       <li class="breadcrumb-item active">Upload Inventories</li>
    </ol>
+   <div class="offer_popup">
    <div class="card mb-4">
       <div class="card-header">
          <i class="bi bi-cloud-arrow-up-fill me-1"></i>
@@ -19,7 +20,7 @@
                   <th scope="col">Inventory</th>
                   <th scope="col">Offer</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Rejection Reason</th>
+                  <th>Requote</th>
                </tr>
                <% @offers.each_with_index do |offer, index| %>
                  <tr>
@@ -27,7 +28,7 @@
                    <td><%= offer.inventory.make %></td>
                    <td><%= offer.offer %></td>
                    <td><%= offer.status || '-' %></td>
-                   <td><%= offer.rejection_reason || '-' %></td>
+                   <td><a href="#" onclick="requote(<%= offer.id %>)">Requote</a></td>
                  </tr>
                <% end %>
             </thead>
@@ -39,4 +40,20 @@
    </div>
    <%= paginate @offers %>
 </div>
+</div>
 
+<script>
+   function requote(offer_id){
+    $.ajax({
+      type: 'GET',
+      url: '/inventory_offers/requote.js',
+      data: { offer_id: offer_id },
+      success: function(response) {
+        console.log('Offer created successfully:', response);
+      },
+      error: function(error) {
+        console.error('Error saving message:', error );
+      }
+    });
+  }
+</script>

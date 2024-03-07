@@ -19,14 +19,8 @@
                   <th scope="col">Inventory</th>
                   <th scope="col">Offer</th>
                   <th scope="col">Status</th>
-
-                  <th scope="col">Rejection Reason</th>
-                  <th >  <%= link_to "Accept", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: green;" %>
-                    <%= link_to "Reject", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: red;" %>
-                    <%= link_to "Requote", "#", class: 'btn btn-success btn-sm ml-1', style: "background-color: blue;" %>
-                  </th>
-  
-               </tr>
+                  <th scope="col">Rejection Reason</th>     
+                </tr>
                <% @offers.each_with_index do |offer, index| %>
                  <tr>
                    <td><%= index + 1 %></td>
@@ -34,16 +28,11 @@
                    <td><%= offer.offer %></td>
                    <td><%= offer.status || '-' %></td>
                    <td>
-                 <%= link_to "Accept", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1', style: "background-color: green; font-weight: bold", target: "_blank" %>
-                 </td>
+                    <%= link_to "Accept", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1', style: "background-color: green; font-weight: bold", target: "_blank" %>
+                    </td>
                 <td>
                  <%= link_to "Reject", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'rejected'}), class: 'btn btn-success btn-sm ml-1', style: "background-color: red; font-weight: bold", target: "_blank" %>
                 </td>
-               <td>
-                 <%= link_to "Requote", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'requote'}),class: 'btn btn-success btn-sm ml-1', style: "background-color: blue; font-weight: bold", target: "_blank" %>
-               </td>
-
-
                  </tr>
                <% end %>
             </thead>
