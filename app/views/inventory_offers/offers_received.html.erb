@@ -19,7 +19,7 @@
                   <th scope="col">Inventory</th>
                   <th scope="col">Offer</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Rejection Reason</th>
+                  <th></th>
                </tr>
                <% @offers.each_with_index do |offer, index| %>
                  <tr>
@@ -27,14 +27,22 @@
                    <td><%= offer.inventory.make %></td>
                    <td><%= offer.offer %></td>
                    <td><%= offer.status || '-' %></td>
-                   <td><%= offer.rejection_reason || '-' %></td>
+                   <td>
+                 <%= link_to "Accept", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'accepted'}), class: 'btn btn-success btn-sm ml-1', style: "background-color: green; font-weight: bold", target: "_blank" %>
+                 </td>
+                <td>
+                 <%= link_to "Reject", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'rejected'}), class: 'btn btn-success btn-sm ml-1', style: "background-color: red; font-weight: bold", target: "_blank" %>
+                </td>
+               <td>
+                 <%= link_to "Requote", edit_inventory_offer_url(id: offer.id, inventory_offer: {status: 'requote'}),class: 'btn btn-success btn-sm ml-1', style: "background-color: blue; font-weight: bold", target: "_blank" %>
+               </td>
+
+
                  </tr>
                <% end %>
             </thead>
-            <tbody>
-
-            </tbody>
          </table>
       </div>
    </div>
+   <%= paginate @offers %>
 </div>

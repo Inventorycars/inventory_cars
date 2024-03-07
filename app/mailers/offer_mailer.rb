@@ -18,15 +18,10 @@ class OfferMailer < ApplicationMailer
   end
 
   def offer_rejected(offer)
-		@offer_id = offer.id
+	@offer_id = offer.id
     @first_name = offer.user.first_name
     @last_name = offer.user.last_name
     @email = offer.user.email
     mail(to: @email, subject: 'your offer is accepted')
   end
-
-  def send
-      
-  end
-
 end

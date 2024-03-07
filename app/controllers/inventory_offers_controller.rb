@@ -45,12 +45,13 @@ class InventoryOffersController < ApplicationController
   end
 
   def offers_sent
-    @offers = current_user.inventory_offers
+    @offers = current_user.inventory_offers.order(created_at: :desc).includes(:inventory).paginate(page: params[:page], per_page: 4)
   end
 
   def offers_received
-    @offers = InventoryOffer.joins(:inventory).where(inventories: { user_id: current_user.id })
+    @offers = InventoryOffer.joins(:inventory).where(inventories: { user_id: current_user.id }).order(created_at: :desc).includes(:inventory).paginate(page: params[:page], per_page: 4)
   end
+
 
   private
 
