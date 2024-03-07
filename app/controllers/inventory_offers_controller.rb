@@ -20,10 +20,17 @@ class InventoryOffersController < ApplicationController
     end
   end
 
-  def edit
-    @offer = InventoryOffer.find_by_id(params[:id])
-    update if offer_params[:status] == "accepted"
+def edit
+  @offer = InventoryOffer.find_by_id(params[:id])
+
+  if ["accepted", "rejected"].include?(@offer.status)
+    flash[:notice] = "Offer already #{@offer.status}!"
   end
+  if offer_params[:status] == 'requote'
+    @offer.status == 'accepted' ? flash[:notice] = "already accepted" : update
+  end
+end
+
 
 
   def update
