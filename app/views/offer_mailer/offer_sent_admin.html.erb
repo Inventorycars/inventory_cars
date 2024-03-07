@@ -1,0 +1,36 @@
+<h2>Offer Details Received</h2>
+
+<p>Hello Inventory ADMIN,</p>
+
+<p>We would like to inform you that a user has received an offer on their inventory item. Below are the details:</p>
+
+<h3>inventory details:</h3>
+<p><strong>Model:</strong><%= @inventory.model %></p>
+<p><strong>Price:</strong><%= @inventory.price %></p>
+<p>You got an offer on your inventory:</p>
+<% if @inventory.image_urls.present? %>
+  <%= image_tag(@inventory.image_urls.first, class: "card-img-top img-fluid", width: 60, height: 60) %>
+<% else %>
+  <div class="card-img-top img-fluid h-60 bg-light"></div>
+<% end %>
+<p><strong>Offer price:</strong><%= "#{@offer_price}" %></p>
+
+<h3>Invenory owner details :</h3>
+<p><strong>Invenotry Owner Name :</strong> <%= "#{@seller_first_name} #{@user_last_name}" %></p>
+<p><strong>Email:</strong> <%= "#{@seller_email}" %></p>
+
+<h3>Buyer details :</h3>
+<p><strong>Buyer Name:</strong> <%= "#{@user_first_name} #{@user_last_name}" %></p>
+<p><strong>Offer price:</strong> <%= "#{@user_first_name}" %></p>
+<p><strong>Offer price:</strong> <%= "#{@user_email}" %></p>
+
+
+
+<h3>Actions:</h3>
+
+<p>You can take action on this offer by following the link below:</p>
+
+<p>Please review the offer and respond accordingly.</p>
+
+<p>Best regards,</p>
+<p>Your App Team</p>
