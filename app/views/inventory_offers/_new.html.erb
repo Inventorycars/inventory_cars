@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with(model: @offer, url: inventory_offers_path, class: "needs-validation", novalidate: true) do |form| %>
+        <div class="modal-body">
+            <div class="form-group">
+              <%= form.label :offer_value, class: "form-label", style: "color: black;" %>
+              <%= form.number_field :offer, class: "form-control", required: true %>
+            </div>
+            <%= form.hidden_field :inventory_id, value: "#{params[:inventory_id].to_i}" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= form.submit "Submit", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<button hidden type="button" class="btn btn-primary demo-modal" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>

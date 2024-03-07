@@ -25,11 +25,17 @@
                   <a class="nav-link <%= 'active' if request.url.include? 'upload_csv' %>" href="/inventories/upload_csv">Add Inventory</a>
                </nav>
             </div>
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-            My offers
+            <a class="nav-link <%= ((request.url.include? 'offers_sent') || (request.url.include? 'offers_received')) ? 'active' : 'collapsed' %>" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+              Offers
+              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
+            <div class="collapse <%= 'show' if ((request.url.include? 'offers_sent') || (request.url.include? 'offers_received')) %>" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                  <a class="nav-link <%= 'active' if request.url.include? 'offers_sent' %>" href="/inventory_offers/offers_sent">Offers Sent</a>
+                  <a class="nav-link <%= 'active' if request.url.include? 'offers_received' %>" href="/inventory_offers/offers_received">Offers Received</a>
+                </nav>
+            </div>
          <% end %>
          <!-- Addons Heading -->
          <% if current_admin %>

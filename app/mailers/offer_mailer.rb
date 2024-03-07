@@ -25,4 +25,8 @@ class OfferMailer < ApplicationMailer
     mail(to: @email, subject: 'your offer is accepted')
   end
 
+  def send
+      
+  end
+
 end

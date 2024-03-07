@@ -7,13 +7,15 @@ class InventoryOffer < ApplicationRecord
   after_save :send_mail
 
   def send_mail
-    if self.status == 'sent' || self.status == 'resent'
-      OfferMailer.offer_sent(self).deliver_now
-    elsif self.status == 'accepted'
-      OfferMailer.offer_accepted(self).deliver_now
-    elsif self.status == 'rejected'
-      OfferMailer.offer_rejected(self).deliver_now
-    end
+    # if sent? || resent?
+    #   OfferMailer.offer_sent(self).deliver_now
+    # elsif accepted?
+    #   OfferMailer.offer_accepted(self).deliver_now
+    # elsif rejected?
+    #   OfferMailer.offer_rejected(self).deliver_now
+    # end
+
+    # OfferMailer.send("offer_#{status}", self).deliver_now
 
   end
 end

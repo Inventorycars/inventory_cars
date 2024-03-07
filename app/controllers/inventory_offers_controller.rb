@@ -44,6 +44,14 @@ class InventoryOffersController < ApplicationController
     end
   end
 
+  def offers_sent
+    @offers = current_user.inventory_offers
+  end
+
+  def offers_received
+    @offers = InventoryOffer.joins(:inventory).where(inventories: { user_id: current_user.id })
+  end
+
   private
 
   def offer_params

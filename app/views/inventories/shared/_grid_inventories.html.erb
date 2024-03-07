@@ -1,4 +1,5 @@
 <div class="">
+  <div class="offer_popup"></div>
   <div class="row" id="ads">
     <% @inventories.each do |inventory| %>
       <div class="col-md-3" style="padding-bottom: 30px;">
@@ -29,6 +30,8 @@
                   <a class="ad-btn" href="<%= inventory_path(inventory) %>">View</a>
                   <% if inventory.user_id == current_user.id %>
                     <a class="ad-btn" href="<%= edit_inventory_path(inventory) %>">Edit</a>
+                  <% else %>
+                    <a class="ad-btn" data-remote=true href="#" onclick="openOfferpopup(<%= inventory.id %>)">Offer</a>
                   <% end %>
               </div>
           </div>
@@ -143,3 +146,18 @@
     font-size: 18px;
   }
 </style>
+<script type="text/javascript">
+  function openOfferpopup(inventory_id){
+    $.ajax({
+      type: 'GET',
+      url: '/inventory_offers/new.js',
+      data: { inventory_id: inventory_id },
+      success: function(response) {
+        console.log('Offer created successfully:', response);
+      },
+      error: function(error) {
+        console.error('Error saving message:', error );
+      }
+    });
+  }
+</script>

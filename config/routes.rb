@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :inventory_offers
+  resources :inventory_offers do
+    collection do
+      get :offers_sent
+      get :offers_received
+    end
+  end
 
   get :my_inventories,  to: 'inventories#my_inventories'
   delete '/batch_delete_inventories', to: 'inventories#batch_delete', as: 'batch_delete_inventories'

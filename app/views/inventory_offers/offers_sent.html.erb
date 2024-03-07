@@ -1,0 +1,40 @@
+<div class="container-fluid px-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+   <h1 class="mt-4">Offers Sent</h1>
+   <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+      <li class="breadcrumb-item active"><%= link_to 'Inventories', inventories_path %></li>
+      <li class="breadcrumb-item active">Upload Inventories</li>
+   </ol>
+   <div class="card mb-4">
+      <div class="card-header">
+         <i class="bi bi-cloud-arrow-up-fill me-1"></i>
+         Offers Sent
+      </div>
+      <div class="card-body">
+         
+         <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Inventory</th>
+                  <th scope="col">Offer</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Rejection Reason</th>
+               </tr>
+               <% @offers.each_with_index do |offer, index| %>
+                 <tr>
+                   <td><%= index + 1 %></td>
+                   <td><%= offer.inventory.make %></td>
+                   <td><%= offer.offer %></td>
+                   <td><%= offer.status || '-' %></td>
+                   <td><%= offer.rejection_reason || '-' %></td>
+                 </tr>
+               <% end %>
+            </thead>
+            <tbody>
+
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
