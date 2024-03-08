@@ -7,7 +7,7 @@ class OfferMailer < ApplicationMailer
      @email = offer.seller_user.email
      @inventory = offer.inventory
      mail(to: @email, subject: 'One offer found for your inventory') do |format|
-        format.html { render 'offer_sent' }
+        format.html { render 'offer_sent', layout: 'mailer' }
       end
     end
 
