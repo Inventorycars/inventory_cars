@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get :offers_sent
       get :offers_received
       get :requote
+      get :update_status
     end
   end
 
