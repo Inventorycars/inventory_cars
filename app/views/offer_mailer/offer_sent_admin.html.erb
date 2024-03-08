@@ -1,36 +1,75 @@
-<h2>Offer Details Received</h2>
+<div>
+  <tr>
+    <td valign="middle" class="hero bg_white" style="padding: 2em 0 2em 0;">
+       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+             <td style="padding: 0 2.5em; text-align: left;">
+                <p>Dear Inventory Admin </p>
+                <div class="text">
+                   <h2>Offer Received on Inventory Item</h2>
+                   <p>We are pleased to inform you that <%= @seller_first_name %> has received an offer from <%= @user_first_name %> on one of his inventory items.</p> 
+                </div>
+             </td>
+          </tr>
+       </table>
+    </td>
+  </tr>
 
-<p>Hello Inventory ADMIN,</p>
-
-<p>We would like to inform you that a user has received an offer on their inventory item. Below are the details:</p>
-
-<h3>inventory details:</h3>
-<p><strong>Model:</strong><%= @inventory.model %></p>
-<p><strong>Price:</strong><%= @inventory.price %></p>
-<p>You got an offer on your inventory:</p>
-<% if @inventory.image_urls.present? %>
-  <%= image_tag(@inventory.image_urls.first, class: "card-img-top img-fluid", width: 60, height: 60) %>
-<% else %>
-  <div class="card-img-top img-fluid h-60 bg-light"></div>
-<% end %>
-<p><strong>Offer price:</strong><%= "#{@offer_price}" %></p>
-
-<h3>Invenory owner details :</h3>
-<p><strong>Invenotry Owner Name :</strong> <%= "#{@seller_first_name} #{@user_last_name}" %></p>
-<p><strong>Email:</strong> <%= "#{@seller_email}" %></p>
-
-<h3>Buyer details :</h3>
-<p><strong>Buyer Name:</strong> <%= "#{@user_first_name} #{@user_last_name}" %></p>
-<p><strong>Offer price:</strong> <%= "#{@user_first_name}" %></p>
-<p><strong>Offer price:</strong> <%= "#{@user_email}" %></p>
-
-
-
-<h3>Actions:</h3>
-
-<p>You can take action on this offer by following the link below:</p>
-
-<p>Please review the offer and respond accordingly.</p>
-
-<p>Best regards,</p>
-<p>Your App Team</p>
+  <tr>
+    <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <th>Inventory Details</th>
+       </tr>
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+             <div class="product-entry">
+                <div class="text">
+                    <p><strong>Model : </strong><%= @inventory.model.capitalize %></p>
+                    <p><strong>Year : </strong><%= @inventory.year %></p>
+                    <p><strong>Price : </strong> $ <%= @inventory.price %></p>
+                    <p><strong>Offer value : </strong> $ <%= "#{@offer_price}" %></p>
+                </div>
+             </div>
+          </td>
+       </tr>
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <th>Inventory Owner Details</th>
+       </tr>
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+             <div class="product-entry">
+                <div class="text">
+                  <p><strong>Name : </strong> <%= "#{@seller_first_name} #{@seller_last_name}" %></p>
+                  <p><strong>Email : </strong> <%= "#{@seller_email}" %></p>
+                </div>
+             </div>
+          </td>
+       </tr>
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <th>Buyer Details</th>
+       </tr>
+       <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+             <div class="product-entry">
+                <div class="text">
+                  <p><strong>Name : </strong> <%= "#{@user_first_name} #{@user_last_name}" %></p>
+                  p><strong>Email : </strong> <%= "#{@user_email}" %></p>
+                </div>
+             </div>
+          </td>
+       </tr>
+        <tr valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+          <td>
+            <div class="product-entry">
+              <div class="text">
+                <p>Best Regards,</p>
+                <p>Your App Team</p>
+                <br/>
+                <p class="bg_white"><b>Please note:</b> This is a system-generated message. You cannot reply directly to this email</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+    </table>
+  </tr>
+</div>

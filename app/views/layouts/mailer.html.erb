@@ -209,7 +209,6 @@
          .product-entry{
          display: block;
          position: relative;
-         float: left;
          padding-top: 20px;
          }
          .product-entry .text{
@@ -278,7 +277,10 @@
                      </table>
                   </td>
                </tr>
-               <%= yield %>
+               <div>
+                  <%= yield %>
+               </div>
+               
             </table>
          </div>
       </center>

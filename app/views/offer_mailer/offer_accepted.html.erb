@@ -1,14 +1,33 @@
-<h2>Dear <%= "#{@first_name}" " #{@last_name}" %></h2>
-
-<%=link_to "Contact", inventories_url, html_options = { style: "font-weight: bold", target: "_blank" } %>
-<p> Thank you for choosing Inventory Cars as your trusted partner in inventory management. We're excited about the journey ahead and can't wait to see your business thrive with our services.</p>
-
-<p>Should you need anything, please don't hesitate to reach out. We're here to assist you every step of the way.</p>
-
-
-<p>Best regards,</p>
-<p>Mike Miles</p>
-<p>Founder & CEO</p>
-<p>Inventory Cars</p>
-<p>209.273.9668</p>
-<p>Email#3</p>
+</div>
+  <tr>
+    <td valign="middle" class="hero bg_white" style="padding: 2em 0 2em 0;">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td style="padding: 0 2.5em; text-align: left;">
+            <div class="text">
+              <h2>Dear  <%= "#{@first_name} #{@last_name}" %></h2>
+              <p>Your offer of  <%= @offer_price %> on  <%= @inventory_model_name %> has been accepted by the seller!</p>
+              <p>This means you're well on your way to acquiring this fantastic item.</p>
+            </div>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+          <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+            <div class="text">
+              <p>Our team will shortly be in touch to facilitate communication between you and the seller. We'll provide you with the seller's contact information to arrange any necessary details.</p>
+              <p>We're excited for you and wish you a smooth and successful transaction!</p>
+              <br/>
+              <p><b>Best regards</b></p>
+              <p>The Inventory Cars Team </p>
+              <br/>
+              <p class="bg_white"><b>Please note:</b> This is a system-generated message. You cannot reply directly to this email</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td> 
+  <tr>
+    <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">    
+    </table>
+  </tr>
+</div>
