@@ -1,53 +1,60 @@
 <button id="batchDeleteBtn" class="btn btn-outline-primary m-2"><i class="bi bi-trash"></i> Batch Delete</button>
 
-<table class="table">
-   <thead>
+<div class="">
+  <table class="table">
+    <thead>
       <tr>
-         <th scope="col"><button id="selectAllBtn" class="btn btn-outline-primary"><i class="bi bi-check2-square"></i></button></th>
-         <th scope="col">Id</th>
-         <th scope="col">Model</th>
-         <th scope="col">Stock</th>
-         <th scope="col">Type</th>
-         <th scope="col">Price</th>
-         <th scope="col">Exterior Color</th>
-         <th scope="col">Interior Color</th>
-         <th scope="col ms-3">Actions</th>
+        <th scope="col"><button id="selectAllBtn" class="btn btn-outline-primary"><i class="bi bi-check2-square"></i></button></th>
+        <th scope="col">Id</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Exterior Color</th>
+        <th scope="col">Interior Color</th>
+        <th scope="col ms-3">Actions</th>
       </tr>
-   </thead>
-   <tbody>
-      <% @inventories.each do |inventory| %>
-      <tr>
-         <td>
-            <%= check_box_tag "inventory_ids[]", inventory.id, false, class: 'inventory-checkbox' %>
-         </td>
-         <td><%= inventory.id %></td>
-         <td><%= inventory.model %></td>
-         <td><%= inventory.stock %></td>
-         <td><%= inventory.inventory_type %></td>
-         <td><%= inventory.price %></td>
-         <td><%= inventory.ext_color_generic %></td>
-         <td><%= inventory.int_color_generic %></td>
-         <td>
-        <% if inventory.user_id == current_user.id %>
-             <%= link_to inventory_path(inventory), class: 'btn btn-primary btn-sm m-2 shadow' do %>
-            <i class="bi bi-eye"></i>
-          <% end %>
-          
-          <%= link_to edit_inventory_path(inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
-            <i class="bi bi-pencil"></i> 
-          <% end %>
-          
-          <%= link_to inventory_path(inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
-            <i class="bi bi-trash"></i> 
-          <% end %>
-        <% else %>
-          <%= link_to "Details", inventory_path(inventory), class: 'btn btn-success btn-sm ml-1' %>
-          <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+    </thead>
+
+    <tbody>
+      <div class="row" id="ads">
+        <% @inventories.each do |inventory| %>
+          <tr>
+            <td>
+              <%= check_box_tag "inventory_ids[]", inventory.id, false, class: 'inventory-checkbox' %>
+            </td>
+            <td><%= inventory.id %></td>
+            <td><%= inventory.model %></td>
+            <td><%= inventory.make %></td>
+            <td><%= inventory.inventory_type %></td>
+            <td><%= inventory.price %></td>
+            <td><%= inventory.ext_color_generic %></td>
+            <td><%= inventory.int_color_generic %></td>
+            <td>
+              <% if inventory.user_id == current_user.id %>
+                <%= link_to inventory_path(inventory), class: 'btn btn-primary btn-sm m-2 shadow' do %>
+                  <i class="bi bi-eye"></i>
+                <% end %>
+              
+                <%= link_to edit_inventory_path(inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+                  <i class="bi bi-pencil"></i> 
+                <% end %>
+              
+                <%= link_to inventory_path(inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+                  <i class="bi bi-trash"></i> 
+                <% end %>
+              <% else %>
+                <%= link_to "Detail", inventory_path(inventory), class: 'btn btn-info btn-sm ml-1' %>
+                <%= link_to "Offer", "#", class: "btn btn-success btn-sm ml-1 ", data: { remote: true }, onclick: "openOfferpopup(#{inventory.id})" %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-      </tr>
-      <% end %>
-   </tbody>
-</table>
+      </div>
+    </tbody>
+  </table>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const selectAllBtn = document.getElementById('selectAllBtn');
@@ -71,15 +78,29 @@
       if (selectedIds.length > 0) {
         if (confirm('Are you sure you want to delete selected inventories?')) {
         const url = '/batch_delete_inventories?ids=' + selectedIds.join(',');
-                Turbo.visit(url, {
-                    action: 'replace',
-                    'turbo-method': 'delete',
-                    turbo: true
-                });
-                localStorage.removeItem('selectedIds');        }
+          Turbo.visit(url, {
+            action: 'replace',
+            'turbo-method': 'delete',
+            turbo: true
+          });
+        localStorage.removeItem('selectedIds');        }
       } else {
         alert('Please select at least one inventory item to delete.');
       }
     });
   });
+
+  function openOfferpopup(inventory_id){
+    $.ajax({
+      type: 'GET',
+      url: '/inventory_offers/new.js',
+      data: { inventory_id: inventory_id },
+      success: function(response) {
+        console.log('Offer created successfully:', response);
+      },
+      error: function(error) {
+        console.error('Error saving message:', error );
+      }
+    });
+  }
 </script>

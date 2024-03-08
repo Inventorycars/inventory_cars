@@ -1,45 +1,45 @@
 <div class="">
-  <div class="offer_popup"></div>
   <div class="row" id="ads">
     <% @inventories.each do |inventory| %>
       <div class="col-md-3" style="padding-bottom: 30px;">
-          <div class="card rounded">
-              <div class="card-image">
-                  <%# <span class="card-notify-badge">Price Reduced</span> %>
-                  <span class="card-notify-year"><%= inventory.year %></span>
-                  <div class="one-car-image">
-                    <% if inventory.image_list.present? %>
-                        <%= image_tag(inventory.image_list.first, class: "card-img-top img-fluid h-75") %>
-                    <% elsif inventory.image_urls.present?  %>
-                      <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75")  %>
-                    <% else %>
-                      <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC011A021001.jpg&width=440&height=262" alt="Alternate Text" />
-                    <% end %>
-                  </div>
-                  <%# <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC091A021001.jpg&width=440&height=262" alt="Alternate Text" /> %>
+        <div class="card rounded">
+          <div class="card-image">
+            <%# <span class="card-notify-badge">Price Reduced</span> %>
+              <span class="card-notify-year"><%= inventory.year %></span>
+              <div class="one-car-image">
+                <% if inventory.image_list.present? %>
+                  <%= image_tag(inventory.image_list.first, class: "card-img-top img-fluid h-75") %>
+                <% elsif inventory.image_urls.present?  %>
+                  <%= image_tag(inventory.image_urls.first, class: "card-img-top img-fluid h-75")  %>
+                <% else %>
+                  <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC011A021001.jpg&width=440&height=262" alt="Alternate Text" />
+                <% end %>
               </div>
-              <div class="card-image-overlay m-auto" style="margin-top: 10px !important;">
-                  <span class="card-detail-badge"><%= inventory.fuel_type %></span>
-                  <span class="card-detail-badge">$<%= inventory.price %></span>
-                  <span class="card-detail-badge"><%= inventory.miles %> Kms</span>
-              </div>
-              <div class="card-body text-center">
-                  <div class="ad-title m-auto">
-                    <h5><%= inventory.make %> <%= inventory.model %></h5>
-                  </div>
-                  <a class="ad-btn" href="<%= inventory_path(inventory) %>">View</a>
-                  <% if inventory.user_id == current_user.id %>
-                    <a class="ad-btn" href="<%= edit_inventory_path(inventory) %>">Edit</a>
-                  <% else %>
-                    <a class="ad-btn" data-remote=true href="#" onclick="openOfferpopup(<%= inventory.id %>)">Offer</a>
-                  <% end %>
-              </div>
+            <%# <img class="img-fluid" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC091A021001.jpg&width=440&height=262" alt="Alternate Text" /> %>
           </div>
+          <div class="card-image-overlay m-auto" style="margin-top: 10px !important;">
+            <span class="card-detail-badge"><%= inventory.fuel_type %></span>
+            <span class="card-detail-badge">$<%= inventory.price %></span>
+            <span class="card-detail-badge"><%= inventory.miles %> Kms</span>
+          </div>
+          <div class="card-body text-center">
+            <div class="ad-title m-auto">
+              <h5><%= inventory.make %> <%= inventory.model %></h5>
+            </div>
+
+            <a class="ad-btn" href="<%= inventory_path(inventory) %>">View</a>
+            <% if inventory.user_id == current_user.id %>
+              <a class="ad-btn" href="<%= edit_inventory_path(inventory) %>">Edit</a>
+            <% else %>
+              <a class="ad-btn" data-remote=true href="#" onclick="openOfferpopup(<%= inventory.id %>)">Offer</a>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
-
 </div>
+
 <style type="text/css">
   <%#   source https://bootsnipp.com/snippets/N6yNO %>
   body {
@@ -78,7 +78,6 @@
     padding: 15px 0 0 0;
   }
 
-
   #ads .card-detail-badge {      
     background: #f2d900;
     text-align: center;
@@ -87,8 +86,6 @@
     padding: 5px 10px;
     font-size: 14px;        
   }
-
-     
 
   #ads .card:hover {
     background: #fff;
@@ -100,7 +97,6 @@
   #ads .card-image-overlay {
     font-size: 20px;
   }
-
 
   #ads .card-image-overlay span {
     display: inline-block;              
@@ -146,6 +142,7 @@
     font-size: 18px;
   }
 </style>
+
 <script type="text/javascript">
   function openOfferpopup(inventory_id){
     $.ajax({
