@@ -8,13 +8,16 @@ class InventoryOffer < ApplicationRecord
   after_save :send_mail
 
   def send_mail
-    if sent? || requote?
+    if sent?
       OfferMailer.offer_sent(self).deliver_now
       OfferMailer.offer_sent_to_admin(self).deliver_now
     elsif accepted?
       OfferMailer.offer_accepted(self).deliver_now
+      OfferMailer.offer_accepted_admin(self).deliver_now
     elsif rejected?
       OfferMailer.offer_rejected(self).deliver_now
+    elsif requote?
+      OfferMailer.offer_requote(self).deliver_now
     end
   end
 
