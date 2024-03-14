@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
     @first_name = user.first_name
     @last_name = user.last_name
     @email = user.email
-    mail(to: @email, subject: 'Welcome Email')
+    mail(to: @email, subject: 'Welcome to Inventory Cars!')
   end
 
   def dealer_added(user)
