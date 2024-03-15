@@ -11,12 +11,14 @@
         <% if @minimum_password_length %>
           <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control text-dark", id: "password_field" %>
+        <span class="fa fa-fw fa-eye field-icon toggle-password" toggle="#password_field"></span>
       </div>
 
       <div class="mb-3">
         <%= f.label :password_confirmation, "Confirm New Password", class: "form-label" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control text-dark", id: "password_confirmation_field" %>
+        <span class="fa fa-fw fa-eye field-icon toggle-password" toggle="#password_confirmation_field"></span>
       </div>
 
       <div class="text-center">
@@ -27,3 +29,25 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+
+    togglePasswordIcons.forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        const passwordField = document.querySelector(this.getAttribute('toggle'));
+        const fieldType = passwordField.getAttribute('type');
+        if (fieldType === 'password') {
+          passwordField.setAttribute('type', 'text');
+          this.classList.remove('fa-eye');
+          this.classList.add('fa-eye-slash');
+        } else {
+          passwordField.setAttribute('type', 'password');
+          this.classList.remove('fa-eye-slash');
+          this.classList.add('fa-eye');
+        }
+      });
+    });
+  });
+</script>

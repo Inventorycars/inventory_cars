@@ -6,9 +6,11 @@
           <td style="padding: 0 2.5em; text-align: left;">
             <div class="text">
               <h2>Dear <%= "#{@first_name} #{@last_name}" %>, </h2>
-              <p>We're excited to inform you that you've just received an offer on your Model <b><%= @inventory_model_name %></b></p>
-              <p>A Customer has expressed interest in purchasing your item and has submitted an offer of <b>$ <%= @offer_price %></b>.</p>
-              <p>We recommend checking this offer out as soon as possible. You can access your app and manage the offer directly.</p>
+              <p>We are delighted to notify you that you have shown interest in Model <b><%= @inventory_model_name %></b>.</p>
+              <p>You've indicated interest in my item, but the offered amount doesn't align with the item's condition.
+                Kindly consider increasing your offer.</p>
+              <p>We encourage you to review this offer promptly. You can access your app to manage the offer directly.</p>
+              <br/>
             </div>
           </td>
         </tr>
@@ -16,15 +18,20 @@
         <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
           <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
             <div class="text">
-              <br/>
               <p><b>Happy selling!</b></p>
-              <p>The Inventory Cars Team </p>
+              <p>The Inventory Cars Team</p>
               <br/>
               <p class="bg_white"><b>Please Note:</b> This is an automated message. Please do not reply to this email directly.</p>
             </div>
           </td>
         </tr>
+
       </table>
     </td>
+  </tr>
+
+  <tr>
+    <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">    
+    </table>
   </tr>
 </div>

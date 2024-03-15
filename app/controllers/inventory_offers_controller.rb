@@ -17,7 +17,7 @@ class InventoryOffersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = @offer&.errors&.first&.options[:message]
-    redirect_to root_path
+      redirect_to root_path
     end
   end
   
@@ -62,7 +62,6 @@ class InventoryOffersController < ApplicationController
   def offers_received
     @offers = InventoryOffer.joins(:inventory).where(inventories: { user_id: current_user.id }).order(created_at: :desc).includes(:inventory).paginate(page: params[:page], per_page: 4)
   end
-
 
   private
 
