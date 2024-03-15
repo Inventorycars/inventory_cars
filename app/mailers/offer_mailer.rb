@@ -7,6 +7,7 @@ class OfferMailer < ApplicationMailer
     @email = offer.seller_user.email
     @offer_price = offer.offer
     @inventory_model_name = offer.inventory.model
+
     mail(to: @email, subject: "Great News! You've Received an Offer on Your Inventory!") do |format|
       format.html { render 'offer_sent', layout: 'mailer'}
     end
@@ -62,6 +63,25 @@ class OfferMailer < ApplicationMailer
     @email = offer.user.email
     @inventory_model_name = offer.inventory.model
     mail(to: @email, subject: "Thanks for Your Offer on #{@inventory_model_name } ")
+  end
+
+  def offer_rejected_admin(offer)
+    @seller_first_name = offer.seller_user.first_name
+    @seller_last_name = offer.seller_user.last_name
+    @seller_email = offer.seller_user.email
+    @seller_mobile = offer.seller_user.phone_number
+    @user_first_name = offer.user.first_name
+    @user_last_name = offer.user.last_name
+    @user_email = offer.user.email
+    @user_mobile = offer.user.phone_number
+    @offer_price = offer.offer
+    @inventory_model_name = offer.inventory.model
+    @inventory = offer.inventory
+    @inventory_owner_email = "inventorycars@admin.in"
+
+    mail(to: @inventory_owner_email, subject: "Notification of Inventory Rejection") do |format|
+      format.html{ render 'offer_rejected_admin' }
+    end
   end
 
   def offer_requote(offer)

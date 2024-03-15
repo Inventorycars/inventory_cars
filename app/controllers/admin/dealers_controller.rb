@@ -10,6 +10,10 @@ class Admin::DealersController < ApplicationController
     @users = User.where(is_approved: false).page params[:page]
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def approve
     user = User.find_by(id: params[:id])
     if user.present?

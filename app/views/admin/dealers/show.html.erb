@@ -1,0 +1,141 @@
+<div class="p-3 m-1 ">
+
+  <h2 class="mt-4">User Details</h2>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><%= link_to 'Admin', admin_user_lists_path %></li>
+    <li class="breadcrumb-item active"><%= link_to 'User', admin_dealer_path %></li>
+    <li class="breadcrumb-item active"><%= @user.id %></li>
+  </ol>
+
+  <hr>
+
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="bi bi-ticket-detailed-fill me-1"></i>
+      User Details
+    </div>
+
+    <div class="container-fluid">
+      <div class="row justify-content-left p-3">
+        <div class="col-lg-8 p-3 ms-5">
+
+          <div class="row">
+            <p class="col card-title fw-bold">Full Name :</p>
+            <p class="col card-text"> <%= @user.first_name %> <%= @user.last_name %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Email :</p>
+            <p class="col card-text"> <%= @user.email %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Phone Number :</p>
+            <p class="col card-text"> <%= @user.phone_number %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Address :</p>
+            <p class="col card-text"> <%= @user.physical_address %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Role :</p>
+            <p class="col card-text"> <%= @user.role %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Zip Code :</p>
+            <p class="col card-text"> <%= @user.zip_code %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">City :</p>
+            <p class="col card-text"> <%= @user.city %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">State :</p>
+            <p class="col card-text"> <%= @user.state %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Company Name :</p>
+            <p class="col card-text"> <%= @user.company %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Job Title :</p>
+            <p class="col card-text"> <%= @user.job_title %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Website :</p>
+            <p class="col card-text"> <%= @user.website %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Approved :</p>
+            <p class="col card-text"> <%= @user.is_approved %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Dealership Name :</p>
+            <p class="col card-text"> <%= @user.dealership_name %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Dealership License Number :</p>
+            <p class="col card-text"> <%= @user.dealership_license_number %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Dealership State :</p>
+            <p class="col card-text"> <%= @user.dealership_state %> </p>
+          </div>            
+
+          <div class="row">
+            <p class="col card-title fw-bold">Certified Dealer :</p>
+            <p class="col card-text"> <%= @user.certified_dealer %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Dealer Group :</p>
+            <p class="col card-text"> <%= @user.dealer_group %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Certified Dealer :</p>
+            <p class="col card-text"> <%= @user.certified_dealer %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Group Name :</p>
+            <p class="col card-text"> <%= @user.group_name %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Anything Help :</p>
+            <p class="col card-text"> <%= @user.anything_else_help %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Homenet Email :</p>
+            <p class="col card-text"> <%= @user.homenet_email %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Unconfirmed Email :</p>
+            <p class="col card-text"> <%= @user.unconfirmed_email %> </p>
+          </div>
+
+          <div class="row">
+            <p class="col card-title fw-bold">Created Date :</p>
+            <p class="col card-text"> <%= @user.created_at.strftime("%d-%b-%Y, %I:%M %p") %> </p>   
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

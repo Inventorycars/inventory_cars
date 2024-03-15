@@ -1,62 +1,74 @@
 <div class="card mb-4">
-<div class="card-header">
-    <i class="fas fa-table me-1"></i>
-    Users
-</div>
-<div class="card-body">
+  <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Users
+  </div>
+
+  <div class="card-body">
     <table class="table table-striped">
-    <thead>
+      <thead>
         <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Website</th>
-            <th scope="col">Approval</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Website</th>
+          <th scope="col">Approval</th>
+          <th scope="col">View</th>
         </tr>
-    </thead>
-    <tbody>
-      <% @users.each_with_index do |user, index| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= user.website %></td>
-        <td>
-     <%= link_to user.is_approved ? "Reject" : "Approve", user.is_approved ? admin_reject_path(user) : admin_approve_path(user) , class: "#{user.is_approved ? 'btn btn-outline-danger' : 'btn btn-outline-success' }" %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-    </table>  
-     <nav aria-label="Page navigation example">
+      </thead>
+
+      <tbody>
+        <% @users.each_with_index do |user, index| %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone_number %></td>
+            <td><%= user.website %></td>
+            <td>
+              <%= link_to user.is_approved ? "Reject" : "Approve", user.is_approved ? admin_reject_path(user) : admin_approve_path(user) , class: "#{user.is_approved ? 'btn btn-outline-danger' : 'btn btn-outline-success' }" %>
+            </td>
+            <td>
+              <%= link_to "View", admin_dealer_path(user), class: 'btn btn-outline-info' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
           <%= link_to 'Previous', (@users.previous_page ? "/admin/user_list?page=#{@users.previous_page}" : "#"), class: "page-link bi bi-caret-left #{"disabled" unless @users.previous_page}" %>
         </li>
+
         <li class="page-item <%= "disabled" if @users.current_page == 1 %>">
           <%= link_to '1', "/admin/user_list?page=1", class: "page-link" %>
         </li>
+
         <li class="page-item <%= "disabled" if @users.current_page == 2 %>">
           <%= link_to '2', "/admin/user_list?page=2", class: "page-link" %>
         </li>
+
         <% if @users.total_pages > 3 %>
           <li class="page-item"><span class="page-link">...</span></li>
+
           <li class="page-item <%= "disabled" if @users.current_page == @users.total_pages - 1 %>">
             <%= link_to (@users.total_pages - 1), "/admin/user_list?page=#{@users.total_pages - 1}", class: "page-link" %>
           </li>
+
           <li class="page-item <%= "disabled" if @users.current_page == @users.total_pages %>">
             <%= link_to @users.total_pages, "/admin/user_list?page=#{@users.total_pages}", class: "page-link" %>
           </li>
         <% end %>
-           <li class="page-item">
+
+        <li class="page-item">
           <%= link_to(@users.next_page ? "/admin/user_list?page=#{@users.next_page}" : "#", class: "page-link #{"disabled" unless @users.next_page}") do %>
             Next<i class="bi bi-caret-right"></i>
           <% end %>
         </li>
-
       </ul>
     </nav>
-</div>
+  </div>
 </div>
