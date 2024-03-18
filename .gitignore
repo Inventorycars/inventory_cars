@@ -3,3 +3,6 @@
 /node_module*
 /database.yml
 /development.log
+/config/master.key
+/log
+/storage
