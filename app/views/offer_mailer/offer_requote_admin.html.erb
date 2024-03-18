@@ -1,50 +1,82 @@
 <div>
-  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-      <td valign="middle" class="hero bg_white" style="padding: 2em 0 2em 0;">
-        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-          <tr>
-            <td style="padding: 0 2.5em; text-align: left;">
-              <div class="text">
-                <h2>Dear Admin,</h2>
-              </div>
-              <p>A user has requested a requote for an inventory item:</p>
-              <p><b>Inventory Item:</b> <%= @inventory_model_name %></p>
-              <p><b>User:</b> <%= "#{@first_name} #{@last_name}" %></p>
-              <p><b>Email:</b> <%= @user_email %></p>
-              <p>Please review the request and respond accordingly.</p>
-              <br/>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+  <tr>
+    <td valign="middle" class="hero bg_white" style="padding: 2em 0 2em 0;">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td style="padding: 0 2.5em; text-align: left;">
+            <p>Dear Inventory Admin, </p>
+            <div class="text">
+              <h2>Requote Request on Inventory Item</h2>
+          
+              <p>I hope this message finds you well. I'm writing to inform you that a requote has been requested for an inventory item that was previously offered by <b><%= @seller_first_name %></b>. As part of our commitment to providing the best service possible, we want to ensure that our pricing remains competitive and reflective of current market conditions.</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-    <tr>
-      <td valign="middle" width="100%" style="text-align:left; padding: 0 2.5em;">
-        <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-          <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-            <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
-              <div class="text">
-                <p><b>Thank you!</b></p>
-                <p>The Inventory Cars Team</p>
-                <br/>
-                <p class="bg_white"><b>Please Note:</b> This is an automated message. Please do not reply to this email directly.</p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 2em 0;">
-              <div class="text">
-                <h3>Additional Information:</h3>
-                <!-- Add additional content for admin here -->
-                <p>You may need to check the inventory availability and pricing before responding to the user.</p>
-                <p>If you have any questions or need further assistance, please contact the Inventory Cars support team.</p>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+  <tr>
+    <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <th>Inventory Details</th>
+      </tr>
+
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+          <div class="product-entry">
+            <div class="text">
+              <p><strong>Model : </strong><%= @inventory.model.capitalize %></p>
+              <p><strong>Year : </strong><%= @inventory.year %></p>
+              <p><strong>Price : </strong> $ <%= @inventory.price %></p>
+              <p><strong>Offer Value : </strong> $ <%= "#{@offer_price}" %></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <th>Inventory Owner Detail</th>
+      </tr>
+
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+          <div class="product-entry">
+            <div class="text">
+              <p><strong>Name : </strong> <%= "#{@seller_first_name} #{@seller_last_name}" %></p>
+              <p><strong>Email : </strong> <%= "#{@seller_email}" %></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <th>Inventory Buyer Detail</th>
+      </tr>
+
+      <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+          <div class="product-entry">
+            <div class="text">
+              <p><strong>Name : </strong> <%= "#{@first_name} #{@last_name}" %></p>
+              <p><strong>Email : </strong> <%= "#{@email}" %></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+        <td>
+          <div class="product-entry">
+            <div class="text">
+              <p>Best Regards,</p>
+              <p>Your App Team</p>
+              <br/>
+              <p class="bg_white"><b>Please Note:</b> This is an automated message. Please do not reply to this email directly.</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </tr>
 </div>

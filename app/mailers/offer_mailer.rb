@@ -90,8 +90,9 @@ class OfferMailer < ApplicationMailer
     @seller_email = offer.seller_user.email
     @offer_price = offer.offer
     @inventory_model_name = offer.inventory.model
+    @inventory = offer.inventory
 
-    mail(to: @email, subject: "Offer Requote for Inventory Item ") do |format|
+    mail(to: @email, subject: "Request for Requote: Inventory Item Previously Offered ") do |format|
       format.html { render 'offer_requote_admin', layout: 'mailer'}
     end
   end
