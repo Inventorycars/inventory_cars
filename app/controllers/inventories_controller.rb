@@ -4,6 +4,7 @@ class InventoriesController < ApplicationController
    layout 'admin'
   def index
     @inventories = Inventory.paginate(page: params[:page], per_page: 16).order(created_at: :desc)
+    @inventories = Inventory.where("user_id != #{current_user.id}").paginate(page: params[:page], per_page: 16).order(created_at: :desc)
   end
 
   def my_inventories
@@ -89,11 +90,13 @@ class InventoriesController < ApplicationController
 
   def destroy
     @inventory.destroy
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@inventory) }
-      format.html { redirect_to root_path, notice: "Inventory was successfully removed." }
-    end
+    # respond_to do |format|
+    #   format.turbo_stream { render turbo_stream: turbo_stream.remove(@inventory) }
+    #   format.html { redirect_to root_path, notice: "Inventory was successfully removed." }
+    # end
+    redirect_to root_path, notice: "Inventory was successfully removed."
   end
+
 
   def download_sample_csv
     send_file(
@@ -128,7 +131,8 @@ class InventoriesController < ApplicationController
 
   private
     def set_inventory
-      @inventory = Inventory.find(params[:id])
+      @inventory = Inventory.find_by_id(params[:id])
+      redirect_to root_path unless @inventory.present?
     end
 
     def inventory_search_params

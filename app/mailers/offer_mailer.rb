@@ -101,4 +101,21 @@ class OfferMailer < ApplicationMailer
       format.html { render 'offer_requote', layout: 'mailer'}
     end
   end
+
+  def offer_requote_admin(offer)
+    @offer_id = offer.id
+    @first_name = offer.user.first_name
+    @last_name = offer.user.last_name
+    @email = offer.user.email
+    @seller_first_name = offer.seller_user.first_name
+    @seller_last_name = offer.seller_user.last_name
+    @seller_email = offer.seller_user.email
+    @offer_price = offer.offer
+    @inventory_model_name = offer.inventory.model
+    @inventory = offer.inventory
+
+    mail(to: @email, subject: "Request for Requote: Inventory Item Previously Offered ") do |format|
+      format.html { render 'offer_requote_admin', layout: 'mailer'}
+    end
+  end
 end

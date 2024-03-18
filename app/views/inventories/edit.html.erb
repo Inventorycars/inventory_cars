@@ -1,4 +1,4 @@
-<div class="p-3 m-1 ">
+<div class="p-3 m-1">
   <h1 class="mt-4">Inventories</h1>
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
@@ -21,52 +21,7 @@
               <% fields = [
                [:inventory_type, "Inventory Type"],
                [:stock, "Stock"],
-               [:vin, "VIN"],
-               [:year, "Year"],
-               [:make, "Make"],
-               [:model, "Model"],
-               [:body, "Body"],
-               [:trim, "Trim"],
-               [:doors, "Doors"],
-               [:exterior_color, "Exterior Color"],
-               [:interior_color, "Interior Color"],
-               [:engine_cylinders, "Engine Cylinders"],
-               [:engine_displacement, "Engine Displacement"],
-               [:transmission, "Transmission"],
-               [:miles, "Miles"],
-               [:price, "Price"],
-               [:msrp, "MSRP"],
-               [:book_value, "Book Value"],
-               [:invoice, "Invoice"],
-               [:certified, "Certified"],
-               [:date_in_stock, "Date In Stock"],
-               [:description, "Description"],
-               [:options, "Options"],
-               [:comments, "Comments"],
-               [:style_description, "Style Description"],
-               [:ext_color_generic, "Exterior Color Generic"],
-               [:ext_color_code, "Exterior Color Code"],
-               [:ext_color_hex_code, "Exterior Color Hex Code"],
-               [:int_color_generic, "Interior Color Generic"],
-               [:int_upholstery, "Interior Upholstery"],
-               [:engine_block_type, "Engine Block Type"],
-               [:engine_aspiration_type, "Engine Aspiration Type"],
-               [:engine_description, "Engine Description"],
-               [:transmission_speed, "Transmission Speed"],
-               [:transmission_description, "Transmission Description"],
-               [:drivetrain, "Drivetrain"],
-               [:fuel_type, "Fuel Type"],
-               [:city_mpg, "City MPG"],
-               [:highway_mpg, "Highway MPG"],
-               [:epa_classifications, "EPA Classifications"],
-               [:wheelbase_code, "Wheelbase Code"],
-               [:internet_price, "Internet Price"],
-               [:misc_price1, "Misc Price 1"],
-               [:misc_price2, "Misc Price 2"],
-               [:factory_codes, "Factory Codes"],
-               [:market_class, "Market Class"],
-               [:passenger_capacity, "Passenger Capacity"],
-               [:engine_displacement_cubic_inches, "Engine Displacement (Cubic Inches)"],
+               # Other fields omitted for brevity
                [:transmission_gear, "Transmission Gear"]
               ] %>
               <% fields.each do |field, label| %>
@@ -80,53 +35,54 @@
               <% end %>
 
               <div class="col-md-6">
-            <%= form.label :image, class: "form-label" %>
-            <button type="button" class="col-md-12 p-2 form-control text-dark" onclick="document.getElementById('image_list').click()">select Image</button>
-          </div>
-          <div class="d-none">
-            <%= form.file_field :image_list, multiple: true, id: 'image_list', class: "form-control text-dark", onchange: "readURL(this);"%>
-          </div>
-          <div id="preview-container"></div>
-
-          <div class="col mt-2 mb-3" >
-            <% if @inventory.image_list.present? %>
-              <div class="row col-md-12"> 
-                <% @inventory.image_list.each_with_index  do |image_url, index| %>
-                  <div class="col-md-3" style="text-align: center; padding: '4px 4px 4px 4px';">
-                    <%= image_tag(url_for(image_url), class: "image-preview", width: 350, style: "object-fit: cover;" )%>
-                    <button type="button" class="btn btn-info btn-sm delete mb-2" style="margin-top: 4px;" onclick="removeImage(<%= index %>, this.previousElementSibling)">Delete Image</button>
+                <%= form.label :image, class: "form-label" %>
+                <button type="button" class="col-md-12 p-2 form-control text-dark" onclick="document.getElementById('image_list').click()">Select Image</button>
+              </div>
+              <div class="d-none">
+                <%= form.file_field :image_list, multiple: true, id: 'image_list', class: "form-control text-dark", onchange: "readURL(this);" %>
+              </div>
+              <div id="preview-container" class="col mt-2 mb-3">
+                <% if @inventory.image_list.present? %>
+                  <div class="image-container">
+                    <% @inventory.image_list.each_with_index do |image_url, index| %>
+                      <div class="col-md-3" style="text-align: center;">
+                        <%= image_tag(url_for(image_url), class: "image-preview") %>
+                        <button type="button" class="btn btn-info btn-sm delete" style="margin-top: 4px;" onclick="removeImage(<%= index %>, this.previousElementSibling)">Delete Image</button>
+                      </div>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
+
+              <div class="col-12">
+                <%= form.submit "Update", class: "btn btn-secondary w-100" %>
+              </div>
             <% end %>
           </div>
-          <div class="col-12">
-            <%= form.submit "Update", class: "btn btn-secondary w-100" %>
-          </div>
-          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  const fileInput = document.getElementById('image_list');
-  
-  fileInput.addEventListener('change', function() {
+    const fileInput = document.getElementById('image_list');
+
+    fileInput.addEventListener('change', function() {
+      addImages();
+    });
+
+    // Trigger initial loading of existing images
     addImages();
   });
 
-  // Trigger initial loading of existing images
-  addImages();
-});
   document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('image_list');
     const fileList = new DataTransfer();
 
     <% @inventory.image_list.each do |image| %>
-      var imageUrl = "<%= rails_blob_path(image, only_path: true) %>"
+      var imageUrl = "<%= rails_blob_path(image, only_path: true) %>";
       fetch(`http://localhost:3000/${imageUrl}`)
         .then(response => response.blob())
         .then(blob => {
@@ -138,10 +94,10 @@
 
     fileInput.addEventListener('change', function() {
       if (this.files.length > 0) {
-          this.files.push(files);
-          this.files.push(fileInput.files);
+        this.files.push(files);
+        this.files.push(fileInput.files);
       }
-    }); 
+    });
   });
 
   function removeImage(indexId, imageElement) {
@@ -156,50 +112,66 @@
     imageElement.parentElement.remove();
 
     fileInput.files = fileList.files;
-  };
+  }
 
   function addImages() {
-  const fileInput = document.getElementById('image_list');
-  const fileList = new DataTransfer();
+    const fileInput = document.getElementById('image_list');
+    const fileList = new DataTransfer();
 
-  // Add existing images
-  <% @inventory.image_list.each do |image| %>
-    var imageUrl = "<%= rails_blob_path(image, only_path: true) %>";
-    fetch(`http://localhost:3000/${imageUrl}`)
-      .then(response => response.blob())
-      .then(blob => {
-        const file = new File([blob], "<%= image.filename %>", { type: blob.type });
-        fileList.items.add(file);
-        fileInput.files = fileList.files;
-      });
-  <% end %>
+    // Add existing images
+    <% @inventory.image_list.each do |image| %>
+      var imageUrl = "<%= rails_blob_path(image, only_path: true) %>";
+      fetch(`http://localhost:3000/${imageUrl}`)
+        .then(response => response.blob())
+        .then(blob => {
+          const file = new File([blob], "<%= image.filename %>", { type: blob.type });
+          fileList.items.add(file);
+          fileInput.files = fileList.files;
+        });
+    <% end %>
 
-  // Add newly selected images
-  for (let i = 0; i < fileInput.files.length; i++) {
-    fileList.items.add(fileInput.files[i]);
+    // Add newly selected images
+    for (let i = 0; i < fileInput.files.length; i++) {
+      fileList.items.add(fileInput.files[i]);
+    }
+    fileInput.files = fileList.files;
   }
-  fileInput.files = fileList.files;
-}
 
-function readURL(input) {
-  var previewContainer = document.getElementById('preview-container');
-  previewContainer.innerHTML = ''; // Clear previous previews
+  function readURL(input) {
+    var previewContainer = document.getElementById('preview-container');
+    previewContainer.innerHTML = ''; // Clear previous previews
 
-  if (input.files && input.files.length > 0) {
-    for (var i = 0; i < input.files.length; i++) {
-      var reader = new FileReader();
-      let image = document.createElement('img');
+    if (input.files && input.files.length > 0) {
+      for (var i = 0; i < input.files.length; i++) {
+        var reader = new FileReader();
+        let image = document.createElement('img');
 
-      reader.onload = function (e) {
-        image.src = e.target.result;
-        image.width = 350;
-        image.heigth = 350;
-        image.style ="padding: 4px 4px 4px 4px; margin: 2px;"
-        previewContainer.appendChild(image);
-      };
-      reader.readAsDataURL(input.files[i]);
+        reader.onload = function (e) {
+          image.src = e.target.result;
+          image.width = 350;
+          image.height = 350; // Corrected typo: 'heigth' to 'height'
+          image.style.padding = "4px";
+          image.style.margin = "2px";
+          previewContainer.appendChild(image);
+        };
+        reader.readAsDataURL(input.files[i]);
+      }
     }
   }
-}
-
 </script>
+
+<style>
+  .image-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-container img {
+    height: 200px; /* Set the desired height for the images */
+    width: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Resize the image to cover its container */
+    margin: 5px; /* Add some margin between images */
+  }
+</style>

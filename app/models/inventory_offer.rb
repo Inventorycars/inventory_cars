@@ -19,6 +19,7 @@ class InventoryOffer < ApplicationRecord
       OfferMailer.offer_rejected_admin(self).deliver_now
     elsif requote?
       OfferMailer.offer_requote(self).deliver_now
+      OfferMailer.offer_requote_admin(self).deliver_now  
     end
   end
 

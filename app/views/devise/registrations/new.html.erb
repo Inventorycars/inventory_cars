@@ -1,3 +1,17 @@
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+   <img src="/inventory_1.jpeg" style="width: 100%; height: 100%;" alt="Background Image">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready(function() {
+     $('#pinSelect').innerHTML = "";
+     const option = document.createElement("option");
+     option.value = '99553';
+     option.textContent = '99553';
+     $('#pinSelect').append(option);
+   });
+</script>
 <div class="p-3 m-3 ">
    <div class="container-fluid">
       <div class="row justify-content-center p-3">
@@ -64,13 +78,14 @@
                </div>
                <div class="col-md-6">
                   <%= f.label :zip_code, class: "form-label" %>
-                  <%= f.select :zip_code, "anchorage, al".to_zip, {}, class: "form-select",
+                  <%#= f.select :zip_code, [], {}, class: "form-select", id: "pinSelect", placeholder: "Zip Code" %>
+                  <%= f.select :zip_code, [], {}, class: "form-select",
                      id: "pinSelect", placeholder: "Zip Code" %>
                </div>
                <div class="col-md-12">
                   <h4>For faster processing, please select below:</h4>
                   <div class="form-check">
-                     <%= f.check_box :certified_dealer, class: "form-check-input", id: "certifiedDealer" %>
+                     <%= f.check_box :currently_dealer, class: "form-check-input", id: "certifiedDealer" %>
                      <%= f.label "certifiedDealer", "Are you currently a certified dealer?", class: "form-check-label" %>
                   </div>
                </div>
@@ -91,15 +106,15 @@
                      <%= f.label "becomeCertified", "Become a certified dealer", class: "form-check-label" %>
                   </div>
                   <div class="form-check">
-                     <%#= f.check_box :acquiring_inventory, class: "form-check-input", id: "acquiringInventory" %>
+                     <%= f.check_box :acquiring_inventory, class: "form-check-input", id: "acquiringInventory" %>
                      <%= f.label "acquiringInventory", "Acquiring Inventory", class: "form-check-label" %>
                   </div>
                   <div class="form-check">
-                     <%#= f.check_box :delivery_logistics, class: "form-check-input", id: "deliveryLogistics" %>
+                     <%= f.check_box :delivery_logistics, class: "form-check-input", id: "deliveryLogistics" %>
                      <%= f.label "deliveryLogistics", "Delivery & Logistics", class: "form-check-label" %>
                   </div>
                   <div class="form-check">
-                     <%#= f.check_box :support_billing, class: "form-check-input", id: "supportBilling" %>
+                     <%= f.check_box :support_billing, class: "form-check-input", id: "supportBilling" %>
                      <%= f.label "supportBilling", "Support & Billing", class: "form-check-label" %>
                   </div>
                </div>
@@ -108,7 +123,7 @@
                </div>
                <%= f.hidden_field :role, value: 'dealer' %>
                <div class="col-md-12">
-                  <%= f.submit "SEND", class: "btn btn-success w-100" %>
+                  <%= f.submit "Sign Up", class: "btn btn-success w-100" %>
                </div>
                <% end %>
                <div class="col-md-12 text-center">

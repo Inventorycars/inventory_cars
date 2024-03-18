@@ -1,4 +1,4 @@
-<div class="p-3 m-1 ">
+<div class="p-3 m-1">
   <h1 class="mt-4">Inventories</h1>
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
@@ -7,65 +7,82 @@
   </ol>
   <hr>
   <div class="card mb-4">
-  <div class="card-header">
-    <i class="bi bi-ticket-detailed-fill me-1"></i>
-    Inventory Details
-  </div>
-  <div class="container-fluid">
-    <div class="row justify-content-left p-3">
-      <div class="col-lg-4">
-        <h4 class="text-center m-3">Images</h4>
-        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner shadow-lg">
-            <% if @inventory.image_list.present? %>
-              <% @inventory.image_list.each_with_index  do |image_url, index| %>
-                <div class="carousel-item <%= 'active' if index.zero? %>">
-                  <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
-                </div>
+    <div class="card-header">
+      <i class="bi bi-ticket-detailed-fill me-1"></i>
+      Inventory Details
+    </div>
+    <div class="container-fluid">
+      <div class="row justify-content-left p-3">
+        <div class="col-lg-4">
+          <h4 class="text-center m-3">Images</h4>
+          <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner shadow-lg image-container">
+              <% if @inventory.image_list.present? %>
+                <% @inventory.image_list.each_with_index  do |image_url, index| %>
+                  <div class="carousel-item <%= 'active' if index.zero? %>">
+                    <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+                  </div>
+                <% end %>
+              <% elsif @inventory.image_urls %>
+                <% @inventory.image_urls.first.split(",").each_with_index do |image_url, index| %>
+                  <div class="carousel-item <%= 'active' if index.zero? %>">
+                    <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
+                  </div>
+                <% end %>
               <% end %>
-            <% elsif @inventory.image_urls %>
-              <% @inventory.image_urls.first.split(",").each_with_index do |image_url, index| %>
-                <div class="carousel-item <%= 'active' if index.zero? %>">
-                  <%= image_tag(image_url, class: "d-block w-100", style: "max-height: 600px; object-fit: cover;") %>
-                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="m-4">
+            <% if @inventory.user_id == current_user.id %>
+              <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
+                <i class="bi bi-pencil"></i> 
               <% end %>
+              <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
+                <i class="bi bi-trash"></i> 
+              <% end %>
+            <% else %>
+              <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: @inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
             <% end %>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-          </button>
         </div>
-        <div class="m-4">
-          <% if @inventory.user_id == current_user.id %>
-            <%= link_to edit_inventory_path(@inventory), class: 'btn btn-secondary btn-sm m-2 shadow' do %>
-            <i class="bi bi-pencil"></i> 
-            <% end %>
-            <%= link_to inventory_path(@inventory), data: { "turbo-method" => :delete, turbo: true }, class: 'btn btn-danger btn-sm m-2 shadow' do %>
-            <i class="bi bi-trash"></i> 
-            <% end %>
-          <% else %>
-            <%= link_to "Make an offer", new_inventory_offer_url(params: { inventory_id: @inventory.id}), class: 'img-custom btn btn-primary btn-sm mr-1' %>
+        <div class="col-lg-5 p-3 ms-5">
+          <% @inventory.attributes.each do |attribute, value| %>
+            <div class="col-lg-8 p-3 ms-5">
+              <div class="row">
+                <% unless attribute.eql?("image_urls") || attribute.eql?("id") %>
+                  <p class="col card-title fw-bold"><%= attribute.to_s.titleize %>:</p>
+                  <p class="col card-text"> <%= value %> </p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
         </div>
-      </div>
-      <div class="col-lg-5 p-3 ms-5">
-        <% @inventory.attributes.each do |attribute, value| %>
-        <div class="col-lg-8 p-3 ms-5">
-          <div class="row">
-            <% unless attribute.eql?("image_urls") || attribute.eql?("id")%>
-            <p class="col card-title fw-bold"><%= attribute.to_s.titleize %>:</p>
-            <p class="col card-text"> <%= value %> </p>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
-</div>
+<style>
+.carousel-inner.shadow-lg.image-container img {
+  height: 400px; 
+  width: 400px;
+  object-fit: cover; 
+  margin: 5px; 
+}
+
+.image-container img {
+  height: 400px; 
+  width: auto; 
+  object-fit: cover;
+  margin: 5px; 
+}
+
+</style>
+

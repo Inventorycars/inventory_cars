@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+   # require 'country_state_select'
   protect_from_forgery
   
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -53,7 +54,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[dealership_name physical_address
-                                                         dealership_license_number role first_name last_name phone_number website job_title company zip_code city state certified_dealer dealer_group group_name anything_else_help])
+                                                         dealership_license_number role first_name last_name phone_number website job_title company zip_code city state currently_dealer certified_dealer acquiring_inventory delivery_logistics support_billing dealer_group group_name anything_else_help])
   end
 
   def after_sign_out_path_for(resource)
