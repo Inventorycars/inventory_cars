@@ -35,8 +35,8 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
-  config.hosts << "portal.inventorycars.com"
-  config.hosts << "193.203.167.173"
+  config.hosts << "dev.inventorycars.com"
+  config.hosts << "3.15.223.147"
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
@@ -51,7 +51,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = false
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
@@ -68,16 +68,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "inventory_cars_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
-    port:                 587,
-    domain:               'https://inventorycars.com/',
-    user_name:            'apikey',
-    password:             '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',
-    authentication:       'login',
-    enable_starttls_auto: true
-  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -105,4 +95,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'https://inventorycars.com/',
+    user_name:            'apikey',
+    password:             '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',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+
 end
