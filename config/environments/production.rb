@@ -68,16 +68,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "inventory_cars_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
-    port:                 587,
-    domain:               'https://inventorycars.com/',
-    user_name:            'apikey',
-    password:             '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',
-    authentication:       'login',
-    enable_starttls_auto: true
-  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -111,9 +101,9 @@ Rails.application.configure do
     port:                 587,
     domain:               'https://inventorycars.com/',
     user_name:            'apikey',
-    password:             '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',
+    password:             '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',
     authentication:       'login',
     enable_starttls_auto: true
   }
-  
+
 end
