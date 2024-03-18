@@ -18,10 +18,12 @@ class OfferMailer < ApplicationMailer
     @seller_first_name = offer.seller_user.first_name
     @seller_last_name = offer.seller_user.last_name
     @seller_email = offer.seller_user.email
+    @seller_mobile = offer.seller_user.phone_number
     @user_first_name = offer.user.first_name
     @user_last_name = offer.user.last_name
     @user_email = offer.user.email
-    @inventory_owner_email = "inventorycars@admin.in"
+    @user_mobile = offer.user.phone_number
+    @inventory_owner_email = I18n.t(:admin_mail)
     @offer_price = offer.offer
     @inventory = offer.inventory
 
@@ -38,7 +40,7 @@ class OfferMailer < ApplicationMailer
     @user_first_name = offer.user.first_name
     @user_last_name = offer.user.last_name
     @user_email = offer.user.email
-    @inventory_owner_email = "inventorycars@admin.in"
+    @inventory_owner_email = I18n.t(:admin_mail)
     @offer_price = offer.offer
     @inventory = offer.inventory
     mail(to: @inventory_owner_email, subject: "Offer Accepted for Inventory Item - Action Required") do |format|
@@ -77,7 +79,7 @@ class OfferMailer < ApplicationMailer
     @offer_price = offer.offer
     @inventory_model_name = offer.inventory.model
     @inventory = offer.inventory
-    @inventory_owner_email = "inventorycars@admin.in"
+    @inventory_owner_email = I18n.t(:admin_mail)
 
     mail(to: @inventory_owner_email, subject: "Notification of Inventory Rejection") do |format|
       format.html{ render 'offer_rejected_admin' }

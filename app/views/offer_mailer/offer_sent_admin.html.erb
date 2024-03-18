@@ -46,7 +46,8 @@
           <div class="product-entry">
             <div class="text">
               <p><strong>Name : </strong> <%= "#{@seller_first_name} #{@seller_last_name}" %></p>
-              <p><strong>Email : </strong> <%= "#{@seller_email}" %></p>
+              <p><strong>Email : </strong> <%= @seller_email %></p>
+              <p><strong>Mobile No. : </strong> <%= @seller_mobile %></p>
             </div>
           </div>
         </td>
@@ -61,7 +62,8 @@
           <div class="product-entry">
             <div class="text">
               <p><strong>Name : </strong> <%= "#{@user_first_name} #{@user_last_name}" %></p>
-              <p><strong>Email : </strong> <%= "#{@user_email}" %></p>
+              <p><strong>Email : </strong> <%= @user_email %></p>
+              <p><strong>Mobile No. : </strong> <%= @user_mobile %></p>
             </div>
           </div>
         </td>
@@ -71,7 +73,7 @@
         <td>
           <div class="product-entry">
             <div class="text">
-              <p>Best Regards,</p>
+              <p><b>Best Regards,</b></p>
               <p>Your App Team</p>
               <br/>
               <p class="bg_white"><b>Please Note:</b> This is an automated message. Please do not reply to this email directly.</p>

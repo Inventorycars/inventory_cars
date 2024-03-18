@@ -6,27 +6,36 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" style="margin-left: auto; margin-right: auto;" id="exampleModalLongTitle">Inventory Offer</h5>
+        <h5 class="modal-title" style="margin-left: auto; margin-right: auto; font-weight: bold;" id="exampleModalLongTitle">Inventory Offer</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" >&times;</span>
         </button>
       </div>
-      <%= form_with(model: @offer, class: "needs-validation", novalidate: true) do |form| %>
-        <div class="modal-body">
+
+      <% @inventory_offer = current_user.inventory_offers.find_by(inventory_id: params[:inventory_id]) %>
+      <% if @inventory_offer.present? %>
+        <h4 style="margin-left: auto; margin-right: auto; color: red;">You already have an offer for this inventory.</h4>
+      <% else %>
+        <%= form_with(model: @offer, class: "needs-validation", novalidate: true) do |form| %>
+          <div class="modal-body">
             <div class="form-group">
               <%= form.label :offer_value, class: "form-label", style: "color: black;" %>
               <%= form.number_field :offer, class: "form-control", required: true %>
             </div>
+
             <%= form.hidden_field :inventory_id, value: "#{@offer.inventory_id || params[:inventory_id].to_i}" %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= form.submit "Submit", class: "btn btn-primary" %>
-        </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= form.submit "Submit", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
 <button hidden type="button" class="btn btn-primary demo-modal" data-toggle="modal" data-target="#exampleModalCenter">
   Launch demo modal
 </button>

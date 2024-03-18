@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
   def dealer_added(user)
     @first_name = user.first_name
     @last_name = user.last_name
-    mail(to: 'admin@admin.com', subject: 'Dealer Added')
+    mail(to: I18n.t(:admin_mail), subject: "New Dealer Registration: #{@first_name} #{@last_name}")
   end
 
   def reset_password(user, raw)
@@ -26,9 +26,9 @@ class UserMailer < ApplicationMailer
   end
 
   def reject_dealer(user)
-     @first_name = user.first_name
-     @last_name = user.last_name
-     @email = user.email
-     mail(to: @email, subject: 'Dealership Rejected')
+    @first_name = user.first_name
+    @last_name = user.last_name
+    @email = user.email
+    mail(to: @email, subject: 'Dealership Rejected')
   end
 end
